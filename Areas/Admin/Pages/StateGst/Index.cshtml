@@ -1,0 +1,67 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.StateGst.IndexModel
+@{
+}
+<h1>Device List</h1>
+
+@*<p>
+    <a asp-page="Create" style="color:red; font-weight:bolder;">Add New Device</a>
+</p>*@
+<div class="row mb-2">
+    <div class="col-md-4">
+        <a asp-page="Create" style="font-weight:bolder;" class="btn btn-danger float-left">
+            <i class="fa fa-plus" aria-hidden="true"></i>   Add New Gst State
+        </a>
+    </div>
+
+
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered" id="emplist">
+        <thead class="text-center" style="background-color:black; color:red;">
+            <tr>
+                <th>
+                    State Name
+                </th>
+                <th>
+                    State Code
+                </th>
+                <th>
+                    State Initial
+                </th>
+                <th>
+                    GST Number
+                </th>
+                <th>
+                    Pan No.
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Details)
+            {
+                <tr class="text-center">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StateName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StateCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StateInitial)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GstNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PanNo)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id"><i class="material-icons" style="color:green;" title="Edit">edit</i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

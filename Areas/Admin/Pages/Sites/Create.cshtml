@@ -1,0 +1,131 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.Sites.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h4>Add Site</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label font-weight-bold">Site Name</label>
+                <div class="col-sm-5">
+                    <input asp-for="Site.SiteName" class="form-control" required />
+                </div>
+                <label asp-for="Site.Address" class="col-sm-1 col-form-label font-weight-bold">Address</label>
+                <div class="col-sm-5">
+                    <input asp-for="Site.Address" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Site.Gstno" class="col-sm-1 col-form-label font-weight-bold">Gst No</label>
+                <div class="col-sm-5">
+                    <input asp-for="Site.Gstno" class="form-control" required />
+                </div>
+                <label asp-for="Site.AddedDate" class="col-sm-1 col-form-label font-weight-bold">Added Date</label>
+                <div class="col-sm-5">
+                    <input asp-for="Site.AddedDate" type="date" class="form-control" required />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Site.Startdate" class="col-sm-1 col-form-label font-weight-bold">Start Date</label>
+                <div class="col-sm-5">
+                    <input type="date" asp-for="Site.Startdate" class="form-control" required />
+                </div>
+                <label asp-for="Site.Enddate" class="col-sm-1 col-form-label font-weight-bold">End Date</label>
+                <div class="col-sm-5">
+                    <input asp-for="Site.Enddate" type="date" class="form-control" required />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label font-weight-bold">Service Location</label>
+                <div class="col-sm-5">
+                    <select asp-items="@Model.GstState" id="GstState" class="form-control" required>
+                        <option>Select State</option>
+                    </select>
+                </div>
+                <label asp-for="Site.StateCode" class="col-sm-1 col-form-label font-weight-bold">State Code</label>
+                <div class="col-sm-5">
+                    <input asp-for="Site.StateCode" class="form-control" required  id="Statecode"/>
+                </div>
+            </div>
+            <div class="col-xl-12 col-md-12">
+                <table class="table table-hover" id="orders">
+                    <thead>
+                        <tr>
+
+                            <th>Description</th>
+                            <th>Management Charges / Rate</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td><input type="text" name="description" class="form-control" /></td>
+                            <td><input type="text" name="Commission" class="form-control" /></td>
+                            <td><button type="button" name="add" id="add" class="btn btn-success circle">+</button></td>
+
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    <input type="submit" id="submit" value="Submit" class="btn btn-danger btn-md btn-block waves-effect text-center m-b-20" />
+                </div>
+            </div>
+            <input type="hidden" name="jobworkdesc" />
+        </form>
+    </div>
+</div>
+@section Scripts {
+
+
+    <script>
+        var rowCount = 1;
+        $('#add').click(function () {
+            rowCount++;
+
+            $('#orders').append('<tr id="row' + rowCount + '"><td><input type="text" class="form-control" for="' + rowCount + '" /></td><td><input type="text" class="form-control" for="' + rowCount + '" /></td><td><button type="button" name="remove" id="' + rowCount + '" class="btn btn-danger btn_remove cicle">-</button></td></tr>');
+
+        });
+
+        $(document).on('click', '.btn_remove', function () {
+            var button_id = $(this).attr('id');
+            $('#row' + button_id + '').remove();
+        });
+
+        $(document).on('change', '#GstState', function () {
+            let val = $("#GstState").val();
+            const statecode=val.split('-');
+            $("#Statecode").val(statecode[1]);
+        });
+
+        $("#submit").click(function () {
+            var jobworkdesc = new Array();
+            $('#orders tr').each(function (i, row) {
+                var Description = $(this).closest('tr').find("td:eq(0) input").val();
+                var Commission = $(this).closest('tr').find("td:eq(1) input").val();
+                if (Commission != null && Commission != '') {
+                    var sitedesc = {};
+                    sitedesc.Description = Description;
+                    sitedesc.Commission = Commission;
+                    jobworkdesc.push(sitedesc);
+                }
+
+            });
+            document.getElementsByName("jobworkdesc")[0].value = JSON.stringify(jobworkdesc);
+        });
+    </script>
+
+}

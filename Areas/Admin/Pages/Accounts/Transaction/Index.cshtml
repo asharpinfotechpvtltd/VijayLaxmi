@@ -1,0 +1,89 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.Accounts.Transaction.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Account List</h1>
+
+<div class="row mb-2">
+    <div class="col-md-4">
+        <a asp-page="Create" style="font-weight:bolder;" class="btn btn-danger float-left">
+            <i class="fa fa-plus" aria-hidden="true"></i>   Add New Account
+        </a>
+    </div>
+    @*<div class="col-md-8">
+    <form class="form-inline float-right">
+    <div class="form-group mb-2">
+    <label for="staticEmail2" class="sr-only">Email</label>
+    <input type="text" class="form-control-plaintext" id="staticEmail2">
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+    <label for="inputPassword2" class="sr-only">Password</label>
+    <input type="password" class="form-control height37" id="inputPassword2" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-danger mb-2" value="Search"> <i class="fa fa-search-plus" aria-hidden="true"></i></button>
+    </form>
+
+    </div>*@
+
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered" id="emplist">
+        <thead class="text-center" style="background-color:black; color:red;">
+            <tr class="text-center">
+                <th>
+                    Account Number
+                </th>
+                <th>
+                    Account Name
+                </th>
+                <th>Opening Balance</th>
+                <th>
+                    Total Debit
+                </th>
+                <th>
+                    Total Credit
+                </th>
+                <th>
+                    Balance
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.SpBankTransaction)
+            {
+                <tr class="text-center">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountName)
+                    </td><td>
+                        @Html.DisplayFor(modelItem => item.OpeningBalance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalDebit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalCredit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AvailableBalance)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.AccountNumber"><i class="material-icons" style="color:green;" title="Edit">edit</i></a>
+                        <a asp-page="./Details" asp-route-id="@item.AccountNumber" title="Details">
+                            <span class="material-icons" style="color:blue;">
+                                info
+                            </span>
+                        </a>
+                        
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

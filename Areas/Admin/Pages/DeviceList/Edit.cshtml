@@ -1,0 +1,47 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.DeviceList.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Device</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Device.Id" />
+            <div class="form-group">
+                <label asp-for="Device.Deviceid" class="control-label"></label>
+                <input asp-for="Device.Deviceid" class="form-control" />
+                <span asp-validation-for="Device.Deviceid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Device.SiteId" class="control-label"></label>
+                <select asp-for="Device.SiteId" class="form-control" asp-items="Model.SiteList">
+                    <option>Select Site</option>
+                </select>
+                <span asp-validation-for="Device.SiteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Device.ApiUrl" class="control-label"></label>
+                <input asp-for="Device.ApiUrl" class="form-control" />
+                <span asp-validation-for="Device.ApiUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" style="font-weight:bolder;background-color:#DD3D56; color:white;" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

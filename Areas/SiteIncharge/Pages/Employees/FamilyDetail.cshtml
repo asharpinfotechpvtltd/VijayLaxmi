@@ -1,0 +1,154 @@
+﻿@page
+@model VijayLaxmi.Areas.SiteIncharge.Pages.Employees.FamilyDetailModel
+@{
+}
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- Basic Form Inputs card start -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="sub-title font-weight-bold">Add Family Detail</h5>
+                            </div>
+                            <div class="card-block">
+                                <form method="post" enctype="multipart/form-data">
+                                    <div class="form-group row">
+                                        <label class="col-sm-1 col-form-label font-weight-bold">Employee Id</label>
+                                        <div class="col-sm-5">
+                                            <input class="form-control" placeholder="Employee Id" name="EmployeeId" value="@Model.Employeeid" readonly />
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-xl-12 col-md-12">
+                                        <div class="card table-card">
+
+                                            <div class="card-block">
+                                                <div class="table-responsive">
+                                                    <table class="table orders" id="orders">
+                                                        <tr>
+                                                            <th class="text-center whitespace-nowrap">
+                                                                Relation
+                                                            </th>
+                                                            <th class="text-center whitespace-nowrap">
+                                                                Name
+                                                            </th>
+                                                            <th>Date of Birth</th>
+                                                            <th>AAdhar No</th>
+                                                            <th>Alternate No.</th>
+                                                            <th>Action</th>
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td><input class="form-control relation" type='text' id='relation' for="1" /></td>
+                                                            <td><input class="form-control name" type='text' id='name' for="1" /></td>
+                                                            <td><input class="form-control dob" type='date' id='dob' for="1" /></td>
+                                                            <td><input class="form-control aadharno" type='text' id='aadharno' for="1" /></td>
+                                                            <td><input class="form-control alternate" type='text' id='alternate' for="1" /></td>
+                                                            <td><button type="button" name="add" id="add" class="btn btn-success circle">+</button></td>
+                                                        </tr>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                            <input type="submit" id="submit" value="Save & Add Bank Details" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" />
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="jobworkdesc" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+
+
+    <script>
+        var rowCount = 1;
+        $('#add').click(function () {
+            rowCount++;
+
+            $('#orders').append('<tr id="row' + rowCount + '"><input class="form-control" type="hidden" data-type="product_id" id="product_id_' + rowCount + '" name="product_id[]" for="' + rowCount + '"/><td><input class="form-control relation" type="text" id="relation_' + rowCount + '" name="relation[]" for="' + rowCount + '"/></td><td><input class="form-control name" type="text" id="name_' + rowCount + '" name="name[]" for="' + rowCount + '"/></td><td><input class="form-control dob" type="date" id="dob_' + rowCount + '" name="dob[]" for="' + rowCount + '"/></td><td><input class="form-control aadharno" type="number" id="aadharno_' + rowCount + '" name="aadharno[]" for="' + rowCount + '"/></td><td><input class="form-control alternate" type="text" id="dob_' + rowCount + '" name="alternate[]" for="' + rowCount + '"/></td><td><button type="button" name="remove" id="' + rowCount + '" class="btn btn-danger btn_remove cicle">-</button></td></tr>');
+
+
+
+
+        });
+
+
+        $(document).on('click', '.btn_remove', function () {
+            var button_id = $(this).attr('id');
+            $('#row' + button_id + '').remove();
+        });
+
+
+
+
+
+        $("#submit").click(function (e) {
+            var familydesc = new Array();
+            $('#orders tr').each(function (i, row) {
+                var relation = $(this).closest('tr').find("td:eq(0) input").val();
+                var name = $(this).closest('tr').find("td:eq(1) input").val();
+                var dob = $(this).closest('tr').find("td:eq(2) input").val();
+                var aadharno = $(this).closest('tr').find("td:eq(3) input").val();
+                var alternate = $(this).closest('tr').find("td:eq(4) input").val();
+                var family = {};
+                family.relation = relation;
+                family.name = name;
+                family.dob = dob;
+                family.aadharno = aadharno;
+                family.alternate = alternate;
+                familydesc.push(family);
+            });
+            document.getElementsByName("jobworkdesc")[0].value = JSON.stringify(familydesc);
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+                    }

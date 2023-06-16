@@ -1,0 +1,48 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.StateGst.CreateModel
+@{
+}
+<h4>Add Device</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div class="form-group">
+
+                <label asp-for="StateDetail.StateName" class="control-label">State Name</label>
+                <input asp-for="StateDetail.StateName" class="form-control" required />
+                <span asp-validation-for="StateDetail.StateName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StateDetail.StateCode" class="control-label">State Code</label>
+                <input asp-for="StateDetail.StateCode" class="form-control" required maxlength="2" />                    
+                <span asp-validation-for="StateDetail.StateCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StateDetail.StateInitial" class="control-label">State Initial</label>
+                <input asp-for="StateDetail.StateInitial" maxlength="2" class="form-control" required />
+                <span asp-validation-for="StateDetail.StateInitial" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="StateDetail.GstNumber" class="control-label">Gst Number</label>
+                <input asp-for="StateDetail.GstNumber" maxlength="15" class="form-control"  required />
+                <span asp-validation-for="StateDetail.GstNumber" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="StateDetail.PanNo" class="control-label">Pan Number</label>
+                <input asp-for="StateDetail.PanNo" maxlength="15" class="form-control" required />
+                <span asp-validation-for="StateDetail.PanNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+                        }

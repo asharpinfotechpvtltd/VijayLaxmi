@@ -1,0 +1,346 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.HR.Employees.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h4>Add Employees</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">AAdhar No.</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" required asp-for="Employee.AAdharno" id="AAdharno" />
+                </div>
+                <label class="col-sm-1 col-form-label">Pan Card</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" asp-for="Employee.Pancard" id="Pancard" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Name</label>
+                <div class="col-sm-5">
+                    <input type="text" asp-for="Employee.Name" id="Name" required class="form-control">
+                </div>
+                <label class="col-sm-1 col-form-label">Father/Husband Name</label>
+                <div class="col-sm-5">
+                    <input type="text" asp-for="Employee.FathersName" id="FathersName" required class="form-control">
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Contact No</label>
+                <div class="col-sm-5">
+                    <input asp-for="Employee.Contactno" id="Contactno" required class="form-control" />
+                </div>
+                <label class="col-sm-1 col-form-label">Email</label>
+                <div class="col-sm-5">
+                    <input type="text" asp-for="Employee.Email" id="Email" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Employee Type</label>
+                <div class="col-sm-5">
+                    <select asp-for="Employee.Employeetype" id="Employeetype" required class="form-control">
+                        <option>Select</option>
+                        <option>Casual</option>
+                        <option>Regular</option>
+                    </select>
+                </div>
+                <label class="col-sm-1 col-form-label">Employee Role</label>
+                <div class="col-sm-5">
+                    <select class="form-control" required asp-for="Employee.EmployeeRole" id="EmployeeRole">
+                        <option>Select</option>
+                        <option>On Roll</option>
+                        <option>Off Role</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Address Local</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" required asp-for="Employee.Addresslocal" id="Addresslocal" />
+                </div>
+                <label class="col-sm-3 col-form-label">Address Permanent</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" required asp-for="Employee.AddressPermanent" id="AddressPermanent" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">State</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" required asp-for="Employee.State" id="State" />
+                </div>
+                <label class="col-sm-1 col-form-label">City</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" required asp-for="Employee.City" id="City" />
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Site</label>
+                <div class="col-sm-5">
+                    <select asp-for="Employee.Site" asp-items="@Model.Site" id="Site" class="form-control">
+                        <option>Select Site</option>
+                    </select>
+                </div>
+                <label class="col-sm-1 col-form-label">EPF No.</label>
+                <div class="col-sm-5">
+                    <input type="text" id="EPF" asp-for="Employee.EPF" value="0" class="form-control" required />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">ESI No.</label>
+                <div class="col-sm-5">
+                    <input type="text" asp-for="Employee.EsiNo" value="0" id="EsiNo" class="form-control" required />
+                </div>
+                <label class="col-sm-1 col-form-label">UAN No.</label>
+                <div class="col-sm-5">
+                    <input type="text" asp-for="Employee.UANNo" value="0" id="UANNo" class="form-control" required />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Designation</label>
+                <div class="col-sm-5">
+                    <select asp-for="Employee.Designation" asp-items="Model.Designation" id="Designation" required class="form-control">
+                        <option value="">Select Designation</option>
+                    </select>
+                </div>
+                <label class="col-sm-1 col-form-label">Upload Image</label>
+                <div class="col-sm-5">
+                    <input type="file" name="Userimg" id="Userimg"
+                           onchange="return fileValidation()" class="form-control" />
+                    <p id="userimg"></p>
+                    <input type="hidden" id="olduserimg" name="olduserimg" />
+
+                </div>
+               
+            </div>
+            <div class="form-group row" style="visibility:hidden;">
+               
+                <label class="col-sm-1 col-form-label">Salary (PM)</label>
+                <div class="col-sm-5">
+                    <input type="text" asp-for="Employee.Salary" id="Salary" value="0" class="form-control" />
+                </div>
+            </div>           
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    <button type="submit" id="submit" class="btn btn-danger btn-md btn-block waves-effect text-center m-b-20">Add Salary</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+            $("#EsiNo").blur(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/api/CheckEsi",
+                    data: { EsiNo: $("#EsiNo").val() },
+                    contentType: "application/json",
+                    dataType: "text",
+                    async: true,
+                    success: function (response) {
+                        if (response == "AR") {
+                            $("#submit").hide();
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error...',
+                                text: 'Esi No. Already Exist'
+                            })
+                        }
+                        else {
+                            $("#submit").show();
+                        }
+
+
+                    },
+                    failure: function (response) {
+                        console.log(response.responseText);
+                    },
+                    error: function (response) {
+                        console.log(response.responseText);
+                    }
+                });
+            });
+
+        </script>
+        <script>
+            $("#EPF").blur(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/api/Epfcheck",
+                    data: { Epf: $("#EPF").val() },
+                    contentType: "application/json",
+                    dataType: "text",
+                    async: true,
+                    success: function (response) {
+                        if (response == "AR") {
+                            $("#submit").hide();
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error...',
+                                text: 'Epf No. Already Exist'
+                            })
+                        }
+                        else {
+                            $("#submit").show();
+                        }
+                    },
+                    failure: function (response) {
+                        console.log(response.responseText);
+                    },
+                    error: function (response) {
+                        console.log(response.responseText);
+                    }
+                });
+            });
+
+        </script>
+        <script>
+            $("#Contactno").blur(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/api/checkmobile",
+                    data: { contactno: $("#Contactno").val() },
+                    contentType: "application/json",
+                    dataType: "text",
+                    async: true,
+                    success: function (response) {
+                        if (response == "AR") {
+                            $("#submit").hide();
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error...',
+                                text: 'Contact No. Already Exist'
+                            })
+                        }
+                        else {
+                            $("#submit").show();
+                        }
+                    },
+                    failure: function (response) {
+                        console.log(response.responseText);
+                    },
+                    error: function (response) {
+                        console.log(response.responseText);
+                    }
+                });
+            });
+
+        </script>
+        <script>
+            $("#AAdharno").blur(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/api/IsEmployeeExist",
+                    data: { AAdharno: $("#AAdharno").val() },
+                    contentType: "application/json",
+                    dataType: "json",
+                    async: true,
+                    success: function (response) {
+                        console.log(response);
+                        $("#Name").val(response["name"]);
+                        $("#Pancard").val(response["pancard"]);
+                        $("#FathersName").val(response["fathersName"]);
+                        $("#Contactno").val(response["contactno"]);
+                        $("#Email").val(response["email"]);
+                        $("#Employeetype").val(response["employeetype"]);
+                        $("#EmployeeRole").val(response["employeeRole"]);
+                        $("#Addresslocal").val(response["addresslocal"]);
+                        $("#AddressPermanent").val(response["addressPermanent"]);
+                        $("#State").val(response["state"]);
+                        $("#City").val(response["city"]);
+                        $("#Site").val(response["site"]);
+                        $("#EPF").val(response["epf"]);
+                        $("#EsiNo").val(response["esiNo"]);
+                        $("#UANNo").val(response["uanNo"]);
+                        $("#Designation").val(response["designation"]);
+                        $("#Salary").val(response["salary"]);
+                        if (response["userDocument"] != "") {
+                            $("#userdoc").empty();
+                            $("#userdoc").append('<a href=/UserDocument/' + response["userDocument"] + ' target=_blank style=color:red>View</a>');
+                        }
+                        if (response["image"] != "") {
+                            $("#userimg").empty();
+                            $("#userimg").append('<a href=/UserImg/' + response["image"] + ' target=_blank style=color:red>View</a>');
+                        }
+                        if (response["panCardfileName"] != "") {
+                            $("#userpan").empty();
+                            $("#userpan").append('<a href=/Userpan/' + response["panCardfileName"] + ' target=_blank style=color:red>View</a>');
+                        }
+                        $("#olduserdoc").val(response["userDocument"]);
+                        $("#olduserimg").val(response["image"]);
+
+                    },
+                    failure: function (response) {
+                        console.log(response.responseText);
+                    },
+                    error: function (response) {
+                        console.log(response.responseText);
+                    }
+                });
+            });
+
+        </script>
+        <script>
+            $("#submit").click(function (e) {
+
+                if ($("#Userimg").val() == "" && $("#olduserimg").val() == "") {
+                    //alert("User Image Required");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error...',
+                        text: 'User Image Required!',
+                    })
+
+                    e.preventDefault();
+                    return;
+                }
+                if ($("#UserDocument").val() == "" && $("#olduserdoc").val() == "") {
+                    
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error...',
+                        text: 'User Document Required!',
+                    })
+                    e.preventDefault();
+                    return;
+                }
+            });
+
+
+   
+            function fileValidation() {
+                var fileInput =
+                    document.getElementById('Userimg');
+
+                var filePath = fileInput.value;
+
+                // Allowing file type
+                var allowedExtensions =
+                    /(\.png|\.jpg|\.jpeg|\.bmp|\.gif)$/i;
+
+                if (!allowedExtensions.exec(filePath)) {
+                    alert('Invalid file type');
+                    fileInput.value = '';
+                    return false;
+                }
+            }
+        </script>
+     
+            
+
+    }
+    }

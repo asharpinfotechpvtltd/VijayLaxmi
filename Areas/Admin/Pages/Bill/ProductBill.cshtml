@@ -1,0 +1,267 @@
+﻿@page
+@model Monash.Areas.Admin.Pages.Bill.ProductBillModel
+@{
+
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h4 class="card-title">Bill Detail</h4>
+        <div class="basic-form">
+            <form method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Site Name</label>
+                        <select asp-items="@Model.SiteName" id="SiteName" name="SiteName" class="form-control">
+                            <option>Select</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Address</label>
+                        <input type="text" class="form-control" id="Address" name="Address" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Service Period From</label>
+                        <input type="date" class="form-control" id="servicePeriodfrom" name="servicePeriodfrom">
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Service Period To</label>
+                        <input type="date" class="form-control" id="servicePeriodTo" name="servicePeriodTo">
+
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Vendor Code</label>
+                        <input type="text" class="form-control" placeholder="Vendor Code" name="VendorCode" id="VendorCode" />
+
+                    </div>
+                </div>
+
+
+                <table class="table  orders" id="orders">
+                    <tr>
+
+                        <th class="text-center whitespace-nowrap">
+                            HSN No.
+                        </th>
+                        <th>Description</th>
+                        <th>Hrs</th>
+                        <th>Rate</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control number" id="hsnno" />
+                        </td>
+                        <td><input class="form-control description" type='text' id='description' name='description[]' for="1" /></td>
+                        <td><input class="form-control Hrs" type='number' id='Hrs' name='Hrs[]' for="1" /></td>
+                        <td><input class="form-control rate" type='text' id='rate_1' value="0" name='rate[]' for="1" /></td>
+                        <td><input class="form-control amount" type='text' id='amount_1' name='amount[]' for="1" /></td>
+
+                        <td><button type="button" name="add" id="add" class="btn btn-success circle">+</button></td>
+                    </tr>
+                </table>
+
+                <div class="form-row">
+                    <div class="form-group col-md-10">
+                    </div>
+                    <div class="form-group col-md-2">
+
+                        <input type="button" class="btn btn-danger calculate" id="calculate" value="Calculate" />
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Amount</label>
+                        <input type="text" name="Amount" class="form-control" readonly id="Amount" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Taxable Amount</label>
+                        <input type="text" name="taxableamount" class="form-control" id="taxableamount" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>GST (%)</label>
+                        <input type="text" name="gst" class="form-control" id="gst" value="18" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>GST Amount</label>
+                        <input type="text" name="gstamount" class="form-control" id="gstamount" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Final Amount</label>
+                        <input type="text" name="finalamount" class="form-control finalamount" id="finalamount" />
+                    </div>
+                </div>
+
+
+
+
+                <div class="sm:pl-5 mt-1 mb-5">
+                    <input type="submit" value="Print Invoice" id="Createpo" class="btn btn-danger" />
+                    <!-- END: Data List -->
+                </div>
+                <input type="hidden" name="jobworkdesc" />
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.js"></script>
+    @if (ViewData["Message"] != null)
+    {
+        <script type="text/javascript">
+
+            swal("success", 'Po Created', "success");
+
+        </script>
+    }
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+
+
+    <script>
+        var rowCount = 1;
+        $('#add').click(function () {
+
+            rowCount++;
+
+            $('#orders').append('<tr id="row' + rowCount + '"><td><input type="text" class="form-control product_itemcode" id="product_itemcode_1' + rowCount + '" /></td><input class="form-control" type="hidden" data-type="product_id" id="product_id_' + rowCount + '" name="product_id[]" for="' + rowCount + '"/><td><input class="form-control description" type="text" id="quantity_' + rowCount + '" name="description[]" for="' + rowCount + '"/></td><td><input class="form-control Hrs" type="text" id="quantity_' + rowCount + '" name="hrs[]" for="' + rowCount + '"/></td><td><input class="form-control rate" type="text" id="rate_' + rowCount + '" value="0" name="rate[]" for="' + rowCount + '"/></td><td><input class="form-control amount"  type="text" id="amount_' + rowCount + '" name="amount[]" for="' + rowCount + '"/></td><td><button type="button" name="remove" id="' + rowCount + '" class="btn btn-danger btn_remove cicle">-</button></td></tr>');
+
+
+
+        });
+
+
+        $(document).on('click', '.btn_remove', function () {
+            var button_id = $(this).attr('id');
+            $('#row' + button_id + '').remove();
+        });
+        $(document).on('input', '#taxableamount', function () {
+            var button_id = $(this).attr('id');
+            $('#row' + button_id + '').remove();
+        });
+
+
+        $(document).on('click', '.calculate', function () {
+            var total = 0;           
+            var totalbal = 0;
+            $('#orders tr').each(function () {
+                var value = parseInt($(this).closest('tr').find("td:eq(4) input").val());
+                if (!isNaN(value)) {
+                    total += value;
+                }
+            });
+            totalbal = parseFloat(total);
+            $("#Amount").val(totalbal);
+            alert(totalbal);
+        });
+
+        $(document).ready(function () {
+            var finalprice = 0;
+            $(document).on('input', '#orders .rate,.Hrs', function () {
+                var currentRow = $(this).closest("tr");
+                var hrs = currentRow.find("td:eq(2) input").val();
+                var rate = currentRow.find("td:eq(3) input").val();
+                var finalprice = (hrs * rate);
+                currentRow.find("td:eq(4) input").val(finalprice);
+            })
+        });
+
+
+        $("#Createpo").click(function (e) {
+            var jobworkdesc = new Array();
+            $('#orders tr').each(function (i, row) {
+                var hsnno = $(this).closest('tr').find("td:eq(0) input").val();
+                var description = $(this).closest('tr').find("td:eq(1) input").val();
+                var Hrs = $(this).closest('tr').find("td:eq(2) input").val();
+                var rate = $(this).closest('tr').find("td:eq(3) input").val();
+
+                var Delivery = {};
+                Delivery.hsnno = hsnno;
+                Delivery.description = description;
+                Delivery.Hrs = Hrs;
+                Delivery.rate = rate;
+                jobworkdesc.push(Delivery);
+            });
+            document.getElementsByName("jobworkdesc")[0].value = JSON.stringify(jobworkdesc);
+        });
+
+
+
+
+
+
+    </script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
+    <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css"
+      rel="Stylesheet" type="text/css" />
+    <script type="text/javascript">
+
+        $(document).on('change', '#SiteName', function () {
+            var text = $("#txtCustomer").val();
+            $.ajax({
+                type: "GET",
+                url: "/api/sitedetail",
+                data: { id: $("#SiteName").val() },
+                contentType: "application/json",
+                dataType: "json",
+                async: true,
+                success: function (response) {
+                    console.log(response);
+                    $("#Address").val(response["address"]);
+
+
+
+                },
+                failure: function (response) {
+                    console.log(response.responseText);
+                },
+                error: function (response) {
+                    console.log(response.responseText);
+                }
+            });
+        });
+
+
+
+    </script>
+
+
+
+
+
+    }

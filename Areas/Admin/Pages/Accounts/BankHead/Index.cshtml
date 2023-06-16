@@ -1,0 +1,44 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.Accounts.BankHead.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row mb-2">
+    <div class="col-md-4">
+        <a asp-page="Create" style="font-weight:bolder;" class="btn btn-danger float-left">
+            <i class="fa fa-plus" aria-hidden="true"></i>   Add Bank
+        </a>
+    </div>
+   
+
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered" id="emplist">
+        <thead class="text-center" style="background-color:black; color:red;">
+      
+            <tr>
+                <th>
+                        @Html.DisplayNameFor(model => model.BankHeads[0].BankHead)
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach (var item in Model.BankHeads)
+                {
+                <tr class="text-center">
+                    <td>
+                            @Html.DisplayFor(modelItem => item.BankHead)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+                }
+        </tbody>
+    </table>
+</div>

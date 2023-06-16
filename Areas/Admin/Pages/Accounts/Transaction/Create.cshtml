@@ -1,0 +1,45 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.Accounts.Transaction.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Add Transaction</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="BankAccounts.AccountName" class="col-sm-2 col-form-label"></label>
+                <input asp-for="BankAccounts.AccountName" type="text" class="form-control" />
+                <span asp-validation-for="BankAccounts.AccountName" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <label asp-for="BankAccounts.AccountNumber" class="col-sm-2 col-form-label"></label>
+                <input asp-for="BankAccounts.AccountNumber" class="form-control" />
+                <span asp-validation-for="BankAccounts.AccountNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BankAccounts.OpeningBalance" class="col-sm-2 col-form-label"></label>
+                <input asp-for="BankAccounts.OpeningBalance" class="form-control" />
+                <span asp-validation-for="BankAccounts.OpeningBalance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}

@@ -1,0 +1,79 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.Sites.UploadContractModel
+@{
+    int i = 1;
+}
+<h4>Upload Site Contract</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" enctype="multipart/form-data">
+            <input type="hidden" name="Siteid" value="@Model.Site" />
+            <div class="form-group row">
+                <label asp-for="Contract.StartDate" class="col-sm-1 col-form-label font-weight-bold">Start Date</label>
+                <div class="col-sm-5">
+                    <input type="date" asp-for="Contract.StartDate" class="form-control" required />
+                </div>
+                <label asp-for="Contract.EndDate" class="col-sm-1 col-form-label font-weight-bold">End Date</label>
+                <div class="col-sm-5">
+                    <input asp-for="Contract.EndDate" type="date" class="form-control" required />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Contract.ContractName" class="col-sm-1 col-form-label font-weight-bold">Upload Contract</label>
+                <div class="col-sm-12">
+                    <input type="file" name="ContractName" class="form-control" required style=" font-weight:bolder;background-color:#DD3D56; color:white;" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    <input type="submit" id="submit" value="Submit" class="btn btn-danger btn-md btn-block waves-effect text-center m-b-20" style="font-weight:bolder;background-color:#DD3D56; color:white;" />
+                </div>
+            </div>
+        </form>
+    </div>
+    @if (Model.SiteWiseContractList.Count > 0 && Model.SiteWiseContractList != null)
+    {
+        <div class="col-xl-12 col-md-12">
+            <div class="table-responsive">
+
+                <table class="table table-bordered" id="emplist">
+                    <thead class="text-center" style="background-color:black; color:red;">
+                        <tr>
+                            <th>S.No.</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>File</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.SiteWiseContractList)
+                        {
+                            <tr class="text-center">
+                                <td>@i</td>
+                                <td>@item.StartDate</td>
+                                <td>@item.EndDate</td>
+                                <td>
+                                    <a href="~/Agreement/@item.ContractName" target="_blank" title="Download Contract">
+                                        <span class="material-icons" style="color:red;">
+                                            download
+                                        </span>
+                                    </a>
+                                </td>
+                            </tr>
+                            i++;
+
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    }
+
+
+
+
+</div>
+
+

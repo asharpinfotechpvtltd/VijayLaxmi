@@ -1,0 +1,77 @@
+﻿@page
+@model VijayLaxmi.Areas.SiteIncharge.Pages.Requirements.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    int i = 1;
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-danger">Create New</a>
+</p>
+<div class="table-responsive">
+    <table class="table table-bordered" id="emplist">
+        <thead class="text-center" style="background-color:black; color:red;">
+            <tr>
+                <th>S.No.</th>
+                <th>
+                    Site Id
+                </th>
+                <th>
+                    Item Name
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Requirement[0].Qty)
+                </th>
+                <th>
+                    Ho status
+                </th>
+                <th>
+                    Site Status
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Requirement)
+            {
+                <tr class="text-center">
+                    <td>@i</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SiteId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Qty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Hostatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SiteStatus)
+                    </td>
+                    <td>
+                        @item.AddedDate.ToShortDateString()
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id"><i class="material-icons" style="color:green;" title="Edit">edit</i></a> 
+                        <a asp-page="./Details" asp-route-id="@item.Id">
+                            <span class="material-icons" style="color:blue;">
+                                info
+                            </span>
+                        </a> 
+                        <a asp-page="./Delete" asp-route-id="@item.Id"><i class="material-icons" style="color:red;" title="Delete">delete</i></a>
+                    </td>
+                </tr>
+                i++;
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,38 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.DesignationList.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4>Edit Designation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Designation.Id" />
+            <div class="form-group row">
+                <label class="col-lg-4 col-form-label">Designation</label>
+                <div class="col-lg-6">
+                    <input asp-for="Designation.DesignationName" class="form-control" />
+                    <span asp-validation-for="Designation.DesignationName" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

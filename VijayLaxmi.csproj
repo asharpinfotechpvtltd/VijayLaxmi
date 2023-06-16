@@ -1,0 +1,129 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>   
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Error.cshtml" />
+    <None Include="Pages\Index.cshtml" />
+    <None Include="Pages\Privacy.cshtml" />
+    <None Include="Pages\Shared\_Layout.cshtml" />
+    <None Include="Pages\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="Pages\_ViewImports.cshtml" />
+    <None Include="Pages\_ViewStart.cshtml" />
+    <None Include="wwwroot\Agreement\4a792920-86ca-49f7-bc5c-b57b2cbd1100Z500V2.pdf" />
+    <None Include="wwwroot\Agreement\978961f6-a848-4873-ab8e-f6a654a2e047Z500V2.pdf" />
+    <None Include="wwwroot\Agreement\9e94c123-4465-46ca-81b8-203cde10adc2Z500V2.pdf" />
+    <None Include="wwwroot\Agreement\b4a4f850-0fad-4a90-ba19-c7e1811c6467Z500V2.pdf" />
+    <None Include="wwwroot\Agreement\bfc3a802-17b1-4282-a033-f86f11227223Z500V2.pdf" />
+    <None Include="wwwroot\Agreement\ccf8904b-fb67-4cde-b236-0fff3ff9a7d8Z500V2.pdf" />
+    <None Include="wwwroot\Agreement\e2509ccc-b701-456c-9dac-e218d3d4218aZ500V2.pdf" />
+    <None Include="wwwroot\assets\icon\font-awesome\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\assets\icon\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\assets\icon\font-awesome\less\animated.less" />
+    <None Include="wwwroot\assets\icon\font-awesome\less\bordered-pulled.less" />
+    <None Include="wwwroot\assets\icon\font-awesome\less\core.less" />
+    <None Include="wwwroot\assets\icon\font-awesome\less\fixed-width.less" />
+    <None Include="wwwroot\assets\icon\font-awesome\less\font-awesome.less" />
+    <None Include="wwwroot\assets\icon\font-awesome\less\icons.less" />
+    <None Include="wwwroot\assets\icon\font-awesome\less\larger.less" />
+    <None Include="wwwroot\assets\icon\font-awesome\less\list.less" />
+    <None Include="wwwroot\assets\icon\font-awesome\less\mixins.less" />
+    <None Include="wwwroot\assets\icon\font-awesome\less\path.less" />
+    <None Include="wwwroot\assets\icon\font-awesome\less\rotated-flipped.less" />
+    <None Include="wwwroot\assets\icon\font-awesome\less\screen-reader.less" />
+    <None Include="wwwroot\assets\icon\font-awesome\less\stacked.less" />
+    <None Include="wwwroot\assets\icon\font-awesome\less\variables.less" />
+    <None Include="wwwroot\assets\icon\font-awesome\scss\font-awesome.css.map" />
+    <None Include="wwwroot\assets\icon\font-awesome\scss\font-awesome.scss" />
+    <None Include="wwwroot\assets\icon\font-awesome\scss\_animated.scss" />
+    <None Include="wwwroot\assets\icon\font-awesome\scss\_bordered-pulled.scss" />
+    <None Include="wwwroot\assets\icon\font-awesome\scss\_core.scss" />
+    <None Include="wwwroot\assets\icon\font-awesome\scss\_fixed-width.scss" />
+    <None Include="wwwroot\assets\icon\font-awesome\scss\_icons.scss" />
+    <None Include="wwwroot\assets\icon\font-awesome\scss\_larger.scss" />
+    <None Include="wwwroot\assets\icon\font-awesome\scss\_list.scss" />
+    <None Include="wwwroot\assets\icon\font-awesome\scss\_mixins.scss" />
+    <None Include="wwwroot\assets\icon\font-awesome\scss\_path.scss" />
+    <None Include="wwwroot\assets\icon\font-awesome\scss\_rotated-flipped.scss" />
+    <None Include="wwwroot\assets\icon\font-awesome\scss\_screen-reader.scss" />
+    <None Include="wwwroot\assets\icon\font-awesome\scss\_stacked.scss" />
+    <None Include="wwwroot\assets\icon\font-awesome\scss\_variables.scss" />
+    <None Include="wwwroot\assets\icon\icofont\fonts\icofont.svg" />
+    <None Include="wwwroot\assets\icon\themify-icons\fonts\themify.svg" />
+    <None Include="wwwroot\assets\images\tooltip\shape1.svg" />
+    <None Include="wwwroot\assets\images\tooltip\tooltip1.svg" />
+    <None Include="wwwroot\assets\js\bootstrap-growl.min.js" />
+    <None Include="wwwroot\assets\js\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\assets\js\chart.js\Chart.js" />
+    <None Include="wwwroot\assets\js\common-pages.js" />
+    <None Include="wwwroot\assets\js\jquery-slimscroll\jquery.slimscroll.js" />
+    <None Include="wwwroot\assets\js\jquery-ui\jquery-ui.min.js" />
+    <None Include="wwwroot\assets\js\jquery.mCustomScrollbar.concat.min.js" />
+    <None Include="wwwroot\assets\js\jquery.mousewheel.min.js" />
+    <None Include="wwwroot\assets\js\jquery\jquery.min.js" />
+    <None Include="wwwroot\assets\js\modernizr\css-scrollbars.js" />
+    <None Include="wwwroot\assets\js\modernizr\modernizr.js" />
+    <None Include="wwwroot\assets\js\morris-custom-chart.js" />
+    <None Include="wwwroot\assets\js\morris.js\morris.js" />
+    <None Include="wwwroot\assets\js\pcoded.min.js" />
+    <None Include="wwwroot\assets\js\popper.js\popper.min.js" />
+    <None Include="wwwroot\assets\js\raphael\raphael.min.js" />
+    <None Include="wwwroot\assets\js\script.js" />
+    <None Include="wwwroot\assets\js\script.min.js" />
+    <None Include="wwwroot\assets\js\SmoothScroll.js" />
+    <None Include="wwwroot\assets\js\vertical-layout.min.js" />
+    <None Include="wwwroot\assets\pages\accordion\accordion.js" />
+    <None Include="wwwroot\assets\pages\accordion\accordion.min.js" />
+    <None Include="wwwroot\assets\pages\dashboard\amchart\js\amcharts.js" />
+    <None Include="wwwroot\assets\pages\dashboard\amchart\js\custom-amchart.js" />
+    <None Include="wwwroot\assets\pages\dashboard\amchart\js\export.min.js" />
+    <None Include="wwwroot\assets\pages\dashboard\amchart\js\images\dragIconRoundBig.svg" />
+    <None Include="wwwroot\assets\pages\dashboard\amchart\js\images\dragIconRoundBigH.svg" />
+    <None Include="wwwroot\assets\pages\dashboard\amchart\js\light.js" />
+    <None Include="wwwroot\assets\pages\dashboard\amchart\js\serial.js" />
+    <None Include="wwwroot\assets\pages\dashboard\custom-dashboard.js" />
+    <None Include="wwwroot\assets\pages\google-maps\gmaps.js" />
+    <None Include="wwwroot\assets\pages\google-maps\google-maps.js" />
+    <None Include="wwwroot\assets\pages\icon-modal.js" />
+    <None Include="wwwroot\assets\pages\notification\notification.js" />
+    <None Include="wwwroot\assets\pages\todo\todo.js" />
+    <None Include="wwwroot\assets\pages\waves\js\waves.min.js" />
+    <None Include="wwwroot\assets\pages\widget\amchart\amcharts.js" />
+    <None Include="wwwroot\assets\pages\widget\amchart\amcharts.min.js" />
+    <None Include="wwwroot\assets\pages\widget\amchart\export.min.js" />
+    <None Include="wwwroot\assets\pages\widget\amchart\gauge.js" />
+    <None Include="wwwroot\assets\pages\widget\amchart\gauge.min.js" />
+    <None Include="wwwroot\assets\pages\widget\amchart\light.js" />
+    <None Include="wwwroot\assets\pages\widget\amchart\light.min.js" />
+    <None Include="wwwroot\assets\pages\widget\amchart\pie.js" />
+    <None Include="wwwroot\assets\pages\widget\amchart\pie.min.js" />
+    <None Include="wwwroot\assets\pages\widget\amchart\serial.js" />
+    <None Include="wwwroot\assets\pages\widget\amchart\serial.min.js" />
+    <None Include="wwwroot\assets\pages\widget\excanvas.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\assets\Agreement\" />
+    <Folder Include="wwwroot\assets\letterhead\" />
+    <Folder Include="wwwroot\LoanadvanceDocument\" />
+    <Folder Include="wwwroot\BankDocument\" />
+    <Folder Include="wwwroot\Tic\" />
+    <Folder Include="wwwroot\UserDocument\" />
+    <Folder Include="wwwroot\UserImg\" />
+  </ItemGroup>
+
+</Project>

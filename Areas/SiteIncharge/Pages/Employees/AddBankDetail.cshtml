@@ -1,0 +1,61 @@
+﻿@page
+@model VijayLaxmi.Areas.SiteIncharge.Pages.Employees.AddBankDetailModel
+@{
+}
+<h4 class="card-title">Add Bank Detail</h4>
+<hr />
+<div class="row">
+    <div class="col-lg-12">
+        <div class="basic-form">
+            <form method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="BankDetail.AAdharNo" value="@Model.EmployeeCode" />
+                <div class="form-row">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Bank Name</label>
+                        <input type="text" class="form-control" asp-for="BankDetail.Bankname" required />
+                        <span asp-validation-for="BankDetail.Bankname" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Branch Name</label>
+                        <input asp-for="BankDetail.BranchName" class="form-control" />
+                        <span asp-validation-for="BankDetail.BranchName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Ifsc Code</label>
+                        <input asp-for="BankDetail.IFSCCODE" class="form-control" />
+                        <span asp-validation-for="BankDetail.IFSCCODE" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Account Number</label>
+                        <input asp-for="BankDetail.AccountNumber" type="number" class="form-control" />
+                        <span asp-validation-for="BankDetail.AccountNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Account Holder Name</label>
+                        <input asp-for="BankDetail.Accountholdername" class="form-control" />
+                        <span asp-validation-for="BankDetail.Accountholdername" class="text-danger"></span>
+                    </div>                    
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Upload Passbook Image</label>
+                        <input type="file" name="Filename" class="form-control" required />
+                        <span asp-validation-for="BankDetail.Filename" class="text-danger"></span>
+                    </div>
+                    <div class="line line-dashed line-lg pull-in" style="clear: both;"></div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

@@ -1,0 +1,393 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = VijayLaxmi
+build_property.RootNamespace = VijayLaxmi
+build_property.ProjectDir = D:\Websites\Vijay Laxmi\VijayLaxmi\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Websites\Vijay Laxmi\VijayLaxmi
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Accounts/BankHead/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjb3VudHNcQmFua0hlYWRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Accounts/BankHead/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjb3VudHNcQmFua0hlYWRcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Accounts/BankHead/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjb3VudHNcQmFua0hlYWRcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Accounts/BankHead/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjb3VudHNcQmFua0hlYWRcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Accounts/BankHead/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjb3VudHNcQmFua0hlYWRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Accounts/CashHead/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjb3VudHNcQ2FzaEhlYWRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Accounts/CashHead/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjb3VudHNcQ2FzaEhlYWRcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Accounts/CashHead/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjb3VudHNcQ2FzaEhlYWRcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Accounts/CashHead/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjb3VudHNcQ2FzaEhlYWRcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Accounts/CashHead/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjb3VudHNcQ2FzaEhlYWRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Accounts/Transaction/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjb3VudHNcVHJhbnNhY3Rpb25cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Accounts/Transaction/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjb3VudHNcVHJhbnNhY3Rpb25cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Accounts/Transaction/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjb3VudHNcVHJhbnNhY3Rpb25cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Accounts/Transaction/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjb3VudHNcVHJhbnNhY3Rpb25cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Accounts/Transaction/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNjb3VudHNcVHJhbnNhY3Rpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Bill/ProductBill.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQmlsbFxQcm9kdWN0QmlsbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Bill/ProductPrintBill.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQmlsbFxQcm9kdWN0UHJpbnRCaWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/DesignationList/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRGVzaWduYXRpb25MaXN0XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/DesignationList/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRGVzaWduYXRpb25MaXN0XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/DesignationList/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRGVzaWduYXRpb25MaXN0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/DeviceList/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRGV2aWNlTGlzdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/DeviceList/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRGV2aWNlTGlzdFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/DeviceList/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRGV2aWNlTGlzdFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/DeviceList/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRGV2aWNlTGlzdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/DeviceList/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRGV2aWNlTGlzdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/EmpAttendance/UpdateAttendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRW1wQXR0ZW5kYW5jZVxVcGRhdGVBdHRlbmRhbmNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/EmpAttendance/ViewAttendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRW1wQXR0ZW5kYW5jZVxWaWV3QXR0ZW5kYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/HR/Employees/AddBankDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSFJcRW1wbG95ZWVzXEFkZEJhbmtEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/HR/Employees/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSFJcRW1wbG95ZWVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/HR/Employees/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSFJcRW1wbG95ZWVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/HR/Employees/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSFJcRW1wbG95ZWVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/HR/Employees/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSFJcRW1wbG95ZWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/HR/Employees/EmployeeDocuments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSFJcRW1wbG95ZWVzXEVtcGxveWVlRG9jdW1lbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/HR/Employees/FamilyDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSFJcRW1wbG95ZWVzXEZhbWlseURldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/HR/Employees/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSFJcRW1wbG95ZWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/HR/LoanAdvance/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSFJcTG9hbkFkdmFuY2VcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/HR/LoanAdvance/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSFJcTG9hbkFkdmFuY2VcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/HR/LoanAdvance/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSFJcTG9hbkFkdmFuY2VcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/HR/LoanAdvance/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSFJcTG9hbkFkdmFuY2VcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/HR/LoanAdvance/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSFJcTG9hbkFkdmFuY2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Requirements/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUmVxdWlyZW1lbnRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Requirements/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUmVxdWlyZW1lbnRzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Requirements/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUmVxdWlyZW1lbnRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Requirements/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUmVxdWlyZW1lbnRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Requirements/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUmVxdWlyZW1lbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Sites/AddSupervisor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2l0ZXNcQWRkU3VwZXJ2aXNvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Sites/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2l0ZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Sites/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2l0ZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Sites/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2l0ZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Sites/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2l0ZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/Sites/UploadContract.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2l0ZXNcVXBsb2FkQ29udHJhY3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/StateGst/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU3RhdGVHc3RcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/StateGst/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU3RhdGVHc3RcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/StateGst/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU3RhdGVHc3RcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Dashboard/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFBhZ2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Dashboard/Pages/Index1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFBhZ2VzXEluZGV4MS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Dashboard/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFNoYXJlZFxfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Dashboard/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Dashboard/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Attendance/UpdateAttendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEF0dGVuZGFuY2VcVXBkYXRlQXR0ZW5kYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Attendance/ViewAttendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEF0dGVuZGFuY2VcVmlld0F0dGVuZGFuY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Employees/AddBankDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEVtcGxveWVlc1xBZGRCYW5rRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Employees/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEVtcGxveWVlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Employees/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEVtcGxveWVlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Employees/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEVtcGxveWVlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Employees/FamilyDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEVtcGxveWVlc1xGYW1pbHlEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Employees/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEVtcGxveWVlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/LoanAdvance/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXExvYW5BZHZhbmNlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/LoanAdvance/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXExvYW5BZHZhbmNlXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/LoanAdvance/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXExvYW5BZHZhbmNlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/LoanAdvance/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXExvYW5BZHZhbmNlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/LoanAdvance/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXExvYW5BZHZhbmNlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Requirements/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXFJlcXVpcmVtZW50c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Requirements/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXFJlcXVpcmVtZW50c1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Requirements/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXFJlcXVpcmVtZW50c1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Requirements/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXFJlcXVpcmVtZW50c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Requirements/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXFJlcXVpcmVtZW50c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFNoYXJlZFxfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Pages/adminlogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWRtaW5sb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Pages/appointment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYXBwb2ludG1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-w99fuk745g

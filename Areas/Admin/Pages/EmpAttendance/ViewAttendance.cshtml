@@ -1,0 +1,168 @@
+﻿@page "{handler?}"
+@model VijayLaxmi.Areas.Admin.Pages.EmpAttendance.ViewAttendanceModel
+@{
+    int i = 1;
+}
+<div class="outer-w3-agile mt-3" id="printableArea">
+    <form method="get" asp-page-handler="Search">
+        <table class="table">
+            <tr>
+                <td><input type="date" name="Startdate" placeholder="Startdate" min="01/09/2022" max="30/12/2050" class="form-control" asp-for="Startdate" /></td>
+                <td><input type="date" name="EndDate" min="01/01/2000" max="31/12/2050" placeholder="EndDate" class="form-control" asp-for="EndDate" /></td>
+                <td>
+                    <select name="siteid" class="form-control" asp-items="Model.SiteName" asp-for="SiteId">
+                        <option>Select Site Name</option>
+                    </select>
+                </td>
+                <td><button type="submit" value="Search" class="btn btn-danger"><i class="fa fa-search-plus" aria-hidden="true"></i></button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+@if (Model.AttendanceList != null)
+{
+    <div class="table-responsive">
+        <table class="table table-bordered" id="emplist">
+            <thead class="text-center" style="background-color:black; color:red;">
+                <tr>
+                    <th>S No.</th>
+                    <th>Emp Code</th>
+                    <th>
+                        Name
+                    </th>
+                    <th>Date</th>
+                    <th>
+                        Month
+                    </th>
+                    <th>
+                        Year
+                    </th>
+                    <th>
+                        Attendance
+                    </th>
+
+                    <th>
+                        Marked
+                    </th>
+
+                    <th>InTime</th>
+                    <th>OutTime</th>
+                    <th>WorkTime</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.AttendanceList)
+                {
+                    if (item.Marked == 1)
+                    {
+                        <tr class="text-center" bgcolor="red" style="color:white;">
+                            <td>@i</td>
+                            <td>@item.Empcode</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Month)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Year)
+                            </td>
+
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Attendence)
+                            </td>
+
+                           
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Marked)
+
+
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.InTime)
+
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OutTime)
+
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.WorkTime)
+
+
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr class="text-center">
+                            <td>@i</td>
+                            <td>@item.Empcode</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Month)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Year)
+                            </td>
+
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Attendence)
+                            </td>
+
+                           
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Marked)
+
+
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.InTime)
+
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OutTime)
+
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.WorkTime)
+
+
+                            </td>
+                        </tr>
+                    }
+                    i++;
+                }
+            </tbody>
+        </table>
+    </div>
+}
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+    }

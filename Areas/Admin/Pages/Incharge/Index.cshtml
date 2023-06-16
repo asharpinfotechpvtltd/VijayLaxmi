@@ -1,0 +1,91 @@
+﻿@page "{handler?}"
+@model VijayLaxmi.Areas.Admin.Pages.Incharge.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Incharge List</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="get">
+            <div class="form-group row">
+
+                <div class="col-sm-2">
+                    <a asp-page="Create" style="font-weight:bolder;" class="btn btn-danger float-left">
+                        <i class="fa fa-plus" aria-hidden="true"></i>   Add New Incharge
+                    </a>
+                </div>
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-4">
+                    <select class="form-control  mt1" id="Site" asp-items="@Model.SiteList" name="site">
+                        <option value="0">Select Site</option>
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <select type="text" class="form-control  mt1" asp-items="@Model.SitesInchargeList">
+                        <option value="0">Select</option>
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn mb-2 mr-1 mt1" value="Search" id="Search" style="background-color:blue; color:white;"> <i class="fa fa-search-plus" aria-hidden="true"></i></button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered" id="emplist">
+        <thead class="text-center" style="background-color:black; color:red;">
+            <tr>
+                <th>
+                    Employee Id
+                </th>
+                <th>
+                    Incharge Name
+                </th>
+                <th>
+                    Site Id
+                </th>
+                <th>
+                    Site Name
+                </th>
+                <th>
+                    login Enabled
+                </th>
+
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.SitesIncharge)
+            {
+                <tr class="text-center">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SiteId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SiteName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsloginEnabled)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id"> <i class="material-icons" style="color:green;" title="Edit">edit</i></a>
+                        <a asp-page="./Delete" asp-route-id="@item.Id"><i class="material-icons" style="color:red;" title="Delete">delete</i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

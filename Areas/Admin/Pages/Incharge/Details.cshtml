@@ -1,0 +1,49 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.Incharge.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SitesIncharge</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SitesIncharge.EmployeeId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SitesIncharge.EmployeeId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SitesIncharge.Password)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SitesIncharge.Password)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SitesIncharge.SiteId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SitesIncharge.SiteId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SitesIncharge.IsloginEnabled)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SitesIncharge.IsloginEnabled)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SitesIncharge.AadharNo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SitesIncharge.AadharNo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.SitesIncharge?.id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

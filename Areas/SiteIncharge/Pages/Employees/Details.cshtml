@@ -1,0 +1,503 @@
+﻿@page "{Aadharno}"
+@model VijayLaxmi.Areas.SiteIncharge.Pages.Employees.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    int rowCount = 1;
+
+
+}
+
+<h1>Employee Details</h1>
+<table class="table" align="right" width="100%">
+    <tr>
+        <td><strong>Image</strong></td>
+        <td><img src="~/UserImg/@Model.Employee.Image" class="img-fluid ml-5" style="height:10%; width:10%;" /></td>
+
+    </tr>
+</table>
+<form asp-page-handler="EmpUpdate" method="post" enctype="multipart/form-data">
+    <input type="hidden" value="@Model.Employee.Id" name="employeeeid" />
+    <table class="table">
+
+        <tr>
+
+            <td><strong> Upload Image</strong></td>
+            <td>
+                <input type="file" name="userimg" class="form-control" />
+                <input type="hidden" value="@Model.Employee.Image" name="savedimgname" />
+            </td>
+            <td><strong>Emp Id:</strong></td>
+            <td>@Model.Employee.Id</td>
+        </tr>
+        <tr>
+            <td><strong> @Html.DisplayNameFor(model => model.Employee.Name)</strong></td>
+            <td><input type="text" asp-for="Employee.Name" class="form-control" /></td>
+            <td><strong>Father's Name</strong></td>
+            <td><input type="text" asp-for="Employee.FathersName" class="form-control" /></td>
+
+        </tr>
+        <tr>
+
+            <td><strong>Contact No</strong></td>
+            <td><input type="text" asp-for="Employee.Contactno" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td><strong>@Html.DisplayNameFor(model => model.Employee.Email)</strong></td>
+            <td><input type="text" asp-for="Employee.Email" class="form-control" /></td>
+            <td><strong>Employee Type</strong></td>
+            <td>
+                <select asp-for="Employee.Employeetype" id="Employeetype" required class="form-control">
+                    <option>Select</option>
+                    <option>Casual</option>
+                    <option>Regular</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Address Local</strong></td>
+            <td><input type="text" asp-for="Employee.Addresslocal" class="form-control" /></td>
+            <td><strong>Address Permanent</strong></td>
+            <td><input type="text" asp-for="Employee.AddressPermanent" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td><strong>@Html.DisplayNameFor(model => model.Employee.State)</strong></td>
+            <td><input type="text" asp-for="Employee.State" class="form-control" /></td>
+            <td><strong>@Html.DisplayNameFor(model => model.Employee.City)</strong></td>
+            <td><input type="text" asp-for="Employee.City" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td><strong>AAdhar No</strong></td>
+            <td><input type="text" asp-for="Employee.AAdharno" readonly class="form-control" /></td>
+            <td><strong>@Html.DisplayNameFor(model => model.Employee.Pancard)</strong></td>
+            <td><input type="text" asp-for="Employee.Pancard" class="form-control" /> </td>
+        </tr>
+        <tr>
+
+            <td><strong>@Html.DisplayNameFor(model => model.Employee.EPF)</strong></td>
+            <td><input type="text" asp-for="Employee.EPF" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td><strong>Site Name</strong></td>
+            <td>
+                <select asp-for="Employee.Site" asp-items="@Model.Site" id="Site" class="form-control">
+                    <option>Select Site</option>
+                </select>
+            </td>
+            <td><strong>@Html.DisplayNameFor(model => model.Employee.AddedDate)</strong></td>
+            <td><input type="text" asp-for="Employee.AddedDate" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td><strong>@Html.DisplayNameFor(model => model.Employee.Salary)</strong></td>
+            <td><input type="text" asp-for="Employee.Salary" class="form-control" /></td>
+            <td><strong>Is Active</strong></td>
+            <td>
+                <select asp-for="Employee.IsActive" class="form-control">
+                    <option value="True">Active</option>
+                    <option value="False">InActive</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>@Html.DisplayNameFor(model => model.Employee.EsiNo)</strong></td>
+            <td><input type="text" asp-for="Employee.EsiNo" class="form-control" /></td>
+            <td><strong>@Html.DisplayNameFor(model => model.Employee.UANNo)</strong></td>
+            <td><input type="text" asp-for="Employee.UANNo" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td><strong>Designation</strong></td>
+            <td>
+                <select asp-for="Employee.Designation" class="form-control" asp-items="Model.Designation">
+                </select>
+            </td>
+            <td><strong>Approve</strong></td>
+            <td>
+                <select asp-for="Employee.IsVerified" class="form-control IsVerified">
+                    <option value="true">Approve</option>
+                    <option value="false">Reject</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+
+            <td id="reasontd"><strong>Reason</strong></td>
+            <td id="reasontddetail"><input type="text" asp-for="Employee.Reason" id="reason" class="form-control" /></td>
+        </tr>
+
+
+    </table>
+    <input type="submit" value="Update" class="btn btn-danger" />
+</form>
+<hr />
+<h1>Document Details</h1>
+<form asp-page-handler="DocumentUpdate" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Employee.AAdharno" name="AAdharno" />
+    <input type="hidden" asp-for="@Model.Document.DocumentFrontFileName" />
+    <input type="hidden" asp-for="@Model.Document.DocumentBackFileName" />
+    <input type="hidden" asp-for="@Model.Document.PancardFileName" />
+    <input type="hidden" asp-for="@Model.Document.TicFileName" />
+    <input type="hidden" asp-for="@Model.Document.SignedDocumentName" />
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                <td>Front File:</td>
+                <td><a target="_blank" href="~/UserDocument/@Model.DocumentFrontFile">View</a> </td>
+                <td>
+                    <input type="file" id="DocumentFrontFileName" name="DocumentFrontFileName" class="form-control" />
+
+
+
+
+                </td>
+            </tr>
+            <tr>
+                <td>Back:</td>
+                <td> <a target="_blank" href="~/UserDocument/@Model.DocumentBackFile">View</a> </td>
+                <td>
+                    <input type="file" id="DocumentBackFileName" name="DocumentBackFileName" class="form-control" />
+
+
+
+
+                </td>
+            </tr>
+            <tr>
+                <td>PanCard:</td>
+                <td><a target="_blank" href="~/Userpan/@Model.PancardName">View</a></td>
+                <td>
+                    <input type="file" id="PancardFileName" name="PancardFileName" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>TIC:</td>
+                <td><a target="_blank" href="~/Tic/@Model.TicFile">View</a> </td>
+                <td>
+                    <input type="file" id="TicFileName" name="TicFileName" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>Signed Document:</td>
+                <td><a target="_blank" href="~/UserDocument/@Model.SignedDocument">View</a></td>
+                <td>
+                    <input type="file" id="SignedDocumentName" name="Signeddocument" class="form-control" />
+
+
+
+
+                </td>
+            </tr>
+        </table>
+    </div>
+    <input type="submit" value="Update" class="btn btn-danger" />
+</form>
+<hr />
+<h1>Family Details</h1>
+@if (Model.FamilyDetails != null)
+{
+    <form method="post" asp-page-handler="FamilyUpdate">
+        <input type="hidden" asp-for="Employee.AAdharno" name="familyempid" />
+        <table class="table table-bordered" id="Family">
+            <thead class="text-center" style="background-color:black; color:red;">
+                <tr class="text-center">
+                    <td>
+                        <strong>
+                            Relation
+                        </strong>
+                    </td>
+
+                    <td>
+                        <strong>
+                            Name
+                        </strong>
+                    </td>
+
+                    <td>
+                        <strong>
+                            DOB
+                        </strong>
+                    </td>
+
+                    <td>
+                        <strong>
+                            AAdhar No.
+                        </strong>
+                    </td>
+                    <td>
+                        <strong>
+                            Alternate No.
+                        </strong>
+                    </td>
+                    <td>Action</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.FamilyDetails.Count != 0)
+                {
+                    @foreach (var item in Model.FamilyDetails)
+                    {
+                        <tr class="text-center">
+                            <td><input type="text" value="@item.Relation" class="form-control" /></td>
+                            <td><input class="form-control" type="text" value="@item.Name" /></td>
+                            <td><input class="form-control" type="date" value="@item.DateofBirth" /></td>
+                            <td><input type="text" value="@item.AAdhar" class="form-control" /></td>
+                            <td><input type="text" value="@item.Alternateno" class="form-control" /></td>
+                            @if (rowCount == 1)
+                            {
+                                <td>
+                                    <button type="button" name="add" id="add" class="btn btn-success circle">+</button>
+                                    <button type="button" name="remove" id="@rowCount" class="btn btn-danger btn_remove1 cicle">-</button>
+                                </td>
+                                rowCount++;
+                            }
+                            else
+                            {
+                                <td><button type="button" name="remove" id="@rowCount" class="btn btn-danger btn_remove1 cicle">-</button></td>
+                                rowCount++;
+                            }
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td><input class="form-control relation" type='text' id='relation' for="1" /></td>
+                        <td><input class="form-control name" type='text' id='name' for="1" /></td>
+                        <td><input class="form-control dob" type='date' id='dob' for="1" /></td>
+                        <td><input class="form-control aadharno" type='text' id='aadharno' for="1" /></td>
+                        <td><input class="form-control alternate" type='text' id='alternate' for="1" /></td>
+                        <td><button type="button" name="add" id="add" class="btn btn-success circle">+</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <input type="hidden" name="jobworkdesc" />
+        <input type="submit" value="Update" id="familyupdate" class="btn btn-danger" />
+    </form>
+}
+else
+{
+    <p>No Family Details Found</p>
+}
+<hr />
+<h1>Bank Details</h1>
+
+<form method="post" asp-page-handler="BankUpdate" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Employee.AAdharno" name="empid" />
+    <table class="table table-bordered">
+        <thead class="text-center" style="background-color:black; color:red;">
+            <tr class="text-center">
+                <td><strong> Bank Name</strong></td>
+                <td><strong>Account Holder Name</strong></td>
+                <td>
+                    <strong>
+                        Account Number
+                    </strong>
+                </td>
+
+                <td>
+                    <strong>
+                        IFSC CODE
+                    </strong>
+                </td>
+
+                <td>
+                    <strong>
+                        Branch Name
+                    </strong>
+                </td>
+                <td>
+                    <strong>
+                        Passbook Copy
+                    </strong>
+                </td>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center">
+                <td><input type="text" asp-for="BankDetails.Bankname" name="Bankname" class="form-control" /></td>
+                <td><input type="text" asp-for="BankDetails.Accountholdername" name="Accountholdername" class="form-control" /></td>
+                <td><input type="text" asp-for="BankDetails.AccountNumber" name="AccountNumber" class="form-control" /></td>
+                <td><input type="text" asp-for="BankDetails.IFSCCODE" name="IFSCCODE" class="form-control" /> </td>
+                <td><input type="text" asp-for="BankDetails.BranchName" name="BranchName" class="form-control" /></td>
+
+                <td>
+                    <a href="~/BankDocument/@Model.PassbookFile" title="View Passbook" style="color:darkgreen;" target="_blank">
+                        <span class="material-icons" style="color:green;">
+                            download
+                        </span>
+                    </a>
+
+                </td>
+
+
+            </tr>
+        </tbody>
+    </table>
+    <input type="hidden" asp-for="BankDetails.Filename" />
+    <input type="file" name="bankdetailfilename" class="form-control mb-2" required />
+    <input type="submit" value="Update" class="btn btn-danger" />
+</form>
+
+<hr />
+<h1>Loan/Advance Details</h1>
+@if (Model.loan_Advances.Count > 0)
+{
+    <form method="post" asp-page-handler="BankUpdate" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Employee.AAdharno" name="empid" />
+        <table class="table table-bordered">
+            <thead class="text-center" style="background-color:black; color:red;">
+                <tr class="text-center">
+                    <td><strong> Type</strong></td>
+                    <td><strong>Amount</strong></td>
+                    <td>
+                        <strong>
+                            Loan/Advance Date
+                        </strong>
+                    </td>
+
+                    <td>
+                        <strong>
+                            Application
+                        </strong>
+                    </td>
+
+                    <td>
+                        <strong>
+                            Signed Document
+                        </strong>
+                    </td>
+                    <td>
+                        <strong>
+                            Emi Amount
+                        </strong>
+                    </td>
+                    <td>
+                        <strong>
+                            Emi Date
+                        </strong>
+                    </td>
+                    <td>
+                        <strong>
+                            Action
+                        </strong>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.loan_Advances)
+                {
+                    <tr class="text-center">
+
+                        <td>@item.Type</td>
+                        <td>@item.Amount</td>
+                        <td>@item.Loan_AdvanceDate</td>
+                        <td>
+                            <a href="~/LoanadvanceDocument/@item.ApplicationDocument" target="_blank">
+                                <span class="material-icons" style="color:green;">
+                                    download
+                                </span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="~/LoanadvanceDocument/@item.SignedDocument" target="_blank">
+                                <span class="material-icons" style="color:green;">
+                                    download
+                                </span>
+                            </a>
+                        </td>
+                        <td>@item.EmiAmount</td>
+                        <td>@item.EmiDate</td>
+                        <td>
+                            <a asp-page="/HR/LoanAdvance/Details" asp-route-loanid="@item.Id" asp-route-AAdharNo="@item.AAdharNo" target="_blank">
+                                <span class="material-icons" style="color:blue;">
+                                    info
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <input type="hidden" asp-for="BankDetails.Filename" />
+
+        <input type="submit" value="Update" class="btn btn-danger" />
+    </form>
+}
+else
+{
+    <p class="text-danger font-weight-bold">No Active Loan or Advance</p>
+}
+<div>
+
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+
+
+    <script>
+        var rowCount = 1;
+        $('#add').click(function () {
+            rowCount++;
+
+            $('#Family').append('<tr id="row' + rowCount + '"><input class="form-control" type="hidden" data-type="product_id" id="product_id_' + rowCount + '" name="product_id[]" for="' + rowCount + '"/><td><input class="form-control relation" type="text" id="relation_' + rowCount + '" name="relation[]" for="' + rowCount + '"/></td><td><input class="form-control name" type="text" id="name_' + rowCount + '" name="name[]" for="' + rowCount + '"/></td><td><input class="form-control dob" type="date" id="dob_' + rowCount + '" name="dob[]" for="' + rowCount + '"/></td><td><input class="form-control aadharno" type="number" id="aadharno_' + rowCount + '" name="aadharno[]" for="' + rowCount + '"/></td><td><input class="form-control alternate" type="text" id="alternate_' + rowCount + '" name="alternate[]" for="' + rowCount + '"/></td><td><button type="button" name="remove" id="' + rowCount + '" class="btn btn-danger btn_remove cicle">-</button></td></tr>');
+
+
+
+        });
+
+
+        $(document).on('click', '.btn_remove', function () {
+            var button_id = $(this).attr('id');
+            $('#row' + button_id + '').remove();
+        });
+        $("#Family").on("click", ".btn_remove1", function () {
+            $(this).closest("tr").remove();
+        });
+        $("#familyupdate").click(function (e) {
+            var familydesc = new Array();
+            $('#Family tr').each(function (i, row) {
+                var relation = $(this).closest('tr').find("td:eq(0) input").val();
+                var name = $(this).closest('tr').find("td:eq(1) input").val();
+                var dob = $(this).closest('tr').find("td:eq(2) input").val();
+                var aadharno = $(this).closest('tr').find("td:eq(3) input").val();
+                var family = {};
+                family.relation = relation;
+                family.name = name;
+                family.dob = dob;
+                family.aadharno = aadharno;
+                familydesc.push(family);
+            });
+            document.getElementsByName("jobworkdesc")[0].value = JSON.stringify(familydesc);
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#reasontddetail").hide();
+            $("#reasontd").hide();
+        });
+
+        $(document).on('change', '.IsVerified', function () {
+            if ($(".IsVerified").val() == "false") {
+                $("#reasontddetail").show();
+                $("#reasontd").show();
+            }
+            else {
+                $("#reasontddetail").hide();
+                $("#reasontd").hide();
+            }
+        });
+    </script>
+
+}

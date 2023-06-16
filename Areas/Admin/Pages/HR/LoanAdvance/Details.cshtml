@@ -1,0 +1,59 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.HR.LoanAdvance.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    int i = 1;
+    double TotalAmount = 0;
+    double AmountReceived = 0;
+    double BalanceAmount = 0;
+
+}
+
+<h1>Adjustment Details</h1>
+
+<table class="table table-bordered">
+    @foreach (var item in Model.Loan_Advance)
+    {
+        <thead class="text-center" style="background-color:black; color:red;">
+            <tr class="text-center"><td colspan="8"><strong> Name : @Model.Employee.Name</strong></td></tr>
+            <tr class="text-center">
+                <td colspan="5"><strong> Loan / Advance Account Number : @item.Id</strong></td>
+                <td>
+                    <strong>
+                        Loan Amount: @item.Amount
+                    </strong>
+                </td>
+
+                <td>
+                    <strong>
+                        Loan Date: @item.Loan_AdvanceDate
+                    </strong>
+                </td>
+                <td>
+                    <strong>
+                        Type: @item.Type
+                    </strong>
+                </td>
+
+            </tr>
+        </thead>
+        TotalAmount += item.Amount;
+        <tr class="text-center" style="Background-color:#F3F3F9; font-weight:bold;"><td colspan="3">Amount Paid</td><td colspan="5">Date</td></tr>
+        @foreach (var items in Model.Adjustments.Where(id => id.LoanAdvanceAccountnumber == item.Id))
+        {
+            AmountReceived += items.AmountAdjusted;
+            <tr class="text-center"><td colspan="3">@items.AmountAdjusted</td><td colspan="5">@items.AmountAdjustedDate</td></tr>
+        }
+    }
+</table>
+<table class="table table-bordered" align="center">
+    <tr class="text-center" style="Background-color:#F3F3F9; font-weight:bold;"><td colspan="8"></td></tr>
+    <tr><td colspan="3" class="float-right"><strong>Total Amount:</strong></td><td colspan="5">Rs @TotalAmount</td></tr>
+    <tr><td colspan="3" class="float-right"><strong> Amount Received:</strong></td><td colspan="3">Rs @AmountReceived</td></tr>
+    @{
+        BalanceAmount = TotalAmount - AmountReceived;
+    }
+    <tr><td colspan="3" class="float-right text-danger"><strong> Balance Amount:</strong></td><td colspan="5" class="text-danger"><strong>Rs @BalanceAmount</strong></td></tr>
+</table>
+

@@ -1,0 +1,43 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.DeviceList.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Add Device</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div class="form-group">
+
+                <label asp-for="Device.Deviceid" class="control-label">Device id</label>
+                <input asp-for="Device.Deviceid" class="form-control" required />
+                <span asp-validation-for="Device.Deviceid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Device.SiteId" class="control-label">Site Name</label>
+                <select asp-for="Device.SiteId" asp-items="@Model.SiteList" class="form-control" required>
+                    <option>Select</option>
+                </select>
+                <span asp-validation-for="Device.SiteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Device.ApiUrl" class="control-label">Api Crediential</label>
+                <input asp-for="Device.ApiUrl" class="form-control" placeholder="vijaylaxmi:username:password:true" required />
+                <span asp-validation-for="Device.ApiUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</div>
+                   
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+                        }

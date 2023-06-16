@@ -1,0 +1,55 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.Incharge.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>SitesIncharge</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SitesIncharge.id" />
+            <div class="form-group">
+                <label asp-for="SitesIncharge.EmployeeId" class="control-label"></label>
+                <input asp-for="SitesIncharge.EmployeeId" class="form-control" />
+                <span asp-validation-for="SitesIncharge.EmployeeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SitesIncharge.Password" class="control-label"></label>
+                <input asp-for="SitesIncharge.Password" class="form-control" />
+                <span asp-validation-for="SitesIncharge.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SitesIncharge.SiteId" class="control-label"></label>
+                <input asp-for="SitesIncharge.SiteId" class="form-control" />
+                <span asp-validation-for="SitesIncharge.SiteId" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="SitesIncharge.IsloginEnabled" /> @Html.DisplayNameFor(model => model.SitesIncharge.IsloginEnabled)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="SitesIncharge.AadharNo" class="control-label"></label>
+                <input asp-for="SitesIncharge.AadharNo" class="form-control" />
+                <span asp-validation-for="SitesIncharge.AadharNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

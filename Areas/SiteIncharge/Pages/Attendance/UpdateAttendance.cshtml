@@ -1,0 +1,96 @@
+﻿@page
+@model VijayLaxmi.Areas.SiteIncharge.Pages.Attendance.UpdateAttendanceModel
+@{
+}
+<h4>Update Attendane</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+           
+            <div class="form-group">
+                <label asp-for="EmpAttendence.EmpCode" class="control-label">Emp Code</label>
+                <select asp-for="EmpAttendence.EmpCode" asp-items="@Model.EmployeeList" id="Empcode" class="form-control" required>
+                    <option>Select Employee</option>
+                </select>
+                <span asp-validation-for="EmpAttendence.EmpCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpAttendence.Date" class="control-label">Date</label>
+                <input type="date" name="date" class="form-control" required />
+                <span asp-validation-for="EmpAttendence.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpAttendence.InTime" class="control-label">In Time</label>
+                <input type="time" name="intime" class="form-control" required />
+                <span asp-validation-for="EmpAttendence.InTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpAttendence.Outtime" class="control-label">Out Time</label>
+                <input type="time" name="Outtime" class="form-control" required />
+                <span asp-validation-for="EmpAttendence.Outtime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpAttendence.WorkTime" class="control-label">Work Time</label>
+                <input type="time" name="Worktime" class="form-control" required />
+                <span asp-validation-for="EmpAttendence.Outtime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpAttendence.Attendence" class="control-label">Mark</label>
+                <select class="form-control" name="Attendance">
+                    <option>A</option>
+                    <option>P</option>
+                </select>
+                <span asp-validation-for="EmpAttendence.Attendence" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            @if (ViewData["error"] != null)
+            {
+                <div class="form-group">
+                    <p class="text-danger">Attendance already marked</p>
+                </div>
+            }
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $("#SiteName").change(function () {
+            $("#Empcode").empty();
+            $.ajax({
+                type: "GET",
+                url: "/api/Employees",
+                data: { id: $("#SiteName").val() },
+                contentType: "application/json",
+                dataType: "json",
+                async: true,
+                success: function (response) {
+                    console.log(response);
+
+                    $.each(response, function (i, item) {
+                        var html = '';
+                        html += "<option value=" + item.id + ">" + item.name + "</option>";
+                        $("#Empcode").append(html);
+
+                    })
+                },
+                failure: function (response) {
+                    console.log(response.responseText);
+                },
+                error: function (response) {
+                    console.log(response.responseText);
+                }
+            });
+        });
+
+
+
+
+    </script>
+}

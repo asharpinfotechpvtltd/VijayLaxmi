@@ -1,0 +1,66 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.Sites.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4>Edit Site</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Site.Siteid" />
+            <div class="form-group row">
+                <label asp-for="Site.SiteName" class="col-lg-4 col-form-label" ></label>
+                <div class="col-lg-6">
+                    <input asp-for="Site.SiteName" class="form-control" />
+                    <span asp-validation-for="Site.SiteName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Site.Address" class="col-lg-4 col-form-label"></label>
+                <div class="col-lg-6">
+                    <input asp-for="Site.Address" class="form-control" />
+                    <span asp-validation-for="Site.Address" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Site.Gstno" class="col-lg-4 col-form-label"></label>
+                <div class="col-lg-6">
+                    <input asp-for="Site.Gstno" class="form-control" />
+                    <span asp-validation-for="Site.Gstno" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Site.AddedDate" class="col-lg-4 col-form-label"></label>
+                <div class="col-lg-6">
+                    <input asp-for="Site.AddedDate" type="date" class="form-control" />
+                    <span asp-validation-for="Site.AddedDate" class="text-danger"></span>
+                </div>
+            </div>
+           
+            <div class="form-group row">
+                <label asp-for="Site.StateCode" class="col-lg-4 col-form-label"></label>
+                <div class="col-lg-6">
+                    <input asp-for="Site.StateCode" class="form-control" />
+                    <span asp-validation-for="Site.StateCode" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <input type="submit" value="Save" class="btn" style="font-weight:bolder;background-color:#DD3D56; color:white;" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

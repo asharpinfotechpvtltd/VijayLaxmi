@@ -1,0 +1,96 @@
+﻿@page
+@model VijayLaxmi.Areas.SiteIncharge.Pages.LoanAdvance.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h4>Add Loan or Advance</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Loan_Advance.AAdharNo" class="control-label">AAdhar No</label>
+                <select asp-for="Loan_Advance.AAdharNo" asp-items="Model.EmployeeList" id="Employeeid" class="form-control" required>
+                    <option value="">Select Employee</option>
+                </select>
+                <span asp-validation-for="Loan_Advance.AAdharNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Max Allowed Loan / Advance</label>
+                <input type="text" class="form-control" id="Maxallowed" readonly name="Maxallowed" />
+                <span asp-validation-for="Loan_Advance.AAdharNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Loan_Advance.Type" class="control-label"></label>
+                <select asp-for="Loan_Advance.Type" class="form-control" required>
+                    <option>Loan</option>
+                    <option>Advance</option>
+                </select>
+                <span asp-validation-for="Loan_Advance.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Loan_Advance.Amount" class="control-label"></label>
+                <input asp-for="Loan_Advance.Amount" id="Amount" type="number" class="form-control" required />
+                <span asp-validation-for="Loan_Advance.Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Date</label>
+                <input asp-for="Loan_Advance.Loan_AdvanceDate" type="date" class="form-control" required />
+                <span asp-validation-for="Loan_Advance.Loan_AdvanceDate" class="text-danger"></span>
+            </div> <div class="form-group">
+                <label asp-for="Loan_Advance.SignedDocument" class="control-label">Signed Document</label>
+                <input type="file" name="SignedDocument" class="form-control" required />
+                <span asp-validation-for="Loan_Advance.SignedDocument" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Narration</label>
+                <input asp-for="Loan_Advance.Narration" type="text" class="form-control" required />
+                <span asp-validation-for="Loan_Advance.Loan_AdvanceDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" id="Create" class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        <script type="text/javascript">
+
+            $(document).on('change', '#Employeeid', function () {
+                var text = $("#txtCustomer").val();
+                $.ajax({
+                    type: "GET",
+                    url: "/api/Empsalary",
+                    data: { id: $("#Employeeid").val() },
+                    contentType: "application/json",
+                    dataType: "text",
+                    async: true,
+                    success: function (response) {
+                        console.log(response);
+                        $("#Maxallowed").val(response);
+                    },
+                    failure: function (response) {
+                        console.log(response.responseText);
+                    },
+                    error: function (response) {
+                        console.log(response.responseText);
+                    }
+                });
+            });
+            $("#Create").click(function (e) {
+                if ($("#Amount").val() > $("#Maxallowed").val()) {
+                    alert("Invalid amount");
+                    e.preventDefault();
+                }
+            });
+
+
+        </script>
+
+    }
+    }

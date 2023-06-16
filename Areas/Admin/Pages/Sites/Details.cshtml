@@ -1,0 +1,50 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.Sites.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Site</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Site.SiteName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Site.SiteName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Site.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Site.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Site.Gstno)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Site.Gstno)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Site.AddedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Site.AddedDate)
+        </dd>
+       
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Site.StateCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Site.StateCode)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Site?.Siteid">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

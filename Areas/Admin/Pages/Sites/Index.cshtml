@@ -1,0 +1,168 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.Sites.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    int i = 1;
+}
+<style>
+    #emplist tr {
+        border: 0.5px solid black;
+    }
+
+    .height37 {
+        height: 37px;
+        border-radius: 0.25rem;
+    }
+
+    @@media screen and (max-width: 600px) {
+        table {
+            border: 0;
+        }
+
+            table caption {
+                font-size: 1.3em;
+            }
+
+            table thead {
+                border: none;
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+
+            table tr {
+                border-bottom: 3px solid #ddd;
+                display: block;
+                margin-bottom: .625em;
+            }
+
+            table td {
+                border-bottom: 1px solid #ddd;
+                display: block;
+                font-size: 1em;
+                text-align: right;
+            }
+
+                table td::before {
+                    /*
+                    * aria-label has no advantage, it won't be read inside a table
+                    content: attr(aria-label);
+                    */
+                    content: attr(data-label);
+                    float: left;
+                    font-weight: bold;
+                }
+
+                table td:last-child {
+                    border-bottom: 0;
+                }
+    }
+
+</style>
+<h1>Site List</h1>
+
+
+
+<div class="row mb-2">
+    <div class="col-md-4">
+        <a asp-page="Create" class="btn float-left btn-danger">
+            <i class="fa fa-plus" aria-hidden="true"></i>   Add New Site
+        </a>
+    </div>
+    @*<div class="col-md-8">
+    <form class="form-inline float-right">
+    <div class="form-group mb-2">
+    <label for="staticEmail2" class="sr-only">Email</label>
+    <input type="text" class="form-control-plaintext" id="staticEmail2">
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+    <label for="inputPassword2" class="sr-only">Password</label>
+    <input type="password" class="form-control height37" id="inputPassword2" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-danger mb-2" value="Search"> <i class="fa fa-search-plus" aria-hidden="true"></i></button>
+    </form>
+
+    </div>*@
+
+</div>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered" id="emplist">
+        <thead class="text-center" style="background-color:black; color:red;">
+            <tr>
+                <th>S.No.</th>
+                <th>
+                    Site Name
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Site[0].Address)
+                </th>
+                <th>
+                    Gst No
+                </th>
+                <th>
+                    Added Date
+                </th>
+
+                <th>
+                    State Code
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Site)
+            {
+                <tr class="text-center">
+                    <td data-label="S.No.">@i</td>
+                    <td data-label="Site Name">
+                        @Html.DisplayFor(modelItem => item.SiteName)
+                    </td>
+                    <td data-label="Address">
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td data-label="Gst no">
+                        @Html.DisplayFor(modelItem => item.Gstno)
+                    </td>
+                    <td data-label="Date">
+                        @item.AddedDate.ToString().Remove(10,9)
+                    </td>
+
+                    <td data-label="State Code">
+                        @Html.DisplayFor(modelItem => item.StateCode)
+                    </td>
+                    <td data-label="Action">
+
+                        <a asp-page="./Edit" asp-route-id="@item.Siteid"> <i class="material-icons" style="color:green;" title="Edit">edit</i></a>
+                        <a asp-page="./Details" asp-route-id="@item.Siteid" title="Detail">
+                            <span class="material-icons" style="color:blue;">
+                                info
+                            </span>
+                        </a>
+                        <a asp-page="./UploadContract" asp-route-Siteid="@item.Siteid" title="Upload Contract">
+                            <span class="material-icons" style="color:red;">
+                                file_upload
+                            </span>
+                        </a> 
+                        <a asp-page="./AddSupervisor" asp-route-Siteid="@item.Siteid" title="Add Site Incharge">
+                            <span class="material-icons" style="color:forestgreen;">
+                                supervisor_account
+                            </span>
+                        </a>
+
+                    </td>
+                </tr>
+                i++;
+            }
+
+        </tbody>
+    </table>
+
+
+</div>

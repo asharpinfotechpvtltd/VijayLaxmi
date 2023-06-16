@@ -1,0 +1,62 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.DeviceList.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Device List</h1>
+
+
+<div class="row mb-2">
+    <div class="col-md-4">
+        <a asp-page="Create" style="font-weight:bolder;" class="btn btn-danger float-left" style="font-weight:bolder;background-color:#DD3D56; color:white;">
+            <i class="fa fa-plus" aria-hidden="true"></i>   Add New Device
+        </a>
+    </div>
+
+
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered" id="emplist">
+        <thead class="text-center" style="background-color:black; color:red;">
+            <tr>
+                <th>
+                    Device Id
+                </th>
+                <th>
+                    Site Id
+                </th>
+                <th>
+                    Api Url
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Device)
+            {
+                <tr class="text-center">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Deviceid)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SiteId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApiUrl)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id"><i class="material-icons" style="color:green;" title="Edit">edit</i></a>
+                        <a asp-page="./Details" asp-route-id="@item.Id" title="Details">
+                            <span class="material-icons" style="color:blue;">
+                                info
+                            </span>
+                        </a>
+                        <a asp-page="./Delete" asp-route-id="@item.Id"><i class="material-icons" style="color:red;" title="Delete">delete</i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

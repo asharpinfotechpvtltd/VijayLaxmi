@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vijay Lami Mansol-Admin</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <!-- Custom Stylesheet -->
+    <link href="~/css/Admin/css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+<style>
+        .nk-sidebar .metismenu > li a > i {
+            background: rgb(23,149,208) !important;
+            background: linear-gradient(90deg, rgba(23,149,208,1) 0%, rgba(221,61,86,1) 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header" style="background-color:#ffffff;">
+            <div class="brand-logo">
+                <a href="/Admin/index">
+                    <b class="logo-abbr"> </b>
+                    <span class="logo-compact"></span>
+                    <span class="brand-title">
+                        <img src="~/assets/img/logo1.png" style="width: 200px; margin: 0px auto; display: block; margin-top: -21px; background-color:#ffffff; !important" alt="">
+                    </span>
+                </a>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content clearfix">
+
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="nk-sidebar">
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label">Dashboard</li>
+                    <li>
+                        <a href="/Admin/index" aria-expanded="false">
+                            <i class="fa fa-home"></i><span class="nav-text">HOME</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a asp-page="/Sites/Index" aria-expanded="false">
+                            <i class="fa fa-location-arrow"></i><span class="nav-text">SITES</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-page="/DeviceList/Index" aria-expanded="false">
+                            <i class="fa fa-tablet"></i><span class="nav-text">DEVICES</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-page="/HR/Employees/index" aria-expanded="false">
+                            <i class="fa fa-users"></i><span class="nav-text">EMPLOYEES</span>
+                        </a>
+                    </li>  
+                    <li>
+                        <a asp-page="/Incharge/index" aria-expanded="false">
+                            <i class="fa fa-users"></i><span class="nav-text">INCHARGE</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-page="/HR/LoanAdvance/index" aria-expanded="false">
+                            <i class="fa fa-money"></i><span class="nav-text"> LOAN/ADVANCE</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-page="/Bill/ProductBill" aria-expanded="false">
+                            <i class="fa fa-file"></i><span class="nav-text">BILL</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-page="/Accounts/BankHead/Index" aria-expanded="false">
+                            <i class="fa fa-building"></i><span class="nav-text">BANK HEAD</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-page="/Accounts/CashHead/Index" aria-expanded="false">
+                            <i class="fa fa-money"></i><span class="nav-text">CASH HEAD</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-page="/Accounts/Transaction/Index" aria-expanded="false">
+                            <i class="fa fa-paper-plane"></i><span class="nav-text">TRANSACTION</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-page="/EmpAttendance/ViewAttendance" aria-expanded="false">
+                            <i class="fa fa-child"></i><span class="nav-text">ATTENDANCE</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-page="/EmpAttendance/UpdateAttendance" aria-expanded="false">
+                            <i class="fa fa-child"></i><span class="nav-text">UPDATE ATTENDANCE</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-page="/Requirements/Index" aria-expanded="false">
+                            <i class="fa fa-ticket"></i><span class="nav-text">REQUIREMENT</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-page="/DesignationList/Index" aria-expanded="false">
+                            <i class="fa fa-level-up"></i><span class="nav-text">DESIGNATION</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-page="/Index" asp-page-handler="Logout" aria-expanded="false">
+                            <i class="fa fa-sign-out"></i><span class="nav-text">SIGNOUT</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-validation">
+                                    @RenderBody()
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--**********************************
+                Content body end
+            ***********************************-->
+            <!--**********************************
+                Footer start
+            ***********************************-->
+            <div class="footer">
+                <div class="copyright">
+                </div>
+            </div>
+            <!--**********************************
+                Footer end
+            ***********************************-->
+        </div>
+        <!--**********************************
+            Main wrapper end
+
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Scripts
+    ***********************************-->
+
+    <script src="~/css/Admin/plugins/common/common.min.js"></script>
+    <script src="~/css/Admin/js/custom.min.js"></script>
+    <script src="~/css/Admin/js/settings.js"></script>
+    <script src="~/css/Admin/js/gleek.js"></script>
+    <script src="~/css/Admin/js/styleSwitcher.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

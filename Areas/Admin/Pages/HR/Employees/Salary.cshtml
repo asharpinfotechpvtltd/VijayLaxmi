@@ -1,0 +1,58 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.HR.Employees.SalaryModel
+@{
+}
+<h4 class="card-title">Add Bank Detail</h4>
+<hr />
+<div class="row">
+    <div class="col-lg-12">
+        <div class="basic-form">
+            <form method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="Salary.EmployeeId" value="@Model.EmployeeId" />
+                <input type="hidden" asp-for="Salary.AadharNo" value="@Model.AadharNo" />
+                <div class="form-row">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">CTC</label>
+                        <input type="text" class="form-control" asp-for="Salary.CTC" value="0" required />
+                        <span asp-validation-for="Salary.CTC" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">In Hand</label>
+                        <input asp-for="Salary.INHAND" class="form-control" />
+                        <span asp-validation-for="Salary.INHAND" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Per Hour Rate</label>
+                        <input asp-for="Salary.PERHOURRATE" class="form-control" />
+                        <span asp-validation-for="Salary.PERHOURRATE" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Working Days</label>
+                        <input asp-for="Salary.WORKINGDAYS" type="number" class="form-control" />
+                        <span asp-validation-for="Salary.WORKINGDAYS" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Working Hours</label>
+                        <input asp-for="Salary.WORKINGHOURS" class="form-control" />
+                        <span asp-validation-for="Salary.WORKINGHOURS" class="text-danger"></span>
+                    </div>
+                   
+                    <div class="line line-dashed line-lg pull-in" style="clear: both;"></div>
+
+                    <div class="form-group col-md-12">
+                        <input type="submit" value="Add Documents " class="btn btn-danger" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

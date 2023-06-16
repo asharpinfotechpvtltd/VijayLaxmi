@@ -1,0 +1,164 @@
+﻿@page
+@model NieAdvisory.Areas.Admin.Pages.IndexModel
+@{
+    int i = 1;
+}
+<style>
+    .new_bg {
+        background: #1795D0 !important;
+    }
+
+    .newgradient-11 {
+        background: rgb(23,149,208) !important;
+        background: linear-gradient(90deg, rgba(23,149,208,1) 0%, rgba(221,61,86,1) 100%) !important;
+        color: #fff !important;
+    }
+</style>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-lg-4 col-sm-6">
+            <a asp-page="/sites/Index">
+                <div class="card newgradient-11">
+                    <div class="card-body">
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Sites</h2>
+                        </div>
+                        <span class="float-right display-5"><i class="fa fa-location-arrow"></i></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+            <a asp-page="/DeviceList/Index">
+                <div class="card newgradient-11">
+                    <div class="card-body">
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Devices</h2>
+                        </div>
+                        <span class="float-right display-5"><i class=" fa fa-tablet"></i></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+            <a asp-page="/HR/Employees/Index">
+                <div class="card newgradient-11">
+                    <div class="card-body">
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Employees</h2>
+                        </div>
+                        <span class="float-right display-5"><i class="fa fa-users"></i></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+            <a asp-page="/HR/Loanadvance/Index">
+                <div class="card newgradient-11">
+                    <div class="card-body">
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Loan Advance</h2>
+                        </div>
+                        <span class="float-right display-5"><i class="fa fa-money"></i></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+            <a asp-page="/EmpAttendance/ViewAttendance">
+                <div class="card newgradient-11">
+                    <div class="card-body">
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Attendance</h2>
+                        </div>
+                        <span class="float-right display-5 "><i class="fa fa-child" aria-hidden="true"></i></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+       
+        <div class="col-lg-4 col-sm-6">
+            <a asp-page="/Index" asp-page-handler="Logout">
+                <div class="card gradient-9" style="color:red;">
+                    <div class="card-body">
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Logout</h2>
+                        </div>
+                        <span class="float-right display-5"><i class="fa fa-lock"></i></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    @if (Model.PendingEmployeeList.Count > 0)
+    {
+        <div class="row">
+            <div class="col-lg-12"><h2>Verification Pending</h2></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="emplist">
+                        <thead class="text-center" style="background-color:black; color:#fff;">
+                            <tr>
+                                <th>S.No.</th>
+                                <th>
+                                    ID
+                                </th>
+                                <th>Aadhar No</th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Contact No
+                                </th>
+                                <th>
+                                    Added Date
+                                </th>
+
+
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.PendingEmployeeList)
+                            {
+                                <tr class="text-center">
+                                    <td>@i</td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>
+                                    <td>@item.AAdharno</td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Contactno)
+                                    </td>
+                                    <td>
+                                        @item.AddedDate.ToString().Remove(10,9)
+                                    </td>
+                                    <td colspan="2">
+                                        <a href="/Admin/HR/Employees/Details?id=@item.Id">
+                                            <span class="material-icons" style="color:red;">
+                                                manage_accounts
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<!-- #/ container -->
+@section Scripts{
+
+
+}

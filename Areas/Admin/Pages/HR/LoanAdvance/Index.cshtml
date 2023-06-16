@@ -1,0 +1,135 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.HR.LoanAdvance.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    int i = 1;
+}
+
+<h1>Loan Advance List</h1>
+
+@*<p>
+    <a asp-page="Create" style="color:red; font-weight:bolder;">Add New Loan Advance</a>
+</p>*@
+<div class="row mb-2">
+    <div class="col-md-4">
+        <a asp-page="Create" style="font-weight:bolder;" class="btn btn-danger float-left">
+            <i class="fa fa-plus" aria-hidden="true"></i>   Add New Loan Advance
+        </a>
+    </div>
+    @*   <div class="col-md-8">
+    <form class="form-inline float-right">
+    <div class="form-group mb-2">
+    <label for="staticEmail2" class="sr-only">Email</label>
+    <input type="text" class="form-control-plaintext" id="staticEmail2">
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+    <label for="inputPassword2" class="sr-only">Password</label>
+    <input type="password" class="form-control height37" id="inputPassword2" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-danger mb-2" value="Search"> <i class="fa fa-search-plus" aria-hidden="true"></i></button>
+    </form>
+
+    </div>*@
+
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered" id="emplist">
+        <thead class="text-center" style="background-color:black; color:red;">
+
+            <tr>
+                <th>S.No.</th>
+                <th>
+                    AAdhar No.
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Fathers Name
+                </th>
+                <th>Site Name</th>
+                <th>
+                    Contact No.
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Loan_Advance[0].Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Loan_Advance[0].Amount)
+                </th>
+                <th>
+                    Appliation
+                </th>
+                <th>
+                    Signed Doc.
+                </th>
+
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Loan_Advance)
+            {
+
+                <tr class="text-center">
+                    <td>@i</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AAdharNo)
+                    </td>
+                    <td>
+                        @item.Loan_AdvanceDate.ToString().Remove(10,9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fathersname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sitename)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contactno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        <a href="~/LoanadvanceDocument/@item.ApplicationDocument" title="View" style="color:black; font-weight:bolder;" target="_blank">
+                            <span class="material-icons">
+                                visibility
+                            </span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="~/LoanadvanceDocument/@item.SignedDocument" title="View" style="color:black; font-weight:bolder;" target="_blank">
+                            <span class="material-icons">
+                                visibility
+                            </span>
+                        </a>
+                    </td>
+
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id"> <i class="material-icons" style="color:green;" title="Edit">edit</i></a>
+                        <a asp-page="./Details" title="Details" asp-route-loanid="@item.Id" asp-route-AAdharNo="@item.AAdharNo">
+                            <span class="material-icons" style="color:blue;">
+                                info
+                            </span>
+                        </a>
+                        <a asp-page="./Delete" asp-route-id="@item.Id"><i class="material-icons" style="color:red;" title="Delete">delete</i></a>
+                    </td>
+                </tr>
+
+
+                i++;
+            }
+        </tbody>
+    </table>
+</div>

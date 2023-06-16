@@ -1,0 +1,306 @@
+﻿@page "{handler?}"
+@model VijayLaxmi.Areas.SiteIncharge.Pages.Employees.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    int i = 1;
+
+}
+
+<h1>Employee List</h1>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group row">
+
+            <div class="col-sm-2">
+                <a asp-page="Create" style="font-weight:bolder;" class="btn btn-danger float-left">
+                    <i class="fa fa-plus" aria-hidden="true"></i>   Add New Employee
+                </a>
+            </div>
+            <div class="col-sm-5">
+            </div>
+            <div class="col-sm-3">
+                <input type="text" class="form-control  mt1" id="Empname" placeholder="Employee Name" />
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="btn mb-2 mr-1 mt1" value="Search" id="Search" style="background-color:blue; color:white;"> <i class="fa fa-search-plus" aria-hidden="true"></i></button>
+
+                <a onclick="exportData(this)" title="Export To Excel" class="btn mb-2  mt1" style="background-color:green; color:white;" value="Search"> <i class="fa fa-download" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group row">
+            <div class="table-responsive">
+                <table class="table table-responsive table-bordered" id="emplist">
+                    <thead class="text-center" style="background-color:black; color:#fff;">
+                        <tr>
+                            <th>S No.</th>
+                            <th>ID</th>
+                            <th>Aadhar No.</th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Father's Name
+                            </th>
+
+                            <th>
+                                Contact No
+                            </th>
+
+                            <th>
+                                Employee Type
+                            </th>
+                            <th>Site Name</th>
+                            <th>
+                                Added Date
+                            </th>
+
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        @foreach (var item in Model.SPEmployeeList)
+                        {
+                            if (item.IsVerified == true)
+                            {
+                                <tr class="text-center">
+                                    <td>@i</td>
+                                    <td>@item.Id</td>
+                                    <td>@item.AAdharno</td>
+                                    <td>
+                                        @item.Name.ToUpper()
+                                    </td>
+                                    <td>
+                                        @item.FathersName.ToUpper()
+                                    </td>
+
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Contactno)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Employeetype)
+                                    </td>
+                                    <td>@item.SiteName</td>
+
+                                    <td>
+                                        @item.AddedDate.ToShortDateString()
+                                    </td>
+                                    <td>
+
+                                        <a asp-page="./Details" asp-route-Aadharno="@item.AAdharno">
+                                            <span class="material-icons" style="color:green;">
+                                                manage_accounts
+                                            </span>
+                                        </a>
+
+
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr class="text-center" bgcolor="red" style="color:white;">
+                                    <td>@i</td>
+                                    <td>@item.Id</td>
+                                    <td>@item.AAdharno</td>
+                                    <td>
+                                        @item.Name.ToUpper()
+                                    </td>
+                                    <td>
+                                        @item.FathersName.ToUpper()
+                                    </td>
+
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Contactno)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Employeetype)
+                                    </td>
+                                    <td>@item.SiteName</td>
+
+                                    <td>
+                                        @item.AddedDate.ToShortDateString()
+                                    </td>
+                                    <td>
+
+                                        <a asp-page="./Details" asp-route-Aadharno="@item.AAdharno">
+                                            <span class="material-icons" style="color:white;">
+                                                manage_accounts
+                                            </span>
+                                        </a>
+
+
+                                    </td>
+                                </tr>
+                            }
+                            i++;
+                        }
+                    </tbody>
+                </table>
+                @{
+                    var prevDisabled = !Model.SPEmployeeList.HasPreviousPage ? "disabled" : "";
+                    var nextDisabled = !Model.SPEmployeeList.HasNextPage ? "disabled" : "";
+                }
+                <a asp-page="./Index"
+                   asp-route-sortOrder="@Model.CurrentSort"
+                   asp-route-pageIndex="@(Model.SPEmployeeList.PageIndex - 1)"
+                   asp-route-currentFilter="@Model.CurrentFilter"
+                   class="btn btn-danger @prevDisabled">
+                    Previous
+                </a>
+                <a asp-page="./Index"
+                   asp-route-sortOrder="@Model.CurrentSort"
+                   asp-route-pageIndex="@(Model.SPEmployeeList.PageIndex + 1)"
+                   asp-route-currentFilter="@Model.CurrentFilter"
+                   class="btn btn-danger @nextDisabled">
+                    Next
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+
+    <script>
+        function exportData() {
+            /* Get the HTML data using Element by Id */
+            var table = document.getElementById("emplist");
+
+            /* Declaring array variable */
+            var rows = [];
+
+            //iterate through rows of table
+            for (var i = 0, row; row = table.rows[i]; i++) {
+                //rows would be accessed using the "row" variable assigned in the for loop
+                //Get each cell value/column from the row
+                column1 = row.cells[0].innerText;
+                column2 = row.cells[1].innerText;
+                column3 = row.cells[2].innerText;
+                column4 = row.cells[3].innerText;
+                column5 = row.cells[4].innerText;
+                column6 = row.cells[5].innerText;
+                column7 = row.cells[6].innerText;
+                column8 = row.cells[7].innerText;
+                column9 = row.cells[8].innerText;
+
+                /* add a new records in the array */
+                rows.push(
+                    [
+                        column1,
+                        column2,
+                        column3,
+                        column4,
+                        column5,
+                        column6,
+                        column7,
+                        column8,
+                        column9
+
+                    ]
+                );
+
+            }
+            csvContent = "data:text/csv;charset=utf-8,";
+            /* add the column delimiter as comma(,) and each row splitted by new line character (\n) */
+            rows.forEach(function (rowArray) {
+                row = rowArray.join(",");
+                csvContent += row + "\r\n";
+            });
+
+            /* create a hidden <a> DOM node and set its download attribute */
+            var encodedUri = encodeURI(csvContent);
+            var link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "EmployeeList.csv");
+            document.body.appendChild(link);
+            /* download the data file named "Stock_Price_Report.csv" */
+            link.click();
+        }
+        $(document).on('click', '#Search', function () {
+            if ($("#Empname").val() != null) {
+                GetEmp($("#Empname").val());
+            }
+        });
+        $(document).on('change', '#Site', function () {
+            GetSiteWiseEmp($("#Site").val());
+        });
+
+        function GetEmp(Empname) {
+            var sno = 1;
+            $("#tbody").empty();
+            $.ajax({
+                type: "GET",
+                url: "/api/searchemployee",
+                data: { EmployeeName: $("#Empname").val() },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: true,
+                success: function (response) {
+                    $.each(response, function (i, item) {
+                        var html = '';
+                        if (item.isVerified == false) {
+                            html += "<tr class='text-center' bgcolor='red' style='color: white;'><td>" + sno + "</td><td>" + item.id + "</td><td>" + item.aAdharno + "</td><td>" + item.name + "</td><td>" + item.fathersName + "</td><td>" + item.contactno + "</td><td>" + item.employeetype + "</td><td>" + item.siteName + "</td><td>" + item.addedDate.substr(0, 10) + "</td><td><a href='./Employees/Details/" + item.aAdharno + "'><span class='material-icons' style='color:white;'> manage_accounts </span></a></td></tr> ";
+                        }
+                        else {
+                            html += "<tr class='text-center'><td>" + sno + "</td><td>" + item.id + "</td><td>" + item.aAdharno + "</td><td>" + item.name + "</td><td>" + item.fathersName + "</td><td>" + item.contactno + "</td><td>" + item.employeetype + "</td><td>" + item.siteName + "</td><td>" + item.addedDate.substr(0, 10) + "</td><td><a href='./Employees/Details/" + item.aAdharno + "'><span class='material-icons' style='color:green;'>manage_accounts</span></a></td></tr>";
+                        }
+                        $("#tbody").append(html);
+                        sno++;
+                    })
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    document.location = "/NotFound";
+                }
+            });
+
+        }
+
+        function GetSiteWiseEmp(SiteName) {
+            var sno = 1;
+            $("#tbody").empty();
+            $.ajax({
+                type: "GET",
+                url: "/api/SiteWiseEmp",
+                data: { SiteName: SiteName },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: true,
+                success: function (response) {
+                    $.each(response, function (i, item) {
+                        var html = '';
+                        if (item.isVerified == false) {
+                            html += "<tr class='text-center' bgcolor='red' style='color: white;'><td>" + sno + "</td><td>" + item.id + "</td><td>" + item.aAdharno + "</td><td>" + item.name + "</td><td>" + item.fathersName + "</td><td>" + item.contactno + "</td><td>" + item.employeetype + "</td><td>" + item.siteName + "</td><td>" + item.addedDate.substr(0, 10) + "</td><td><a href='./Employees/Details/" + item.aAdharno + "'><span class='material-icons' style='color:white;'> manage_accounts </span></a></td></tr> ";
+                        }
+                        else {
+                            html += "<tr class='text-center'><td>" + sno + "</td><td>" + item.id + "</td><td>" + item.aAdharno + "</td><td>" + item.name + "</td><td>" + item.fathersName + "</td><td>" + item.contactno + "</td><td>" + item.employeetype + "</td><td>" + item.siteName + "</td><td>" + item.addedDate.substr(0, 10) + "</td><td><a href='./Employees/Details/" + item.aAdharno + "'><span class='material-icons' style='color:black;'>manage_accounts</span></a></td></tr>";
+                        }
+                        $("#tbody").append(html);
+                        sno++;
+                    })
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+
+        }
+    </script>
+    }

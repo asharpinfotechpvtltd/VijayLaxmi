@@ -1,0 +1,58 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.DesignationList.IndexModel
+@{
+    ViewData["Title"] = "Index";
+    int i = 1;
+}
+
+<h1>Site List</h1>
+
+
+
+<div class="row mb-2">
+    <div class="col-md-4">
+        <a asp-page="Create" style="font-weight:bolder;" class="btn btn-danger float-left">
+            <i class="fa fa-plus" aria-hidden="true"></i>   Add New Designation
+        </a>
+    </div>
+  
+
+</div>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered" id="emplist">
+        <thead class="text-center" style="background-color:black; color:red;">
+            <tr>
+                <th>S.No.</th>
+                <th>
+                    Designation Name
+                </th>
+               
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.DesignationList)
+            {
+                <tr class="text-center">
+                    <td data-label="S.No.">@i</td>
+                    <td >
+                        @Html.DisplayFor(modelItem => item.DesignationName)
+                    </td>
+                    
+                    <td data-label="Action">
+
+                        <a asp-page="./Edit" asp-route-id="@item.Id"> <i class="material-icons" style="color:green;" title="Edit">edit</i></a>
+
+
+                    </td>
+                </tr>
+                i++;
+            }
+
+        </tbody>
+    </table>
+
+
+</div>

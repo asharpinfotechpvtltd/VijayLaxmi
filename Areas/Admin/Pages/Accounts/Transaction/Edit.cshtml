@@ -1,0 +1,50 @@
+﻿@page
+@model VijayLaxmi.Areas.Admin.Pages.Accounts.Transaction.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Ledger</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Ledger.Id" />
+            <div class="form-group">
+                <label asp-for="Ledger.TransactionDate" class="control-label"></label>
+                <input asp-for="Ledger.TransactionDate" class="form-control" />
+                <span asp-validation-for="Ledger.TransactionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ledger.Description" class="control-label"></label>
+                <input asp-for="Ledger.Description" class="form-control" />
+                <span asp-validation-for="Ledger.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ledger.PaidAmount" class="control-label"></label>
+                <input asp-for="Ledger.PaidAmount" class="form-control" />
+                <span asp-validation-for="Ledger.PaidAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ledger.ReceivedAmount" class="control-label"></label>
+                <input asp-for="Ledger.ReceivedAmount" class="form-control" />
+                <span asp-validation-for="Ledger.ReceivedAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
