@@ -19,13 +19,21 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.LoanAdvance
             _context = context;
         }
 
-        public IList<SPLoanadvanceList> Loan_Advance { get;set; } = default!;
+        public IList<SPLoanadvanceList> Loan_Advance { get; set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
-            if (_context.TblLoanAdvance != null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("SiteIncharge")))
             {
-                Loan_Advance = await _context.SPLoanadvanceList.FromSqlRaw("SPLoanadvanceList").ToListAsync();
+                return Redirect("~/Index");
+            }
+            else
+            {
+                if (_context.TblLoanAdvance != null)
+                {
+                    Loan_Advance = await _context.SPLoanadvanceList.FromSqlRaw("SPLoanadvanceList").ToListAsync();
+                }
+                return Page();
             }
         }
     }

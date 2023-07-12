@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets\\Agreement\\e2509ccc-b701-456c-9dac-e218d3d4218aZ500V2.pdf"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\BankDocument\\8c221106-931b-4d82-b4fc-0168c02c40e6Linkedin.jpg",
+      "PackagePath": "staticwebassets\\BankDocument\\8c221106-931b-4d82-b4fc-0168c02c40e6Linkedin.jpg"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\BankDocument\\ABHINANDAN CHAUHAN.jpg",
       "PackagePath": "staticwebassets\\BankDocument\\ABHINANDAN CHAUHAN.jpg"
     },
@@ -77,12 +81,24 @@
       "PackagePath": "staticwebassets\\Tic\\2.pdf"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\Tic\\74aa5fb7-e4bc-4043-9931-b25d125aecfaLinkedin.jpg",
+      "PackagePath": "staticwebassets\\Tic\\74aa5fb7-e4bc-4043-9931-b25d125aecfaLinkedin.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\Tic\\d8d877a3-0d62-477a-b72c-44cae16a08eb3D-logo-Asharp-Infotech-Orange-and-O-B.png",
+      "PackagePath": "staticwebassets\\Tic\\d8d877a3-0d62-477a-b72c-44cae16a08eb3D-logo-Asharp-Infotech-Orange-and-O-B.png"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\0 (3) - Copy.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\0 (3) - Copy.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\0 (3).jpg",
       "PackagePath": "staticwebassets\\UserDocument\\0 (3).jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\0250d60e-457a-43fb-9f0a-f3d933666f53Iot.png",
+      "PackagePath": "staticwebassets\\UserDocument\\0250d60e-457a-43fb-9f0a-f3d933666f53Iot.png"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\085e56f2-e058-4a82-8639-c05e2e28c557Banner.jpg",
@@ -97,20 +113,40 @@
       "PackagePath": "staticwebassets\\UserDocument\\0b4f5b16-616d-4c6c-81c2-a88274eea655linkedin.jpg"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\0c3c8395-21c0-44a0-b853-b025f7e41c47fulltext.pdf",
+      "PackagePath": "staticwebassets\\UserDocument\\0c3c8395-21c0-44a0-b853-b025f7e41c47fulltext.pdf"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\1171a209-766d-41c9-b4c8-05f4f00faadclinkedin.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\1171a209-766d-41c9-b4c8-05f4f00faadclinkedin.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\14ff3480-bad1-4e8c-8b14-07633f8db796Facebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\14ff3480-bad1-4e8c-8b14-07633f8db796Facebook.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\15c35586-1d46-4245-99ff-3f9a46c6fa9435539-Maya-Angelou-Quote-One-isn-t-necessarily-born-with-courage-but-one.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\15c35586-1d46-4245-99ff-3f9a46c6fa9435539-Maya-Angelou-Quote-One-isn-t-necessarily-born-with-courage-but-one.jpg"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\187a0427-10a5-4e41-b490-ee4352ad4c3emenzel-reiners_2012_CustomerRelationshipManagementSystem1.pdf",
+      "PackagePath": "staticwebassets\\UserDocument\\187a0427-10a5-4e41-b490-ee4352ad4c3emenzel-reiners_2012_CustomerRelationshipManagementSystem1.pdf"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\198d079d-641d-426d-9c55-1ad7a5607e4dfacebook.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\198d079d-641d-426d-9c55-1ad7a5607e4dfacebook.jpg"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\2671d61f-0b19-4bc9-85cd-a3ee6757ae14instagram.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\2671d61f-0b19-4bc9-85cd-a3ee6757ae14instagram.jpg"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\26cba059-8aba-4579-89d8-57f10096a3a3linkedin.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\26cba059-8aba-4579-89d8-57f10096a3a3linkedin.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\27500b86-fc4b-4211-adad-0e957045f6b6Linkedin.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\27500b86-fc4b-4211-adad-0e957045f6b6Linkedin.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\29122163-8897-4c9f-bc0d-1697fe0274dfPortuges.jpg",
@@ -125,8 +161,28 @@
       "PackagePath": "staticwebassets\\UserDocument\\2c9212d0-2d45-4932-b3a4-7a8b6ee3540afacebook.jpg"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\3ff87e82-8200-4a7a-ad7a-8f26b9c8d9e7Facebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\3ff87e82-8200-4a7a-ad7a-8f26b9c8d9e7Facebook.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\4846ecc7-28ed-4d83-8aee-532757f81c2dLinkedin.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\4846ecc7-28ed-4d83-8aee-532757f81c2dLinkedin.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\48c1529a-0d8a-4e7c-a1b4-27914d8b96173D-logo-Asharp-Infotech-Orange-and-O-B.png",
+      "PackagePath": "staticwebassets\\UserDocument\\48c1529a-0d8a-4e7c-a1b4-27914d8b96173D-logo-Asharp-Infotech-Orange-and-O-B.png"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\4ba568f2-c9b2-40b5-85af-164efe46364cmenzel-reiners_2012_CustomerRelationshipManagementSystem1.pdf",
+      "PackagePath": "staticwebassets\\UserDocument\\4ba568f2-c9b2-40b5-85af-164efe46364cmenzel-reiners_2012_CustomerRelationshipManagementSystem1.pdf"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\4def3d9a-0e17-4a76-8fa3-e45d7656924elinkedin.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\4def3d9a-0e17-4a76-8fa3-e45d7656924elinkedin.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\4eb0b408-1302-443e-99ae-ded86f7afbc5Facebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\4eb0b408-1302-443e-99ae-ded86f7afbc5Facebook.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\504270fa-50c1-4e0b-a7e4-88f9a8daa0407020371.jpg",
@@ -141,12 +197,36 @@
       "PackagePath": "staticwebassets\\UserDocument\\59f7a7e5-19af-4e3e-a123-d9ce0eecd5b7Linkedin.jpg"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\5bfaced1-e3c4-47f9-b352-3173328e0694fulltext.pdf",
+      "PackagePath": "staticwebassets\\UserDocument\\5bfaced1-e3c4-47f9-b352-3173328e0694fulltext.pdf"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\5dcfbf12-5cb9-40f4-a35c-74bccb0a777bFacebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\5dcfbf12-5cb9-40f4-a35c-74bccb0a777bFacebook.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\5eb08783-9b51-4d98-a1dc-6ac2949a78a5Facebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\5eb08783-9b51-4d98-a1dc-6ac2949a78a5Facebook.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\6078f514-a467-487d-84b9-6bc2900c27fdFacebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\6078f514-a467-487d-84b9-6bc2900c27fdFacebook.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\638e24ff-bacf-4fd8-afa6-90230aae4ddbFacebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\638e24ff-bacf-4fd8-afa6-90230aae4ddbFacebook.jpg"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\638fdae0-b731-4ac3-a3f1-075009b4946eLinkedin.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\638fdae0-b731-4ac3-a3f1-075009b4946eLinkedin.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\6abfecfd-629a-4382-9bd8-4f03e60f52f8CRM.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\6abfecfd-629a-4382-9bd8-4f03e60f52f8CRM.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\6e84c347-b7d9-46de-ace6-44996b04608eFacebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\6e84c347-b7d9-46de-ace6-44996b04608eFacebook.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\6f2e6cf4-6491-470d-976e-2e24a218c8b0linkedin.jpg",
@@ -165,12 +245,24 @@
       "PackagePath": "staticwebassets\\UserDocument\\7b15397f-a954-493a-86b2-b1928277373afacebook.jpg"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\7c74e02c-4457-4379-aa94-74e0fa3193adFacebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\7c74e02c-4457-4379-aa94-74e0fa3193adFacebook.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\854d65e9-204a-4722-8f2b-60e6f55f2112menzel-reiners_2012_CustomerRelationshipManagementSystem1.pdf",
+      "PackagePath": "staticwebassets\\UserDocument\\854d65e9-204a-4722-8f2b-60e6f55f2112menzel-reiners_2012_CustomerRelationshipManagementSystem1.pdf"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\85e8221b-1d74-4ed3-b6dc-9c014109894b55724.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\85e8221b-1d74-4ed3-b6dc-9c014109894b55724.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\89f9d112-1c09-4d34-8672-d2b413310013facebook.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\89f9d112-1c09-4d34-8672-d2b413310013facebook.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\8c137639-424d-474f-bc42-aef57010b6b0facebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\8c137639-424d-474f-bc42-aef57010b6b0facebook.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\8e6619ef-f194-4f66-9dc5-f9957a0959adCRM.jpg",
@@ -229,6 +321,10 @@
       "PackagePath": "staticwebassets\\UserDocument\\aadhar.jpg"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\b1c7bd98-5518-4d80-a21f-a6d60cfac896Linkedin.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\b1c7bd98-5518-4d80-a21f-a6d60cfac896Linkedin.jpg"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\b29f8903-6f7a-43e8-b79a-eb0c9d569ee455724.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\b29f8903-6f7a-43e8-b79a-eb0c9d569ee455724.jpg"
     },
@@ -245,6 +341,10 @@
       "PackagePath": "staticwebassets\\UserDocument\\bb3439e0-3935-405d-a56b-b142337e43c4Linkedin.jpg"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\bdded19b-3e5e-42ba-8846-eb831d9ee47bIot.png",
+      "PackagePath": "staticwebassets\\UserDocument\\bdded19b-3e5e-42ba-8846-eb831d9ee47bIot.png"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\be6004e0-9b00-4caa-9282-9c16f965cee1linkedin.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\be6004e0-9b00-4caa-9282-9c16f965cee1linkedin.jpg"
     },
@@ -255,6 +355,18 @@
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\c1e14943-c2c3-4de5-994f-e5ecc2a6603155724-[Converted].jpg",
       "PackagePath": "staticwebassets\\UserDocument\\c1e14943-c2c3-4de5-994f-e5ecc2a6603155724-[Converted].jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\c46c3efb-7f69-4e1b-b180-6aeb6e5bbd59Linkedin.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\c46c3efb-7f69-4e1b-b180-6aeb6e5bbd59Linkedin.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\c76d4ba6-7c5e-4d4e-85bd-9a6a56f189aamenzel-reiners_2012_CustomerRelationshipManagementSystem1.pdf",
+      "PackagePath": "staticwebassets\\UserDocument\\c76d4ba6-7c5e-4d4e-85bd-9a6a56f189aamenzel-reiners_2012_CustomerRelationshipManagementSystem1.pdf"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\cab28b35-0261-4529-9394-6e09aa868f0fFacebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\cab28b35-0261-4529-9394-6e09aa868f0fFacebook.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\d4160778-8a66-4e31-888d-7ddd12c2fabdLinkedin.jpg",
@@ -277,6 +389,10 @@
       "PackagePath": "staticwebassets\\UserDocument\\de1c9921-b6b8-4822-9899-88fcfed13765CRM.jpg"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\de653209-e4c3-4f0a-99a0-09e79539ab05Linkedin.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\de653209-e4c3-4f0a-99a0-09e79539ab05Linkedin.jpg"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\e52aaa9e-c63f-4bc0-bda4-2441465454a8facebook.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\e52aaa9e-c63f-4bc0-bda4-2441465454a8facebook.jpg"
     },
@@ -287,6 +403,14 @@
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\f4d18379-a6a8-4c69-8a21-627945f5cc81CRM.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\f4d18379-a6a8-4c69-8a21-627945f5cc81CRM.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\f9669ad1-f674-4f38-a19b-f8f55feea833Facebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\f9669ad1-f674-4f38-a19b-f8f55feea833Facebook.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\fc465d01-e891-434b-851d-48003d4da92dFacebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\fc465d01-e891-434b-851d-48003d4da92dFacebook.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\fda3f5c7-a023-43f8-9cb8-700c38650322facebook.jpg",
@@ -301,6 +425,14 @@
       "PackagePath": "staticwebassets\\UserImg\\29806c58-8b26-49c3-b251-2af3163e0812facebook.jpg"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\30618aec-df1f-42ab-9775-81d54f6abc67a-sm.jpg",
+      "PackagePath": "staticwebassets\\UserImg\\30618aec-df1f-42ab-9775-81d54f6abc67a-sm.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\3a294c19-d545-4cba-940e-630f662f1d73a-sm.jpg",
+      "PackagePath": "staticwebassets\\UserImg\\3a294c19-d545-4cba-940e-630f662f1d73a-sm.jpg"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\3a922768-99b5-4dbd-8aa1-af9814278a78linkedin.jpg",
       "PackagePath": "staticwebassets\\UserImg\\3a922768-99b5-4dbd-8aa1-af9814278a78linkedin.jpg"
     },
@@ -313,8 +445,28 @@
       "PackagePath": "staticwebassets\\UserImg\\52ac16b8-1b3d-4ec4-9bbc-5926eba7a9e2abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner.jpg"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\530153d2-22ba-4ea5-9c11-5be2a013755ac-sm.jpg",
+      "PackagePath": "staticwebassets\\UserImg\\530153d2-22ba-4ea5-9c11-5be2a013755ac-sm.jpg"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\589bd987-6bab-4050-b792-b0f1e141424902.jpg",
       "PackagePath": "staticwebassets\\UserImg\\589bd987-6bab-4050-b792-b0f1e141424902.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\5a4aead6-d600-4f1d-98d1-27f1c68f1fc1a-sm.jpg",
+      "PackagePath": "staticwebassets\\UserImg\\5a4aead6-d600-4f1d-98d1-27f1c68f1fc1a-sm.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\5ac6abda-7057-4fea-b0b9-210d0dda5d96Iot.png",
+      "PackagePath": "staticwebassets\\UserImg\\5ac6abda-7057-4fea-b0b9-210d0dda5d96Iot.png"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\6508047b-1660-48ca-a438-1369ced25b21Facebook.jpg",
+      "PackagePath": "staticwebassets\\UserImg\\6508047b-1660-48ca-a438-1369ced25b21Facebook.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\69a9f344-1deb-4f8d-ab24-988c8bc48651b-sm.jpg",
+      "PackagePath": "staticwebassets\\UserImg\\69a9f344-1deb-4f8d-ab24-988c8bc48651b-sm.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\6a935ff7-3af0-4586-8b18-be5720cbe90fPortuges.jpg",
@@ -361,6 +513,10 @@
       "PackagePath": "staticwebassets\\UserImg\\a7c70532-b61b-4317-bddd-9cfd1f83a00bLinkedin.jpg"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\ad565ca0-15ec-4eaf-9158-496c788572baa-sm.jpg",
+      "PackagePath": "staticwebassets\\UserImg\\ad565ca0-15ec-4eaf-9158-496c788572baa-sm.jpg"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\b8bf83db-84ae-48ca-90e4-85201cd1495518771-Thomas-Jefferson-Quote-If-you-want-something-you-have-never-had.jpg",
       "PackagePath": "staticwebassets\\UserImg\\b8bf83db-84ae-48ca-90e4-85201cd1495518771-Thomas-Jefferson-Quote-If-you-want-something-you-have-never-had.jpg"
     },
@@ -371,6 +527,14 @@
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\bf498281-42f0-4f62-8f2f-f36aae566b66facebook.jpg",
       "PackagePath": "staticwebassets\\UserImg\\bf498281-42f0-4f62-8f2f-f36aae566b66facebook.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\c16871c3-81b4-41d4-83cb-e532e986e64f7053216.jpg",
+      "PackagePath": "staticwebassets\\UserImg\\c16871c3-81b4-41d4-83cb-e532e986e64f7053216.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\eadbc62e-3134-4750-8ed9-8bd50492d77eFacebook.jpg",
+      "PackagePath": "staticwebassets\\UserImg\\eadbc62e-3134-4750-8ed9-8bd50492d77eFacebook.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\edf02e4c-df03-4847-958e-42cc6edeeab61.jpg",
@@ -389,6 +553,18 @@
       "PackagePath": "staticwebassets\\UserImg\\priyanka chauhan (2).jpg"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\Userpan\\882e1d8c-36c9-4616-b16a-b7662981e0e73D-logo-Asharp-Infotech-Orange-and-O-B.png",
+      "PackagePath": "staticwebassets\\Userpan\\882e1d8c-36c9-4616-b16a-b7662981e0e73D-logo-Asharp-Infotech-Orange-and-O-B.png"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\Userpan\\8d117805-187c-488e-a388-78c5264bee9fCustomer relationship management digital transformation and sustainable business model innovation.pdf",
+      "PackagePath": "staticwebassets\\Userpan\\8d117805-187c-488e-a388-78c5264bee9fCustomer relationship management digital transformation and sustainable business model innovation.pdf"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\Userpan\\8e28e628-5fd3-4525-916c-291120b4b8a8Customer relationship management digital transformation and sustainable business model innovation.pdf",
+      "PackagePath": "staticwebassets\\Userpan\\8e28e628-5fd3-4525-916c-291120b4b8a8Customer relationship management digital transformation and sustainable business model innovation.pdf"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\Userpan\\ABHINANDAN PAN.jpeg",
       "PackagePath": "staticwebassets\\Userpan\\ABHINANDAN PAN.jpeg"
     },
@@ -399,6 +575,14 @@
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\Userpan\\PRAMOD SO BABU RAM.jpg",
       "PackagePath": "staticwebassets\\Userpan\\PRAMOD SO BABU RAM.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\Userpan\\b6c0a77f-5ba8-4beb-9c15-5f9e7e60045cLinkedin.jpg",
+      "PackagePath": "staticwebassets\\Userpan\\b6c0a77f-5ba8-4beb-9c15-5f9e7e60045cLinkedin.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\Userpan\\c0ade2cb-e2ab-45e4-b4f5-6a43cc5a17e9Linkedin.jpg",
+      "PackagePath": "staticwebassets\\Userpan\\c0ade2cb-e2ab-45e4-b4f5-6a43cc5a17e9Linkedin.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\Userpan\\pan.jpg",

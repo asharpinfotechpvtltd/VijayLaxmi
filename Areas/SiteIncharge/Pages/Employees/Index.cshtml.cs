@@ -33,14 +33,21 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Employees
         public async Task<IActionResult> OnGetAsync(string sortOrder,
             string currentFilter, string searchString, int? pageIndex)
         {
-            var SiteId = Convert.ToInt32(HttpContext.Session.GetString("siteid"));
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("SiteIncharge")))
+            {
+                return Redirect("~/Index");
+            }
+            else
+            {
+                var SiteId = Convert.ToInt32(HttpContext.Session.GetString("siteid"));
 
-            IQueryable<SpSiteWiseEmployeeList> EmployeeList = _context.SpSiteWiseEmployeeList.FromSqlInterpolated($"SELECT [Id]  ,TE.[Name]  ,TE.[FathersName]  ,TE.[AAdharno]  ,TE.[Contactno]  ,TE.[Email]  ,TE.[Employeetype]  ,TS.[SiteName]  ,TE.[AddedDate],te.IsVerified  FROM TblEmployees TE  inner join TblSite TS ON TS.Siteid=TE.Site where TE.Site=({SiteId})").AsQueryable();
-            var pageSize = 20;
-            SPEmployeeList = await PaginatedList<SpSiteWiseEmployeeList>.CreateAsync(
-                EmployeeList.AsNoTracking(), pageIndex ?? 1, pageSize);
+                IQueryable<SpSiteWiseEmployeeList> EmployeeList = _context.SpSiteWiseEmployeeList.FromSqlInterpolated($"SELECT [Id]  ,TE.[Name]  ,TE.[FathersName]  ,TE.[AAdharno]  ,TE.[Contactno]  ,TE.[Email]  ,TE.[Employeetype]  ,TS.[SiteName]  ,TE.[AddedDate],te.IsVerified  FROM TblEmployees TE  inner join TblSite TS ON TS.Siteid=TE.Site where TE.Site=({SiteId})").AsQueryable();
+                var pageSize = 20;
+                SPEmployeeList = await PaginatedList<SpSiteWiseEmployeeList>.CreateAsync(
+                    EmployeeList.AsNoTracking(), pageIndex ?? 1, pageSize);
 
-            return Page();
+                return Page();
+            }
         }
 
     }

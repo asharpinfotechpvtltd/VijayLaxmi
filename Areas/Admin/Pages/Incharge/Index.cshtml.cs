@@ -24,14 +24,22 @@ namespace VijayLaxmi.Areas.Admin.Pages.Incharge
         public IList<SelectListItem> SitesInchargeList { get;set; } = default!;
         public List<SelectListItem> SiteList { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
-            if (_context.TblSiteIncharge != null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
             {
-                SiteList = await _context.TblSite.Select(s => new SelectListItem { Text = s.SiteName, Value = s.Siteid.ToString() }).ToListAsync();
-                SitesInchargeList = await _context.SPSiteInCharge.FromSqlInterpolated($"SELECT TSI.Id,TE.Id AS EmployeeId,TE.Name,TSI.SiteId,TS.SiteName,TSI.IsloginEnabled FROM TblEmployees TE \r\n\t\t\t  INNER JOIN TblSiteIncharge TSI ON TE.Id=TSI.EmployeeId\r\n\t\t\t  INNER JOIN TBLSITE TS ON TSI.SiteId=TS.Siteid").Select(s => new SelectListItem { Text = s.Name, Value = s.EmployeeId.ToString() }).ToListAsync();
-                SitesIncharge = await _context.SPSiteInCharge.FromSqlRaw("SPSITEINCHARGE").ToListAsync();
+                return Redirect("~/adminlogin");
             }
+            else
+            {
+                if (_context.TblSiteIncharge != null)
+                {
+                    SiteList = await _context.TblSite.Select(s => new SelectListItem { Text = s.SiteName, Value = s.Siteid.ToString() }).ToListAsync();
+                    SitesInchargeList = await _context.SPSiteInCharge.FromSqlInterpolated($"SELECT TSI.Id,TE.Id AS EmployeeId,TE.Name,TSI.SiteId,TS.SiteName,TSI.IsloginEnabled FROM TblEmployees TE \r\n\t\t\t  INNER JOIN TblSiteIncharge TSI ON TE.Id=TSI.EmployeeId\r\n\t\t\t  INNER JOIN TBLSITE TS ON TSI.SiteId=TS.Siteid").Select(s => new SelectListItem { Text = s.Name, Value = s.EmployeeId.ToString() }).ToListAsync();
+                    SitesIncharge = await _context.SPSiteInCharge.FromSqlRaw("SPSITEINCHARGE").ToListAsync();
+                }
+            }
+            return Page();
         }
         public async Task<IActionResult> OnGetSearch(int Empname,int site)
         {

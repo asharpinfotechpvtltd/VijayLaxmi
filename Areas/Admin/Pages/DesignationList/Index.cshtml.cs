@@ -16,11 +16,19 @@ namespace VijayLaxmi.Areas.Admin.Pages.DesignationList
 
         public IList<Designation> DesignationList { get; set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
-            if (_context.TblEmployees != null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
             {
-                DesignationList = await _context.TblDesignation.ToListAsync();
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                if (_context.TblEmployees != null)
+                {
+                    DesignationList = await _context.TblDesignation.ToListAsync();
+                }
+                return Page();
             }
         }
         

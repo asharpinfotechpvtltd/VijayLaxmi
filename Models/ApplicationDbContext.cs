@@ -37,6 +37,9 @@ namespace VijayLaxmi.Models
             modelBuilder.Entity<SpSearchEmployeeList>().HasNoKey().ToView(null);
             modelBuilder.Entity<SpSiteWiseEmployeeList>().HasNoKey().ToView(null);
             modelBuilder.Entity<SPSiteInCharge>().HasNoKey().ToView(null);
+            modelBuilder.Entity<SpPendingDocument>().HasNoKey().ToView(null);
+            modelBuilder.Entity<SPMissingOutTime>().HasNoKey().ToView(null);
+            modelBuilder.Entity<SPSalary>().HasNoKey().ToView(null);
         }
 
 
@@ -70,6 +73,7 @@ namespace VijayLaxmi.Models
         public virtual DbSet<SitesIncharge> TblSiteIncharge { get; set; }        
         public virtual DbSet<GstState> TblGstState { get; set; }        
         public virtual DbSet<Salary> TblSalary { get; set; }        
+        public virtual DbSet<ManualSalaries> TblManualSalary { get; set; }        
         public virtual DbSet<SPPendingEmployeeList> SPPendingEmployeeList { get; set; }
         public virtual DbSet<SPEmployeeDetailById> SPEmployeeDetailById { get; set; }
         public virtual DbSet<SPRequirement> SPRequirement { get; set; }
@@ -80,6 +84,9 @@ namespace VijayLaxmi.Models
         public virtual DbSet<SpSearchEmployeeList> SpSearchEmployeeList { get; set; }
         public virtual DbSet<SpSiteWiseEmployeeList> SpSiteWiseEmployeeList { get; set; }
         public virtual DbSet<SPSiteInCharge> SPSiteInCharge { get; set; }
+        public virtual DbSet<SpPendingDocument> SpPendingDocument { get; set; }
+        public virtual DbSet<SPMissingOutTime> SPMissingOutTime { get; set; }
+        public virtual DbSet<SPSalary> SPSalary { get; set; }
        
        
 

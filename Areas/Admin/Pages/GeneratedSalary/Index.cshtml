@@ -1,0 +1,116 @@
+﻿@page "{handler?}"
+@model VijayLaxmi.Areas.Admin.Pages.GeneratedSalary.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Salary</h1>
+<div class="row mb-2">
+    <div class="col-md-4">
+      
+    </div>
+    <div class="col-md-8">
+        <form class="form-inline float-right" method="get" asp-page-handler="Search" >
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="inputPassword2" class="sr-only">Month</label>
+                <select class="form-control" asp-for="month" id="month" name="month">
+                    @for(int i=1;i<13;i++)
+                    {
+                        <option>@i</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="inputPassword2" class="sr-only">Year</label>
+                <select class="form-control" id="Year" asp-for="year" name="Year">
+                    @for (int i = 2023; i < 2051; i++)
+                    {
+                        <option>@i</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="inputPassword2" class="sr-only">Site Name</label>
+                <select class="form-control" asp-items="@Model.SiteName" asp-for="sitename" id="sitename" name="sitename">
+
+                </select>
+            </div>
+            <button type="submit" class="btn btn-danger mb-2" value="Search"> <i class="fa fa-search-plus" aria-hidden="true"></i></button>
+        </form>
+
+    </div>
+</div>
+
+@if(Model.ManualSalaries.Count>0)
+{
+<div class="table-responsive">
+    <table class="table table-bordered" id="emplist">
+        <thead class="text-center" style="background-color:black; color:#fff;">
+            <tr>
+                <th>
+                    Emp Code
+                </th>
+                <th>
+                    AAdhar No
+                </th>
+                <th>
+                    Ttl Wrk Hrs
+                </th>
+                <th>
+                    Ttl Attendnce
+                </th>
+                <th>
+                    Monthly Sal
+                </th>
+                <th>
+                    Manual Sal
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ManualSalaries[0].Month)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ManualSalaries[0].Year)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ManualSalaries)
+            {
+                <tr class="text-center">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Empcode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AAdharno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalWorkingHours)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalAttendance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MonthlySalary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ManualSalary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Month)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                  
+                    @*<td>
+                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+                </td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

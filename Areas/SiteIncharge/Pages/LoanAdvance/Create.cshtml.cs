@@ -26,14 +26,21 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.LoanAdvance
         public List<SelectListItem> EmployeeList { get; set; }
         public async Task<IActionResult> OnGet()
         {
-            int site = Convert.ToInt32(HttpContext.Session.GetString("siteid"));
-            EmployeeList = await _context.TblEmployees.Where(e=>e.Site== site).Select(a => new SelectListItem
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("SiteIncharge")))
             {
-                Value = a.AAdharno.ToString(),
-                Text = a.Name + "-" + a.AAdharno
+                return Redirect("~/Index");
             }
-            ).ToListAsync();
-            return Page();
+            else
+            {
+                int site = Convert.ToInt32(HttpContext.Session.GetString("siteid"));
+                EmployeeList = await _context.TblEmployees.Where(e => e.Site == site).Select(a => new SelectListItem
+                {
+                    Value = a.AAdharno.ToString(),
+                    Text = a.Name + "-" + a.AAdharno
+                }
+                ).ToListAsync();
+                return Page();
+            }
         }
 
         [BindProperty]
@@ -42,8 +49,8 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.LoanAdvance
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
-        {            
-          
+        {
+
             Upload u = new Upload(Environment);
             SignedDocumentName = u.UploadImage(SignedDocument, "LoanadvanceDocument");
             Loan_Advance.SignedDocument = SignedDocumentName;

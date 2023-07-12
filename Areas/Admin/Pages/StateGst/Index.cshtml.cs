@@ -11,14 +11,21 @@ namespace VijayLaxmi.Areas.Admin.Pages.StateGst
         public IndexModel(ApplicationDbContext context)
         {
             _context = context;
-                
+
         }
         public List<StateDetail> Details { get; set; }
         public async Task<IActionResult> OnGet()
         {
-            Details = await _context.TblStateDetail.ToListAsync();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
+            {
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                Details = await _context.TblStateDetail.ToListAsync();
 
-            return Page();
+                return Page();
+            }
         }
     }
 }

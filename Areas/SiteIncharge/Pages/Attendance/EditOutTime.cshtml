@@ -1,0 +1,48 @@
+﻿@page
+@model VijayLaxmi.Areas.SiteIncharge.Pages.Attendance.EditOutTimeModel
+@{
+}
+<h4>Edit Out TIme</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <input type="hidden" value="@Model.Attendance.Id" asp-for="Attendance.Id"/>
+            <div class="form-group">
+                <label asp-for="Attendance.EmpCode" class="control-label">Emp Code</label>
+                <input type="text" name="Empcode" class="form-control" required  asp-for="Attendance.EmpCode" readonly/>
+                <span asp-validation-for="Attendance.EmpCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attendance.Date" class="control-label">Date</label>
+                <input type="text" name="Date" class="form-control" required asp-for="Attendance.Date"/>
+                <span asp-validation-for="Attendance.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attendance.InTime" class="control-label">In Time</label>
+                <input type="text" name="intime" class="form-control" required asp-for="Attendance.InTime" />
+                <span asp-validation-for="Attendance.InTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attendance.Outtime" class="control-label">Out Time</label>
+                <input type="time" name="Outtime" class="form-control" required asp-for="Attendance.Outtime" />
+                <span asp-validation-for="Attendance.Outtime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attendance.WorkTime" class="control-label">Work Time(convert it in minutes)</label>
+                <input type="text" name="Worktime" class="form-control" required asp-for="Attendance.WorkTime" />
+                <span asp-validation-for="Attendance.Outtime" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            @if (ViewData["error"] != null)
+            {
+                <div class="form-group">
+                    <p class="text-danger">Attendance already marked</p>
+                </div>
+            }
+        </form>
+    </div>
+</div>

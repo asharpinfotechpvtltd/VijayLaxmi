@@ -20,35 +20,29 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
             _context = context;
             Environmet = Env;
         }
-        public string EmpCode { get;set; }
-        public Int64 EmployeeCode { get;set; }
+        public string EmpCode { get; set; }
+        public Int64 EmployeeCode { get; set; }
         public IActionResult OnGet(Int64 Aadhar)
         {
-           
 
-            EmpCode = HttpContext.Session.GetString("Login");
-            EmployeeCode = Aadhar;
-            return Page();
-            //if (string.IsNullOrEmpty(EmpCode))
-            //{
-            //    return Redirect("~/Index");
-            //}
-            //else
-            //{
-
-            //    
-            //}
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
+            {
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                EmpCode = HttpContext.Session.GetString("Login");
+                EmployeeCode = Aadhar;
+                return Page();
+            }
         }
-
-
-
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
             Upload u = new Upload(Environmet);
-            BankDocumentFilename = u.UploadImage(Filename, "BankDocument");          
+            BankDocumentFilename = u.UploadImage(Filename, "BankDocument");
             BankDetail.Filename = BankDocumentFilename;
-            await  _context.TblBankDetail.AddAsync(BankDetail);
+            await _context.TblBankDetail.AddAsync(BankDetail);
             await _context.SaveChangesAsync();
             return RedirectToPage("./Index");
         }

@@ -46,68 +46,75 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
         public string PancardName { get; set; } = null;
         public string TicFile { get; set; } = null;
         public string SignedDocument { get; set; } = null;
+#nullable enable
+
         public string? PassbookFile { get; set; }
 
         public async Task<IActionResult> OnGetAsync(Int64 Aadharno)
         {
 
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
+            {
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
 
+                Employee = await _context.TblEmployees.FirstOrDefaultAsync(e => e.AAdharno == Aadharno);
+                Salary = await _context.TblSalary.FirstOrDefaultAsync(e => e.AadharNo == Aadharno);
+                FamilyDetails = await _context.TblFamilyDetail.Where(e => e.EmployeeAAdhar == Convert.ToInt64(Employee.AAdharno)).ToListAsync();
+                BankDetails = await _context.TblBankDetail.SingleOrDefaultAsync(e => e.AAdharNo == Employee.AAdharno);
+                Document = await _context.TblDocuments.SingleOrDefaultAsync(e => e.AadharNo == Employee.AAdharno);
+                loan_Advances = await _context.TblLoanAdvance.Where(e => e.AAdharNo == Convert.ToInt64(Employee.AAdharno) && e.Status == true).ToListAsync();
+                if (BankDetails != null)
+                {
+                    PassbookFile = BankDetails.Filename;
+                }
+                if (Document != null)
+                {
+                    DocumentFrontFile = Document.DocumentFrontFileName;
+                }
+                if (Document != null)
+                {
+                    DocumentBackFile = Document.DocumentBackFileName;
+                }
+                if (Document != null)
+                {
+                    PancardName = Document.PancardFileName;
+                }
+                if (Document != null)
+                {
+                    TicFile = Document.TicFileName;
+                }
+                if (Document != null)
+                {
+                    SignedDocument = Document.SignedDocumentName;
+                }
+                SiteName = await _context.TblSite.Select(s => new SelectListItem
+                {
+                    Text = s.SiteName,
+                    Value = s.Siteid.ToString()
+                }).ToListAsync();
 
-            Employee = await _context.TblEmployees.FirstOrDefaultAsync(e => e.AAdharno == Aadharno);
-            Salary = await _context.TblSalary.FirstOrDefaultAsync(e => e.AadharNo == Aadharno);
-            FamilyDetails = await _context.TblFamilyDetail.Where(e => e.EmployeeAAdhar == Convert.ToInt64(Employee.AAdharno)).ToListAsync();
-            BankDetails = await _context.TblBankDetail.SingleOrDefaultAsync(e => e.AAdharNo == Employee.AAdharno);
-            Document = await _context.TblDocuments.SingleOrDefaultAsync(e => e.AadharNo == Employee.AAdharno);
-            loan_Advances = await _context.TblLoanAdvance.Where(e => e.AAdharNo == Convert.ToInt64(Employee.AAdharno) && e.Status == true).ToListAsync();
-            if (BankDetails != null)
-            {
-                PassbookFile = BankDetails.Filename;
+                Designation = await _context.TblDesignation.Select(s => new SelectListItem
+                {
+                    Text = s.DesignationName,
+                    Value = s.Id.ToString()
+                }).ToListAsync();
+                return Page();
             }
-            if (Document != null)
-            {
-                DocumentFrontFile = Document.DocumentFrontFileName;
-            }
-            if(Document!=null)
-            {
-                DocumentBackFile = Document.DocumentBackFileName;
-            }
-            if(Document!=null)
-            {
-                PancardName = Document.PancardFileName;
-            }
-            if(Document!=null)
-            {
-                TicFile=Document.TicFileName;
-            } 
-            if(Document!=null)
-            {
-                SignedDocument = Document.SignedDocumentName;
-            }
-            SiteName = await _context.TblSite.Select(s => new SelectListItem
-            {
-                Text = s.SiteName,
-                Value = s.Siteid.ToString()
-            }).ToListAsync();
-
-            Designation = await _context.TblDesignation.Select(s => new SelectListItem
-            {
-                Text = s.DesignationName,
-                Value = s.Id.ToString()
-            }).ToListAsync();
-
-            return Page();
         }
 
-        public async Task<IActionResult> OnPostSalary(double CTC,double INHAND, double PERHOURRATE,double WORKINGDAYS,double WORKINGHOURS,Int64 EmployeeId,Int64 AadharNo)
+        public async Task<IActionResult> OnPostSalary(double CTC, double INHAND, double PERHOURRATE, double WORKINGDAYS, double WORKINGHOURS, Int64 EmployeeId, Int64 AadharNo)
         {
             var issalaryexist = await _context.TblSalary.SingleOrDefaultAsync(e => e.EmployeeId == EmployeeId);
-            if(issalaryexist!=null)
+            if (issalaryexist != null)
             {
                 issalaryexist.WORKINGDAYS = WORKINGDAYS;
                 issalaryexist.CTC = CTC;
                 issalaryexist.WORKINGHOURS = WORKINGHOURS;
                 issalaryexist.INHAND = INHAND;
-                issalaryexist.PERHOURRATE = PERHOURRATE;                    
+                issalaryexist.PERHOURRATE = PERHOURRATE;
             }
             else
             {
@@ -121,7 +128,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
                     EmployeeId = EmployeeId,
                     AadharNo = AadharNo
                 };
-                await _context.TblSalary.AddAsync(s);                
+                await _context.TblSalary.AddAsync(s);
             }
             await _context.SaveChangesAsync();
             return RedirectToPage("Details", new { Aadharno = AadharNo });
@@ -130,7 +137,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
         }
         public async Task<IActionResult> OnPostBankUpdate(Int64 empid, string Bankname, string Accountholdername, string AccountNumber, string IFSCCODE, string BranchName, IFormFile bankdetailfilename)
         {
-             Upload u = new Upload(Environmet);
+            Upload u = new Upload(Environmet);
             string bankfilename;
             var bankdetail = await _context.TblBankDetail.SingleOrDefaultAsync(e => e.AAdharNo == empid);
             if (bankdetail != null)
@@ -208,7 +215,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
             Upload u = new Upload(Environmet);
             if (document != null)
             {
-               
+
                 if (DocumentFrontFileName != null)
                 {
                     FrontFileName = u.UploadImage(DocumentFrontFileName, "UserDocument");
@@ -253,8 +260,8 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
                 else
                 {
                     document.TicFileName = Document.TicFileName;
-                }              
-                
+                }
+
 
             }
             else
@@ -262,7 +269,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
                 if (DocumentFrontFileName != null)
                 {
                     FrontFileName = u.UploadImage(DocumentFrontFileName, "UserDocument");
-                   
+
                 }
                 else
                 {
@@ -271,7 +278,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
                 if (DocumentBackFileName != null)
                 {
                     BackFileName = u.UploadImage(DocumentBackFileName, "UserDocument");
-                   
+
                 }
                 else
                 {
@@ -280,7 +287,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
                 if (PancardFileName != null)
                 {
                     PanFileName = u.UploadImage(PancardFileName, "Userpan");
-                   
+
                 }
                 else
                 {
@@ -289,7 +296,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
                 if (Signeddocument != null)
                 {
                     SigneddocumentName = u.UploadImage(Signeddocument, "UserDocument");
-                   
+
                 }
                 else
                 {
@@ -298,7 +305,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
                 if (TicFileName != null)
                 {
                     TiFileName = u.UploadImage(TicFileName, "Tic");
-                   
+
                 }
                 else
                 {
@@ -334,7 +341,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
             }).ToListAsync();
             var designation = Designation.SingleOrDefault(e => e.Value == Employee.Designation.ToString());
             desg = designation.Text;
-            
+
             return RedirectToPage("Details", new { Aadharno = AAdharno });
 
         }

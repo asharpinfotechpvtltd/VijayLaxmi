@@ -25,23 +25,30 @@ namespace VijayLaxmi.Areas.Admin.Pages.DeviceList
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.TblDevice == null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
             {
-                return NotFound();
+                return Redirect("~/adminlogin");
             }
+            else
+            {
+                if (id == null || _context.TblDevice == null)
+                {
+                    return NotFound();
+                }
 
-            var device =  await _context.TblDevice.FirstOrDefaultAsync(m => m.Id == id);
-            SiteList = await _context.TblSite.Select(s => new SelectListItem
-            {
-                Text = s.SiteName,
-                Value = s.Siteid.ToString()
-            }).ToListAsync();
-            if (device == null)
-            {
-                return NotFound();
+                var device = await _context.TblDevice.FirstOrDefaultAsync(m => m.Id == id);
+                SiteList = await _context.TblSite.Select(s => new SelectListItem
+                {
+                    Text = s.SiteName,
+                    Value = s.Siteid.ToString()
+                }).ToListAsync();
+                if (device == null)
+                {
+                    return NotFound();
+                }
+                Device = device;
+                return Page();
             }
-            Device = device;
-            return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -76,7 +83,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.DeviceList
 
         private bool DeviceExists(int id)
         {
-          return _context.TblDevice.Any(e => e.Id == id);
+            return _context.TblDevice.Any(e => e.Id == id);
         }
     }
 }

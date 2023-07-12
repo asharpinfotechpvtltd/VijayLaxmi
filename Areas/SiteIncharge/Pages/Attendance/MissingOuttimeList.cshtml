@@ -1,0 +1,64 @@
+﻿@page
+@model VijayLaxmi.Areas.SiteIncharge.Pages.Attendance.MissingOuttimeListModel
+@{
+    int j = 0;
+}
+<h1>Missing Outtime List</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group row">
+            <div class="table-responsive">
+                <table class="table table-responsive table-bordered" id="emplist">
+                    <thead class="text-center" style="background-color:black; color:#fff;">
+                        <tr>
+                            <th>S No.</th>
+                            <th>ID</th>
+                            <th>Emp Code</th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                InTime
+                            </th>
+
+                            <th>
+                                Date
+                            </th>                         
+
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.MissingOutTime)
+                        {
+                            <tr class="text-center">
+                                <td>@j</td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EmpCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.InTime)
+                                </td>
+                                <td>
+                                    @item.Date/@item.Month/@item.Year
+                                </td>
+
+                                <td colspan="2">
+                                    <a asp-page="/EditOutTime" asp-route-id="@item.id"><i class="fa fa-eye" title="Detail"></i>
+
+                            </a>
+                                </td>
+                            </tr>
+                            j++;
+                        }
+                    </tbody>
+                </table>
+               
+            </div>
+        </div>
+    </div>
+</div>

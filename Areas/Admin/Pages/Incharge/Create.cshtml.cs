@@ -22,23 +22,30 @@ namespace VijayLaxmi.Areas.Admin.Pages.Incharge
         }
         public List<SelectListItem> EmployeeList { get; set; }
         public List<SelectListItem> SiteList { get; set; }
-         
+
 
         public async Task<IActionResult> OnGet()
         {
-            EmployeeList = await _context.TblEmployees.Select(e => new SelectListItem { Text = e.Name + "-" + e.AAdharno, Value = e.Id.ToString() }).ToListAsync();
-            SiteList = await _context.TblSite.Select(e => new SelectListItem { Text = e.SiteName, Value = e.Siteid.ToString() }).ToListAsync();
-            return Page();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
+            {
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                EmployeeList = await _context.TblEmployees.Select(e => new SelectListItem { Text = e.Name + "-" + e.AAdharno, Value = e.Id.ToString() }).ToListAsync();
+                SiteList = await _context.TblSite.Select(e => new SelectListItem { Text = e.SiteName, Value = e.Siteid.ToString() }).ToListAsync();
+                return Page();
+            }
         }
 
         [BindProperty]
         public SitesIncharge SitesIncharge { get; set; }
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          GetUserDate date = new GetUserDate();
+            GetUserDate date = new GetUserDate();
             SitesIncharge.Date = date.ReturnDate();
             _context.TblSiteIncharge.Add(SitesIncharge);
             await _context.SaveChangesAsync();

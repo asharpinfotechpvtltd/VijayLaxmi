@@ -12,6 +12,8 @@ namespace VijayLaxmi.Models
         public string Orderid { get; set; } = null!;       
         public string PaymentStatus { get; set; } = null!;
         public int Siteid { get; set; }
+#nullable enable
+
         public string? VendorCode { get; set; }
         
     }

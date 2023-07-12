@@ -17,7 +17,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
 
         IWebHostEnvironment Environmet;
         [BindProperty]
-        public IFormFile Userimg { get; set; } 
+        public IFormFile Userimg { get; set; }
         public string UserimgName { get; set; }
         public string UserDocumentName { get; set; }
         public string UserPanName { get; set; }
@@ -29,10 +29,17 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
 
         public async Task<IActionResult> OnGet()
         {
-            Designation = await _context.TblDesignation.Select(d => new SelectListItem { Text = d.DesignationName, Value = d.Id.ToString() }).ToListAsync();
-            Site = await _context.TblSite.Select(d => new SelectListItem { Text = d.SiteName, Value = d.Siteid.ToString() }).ToListAsync();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
+            {
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                Designation = await _context.TblDesignation.Select(d => new SelectListItem { Text = d.DesignationName, Value = d.Id.ToString() }).ToListAsync();
+                Site = await _context.TblSite.Select(d => new SelectListItem { Text = d.SiteName, Value = d.Siteid.ToString() }).ToListAsync();
 
-            return Page();
+                return Page();
+            }
         }
 
         [BindProperty]
@@ -56,7 +63,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
                 {
                     GetUserDate date = new GetUserDate();
                     UserimgName = u.UploadImage(Userimg, "UserImg");
-                    Employee.IsActive= true;                   
+                    Employee.IsActive = true;
                     Employee.AddedDate = date.ReturnDate();
                     Employee.Image = UserimgName.ToString().Replace(" ", "_");
                     _context.TblEmployees.Add(Employee);
@@ -91,7 +98,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
                         userdetail.Image = UserimgName.ToString().Replace(" ", "_");
 
                     }
-                   
+
                 }
                 await _context.SaveChangesAsync();
                 var empdetail = await _context.TblEmployees.SingleOrDefaultAsync(e => e.AAdharno == Employee.AAdharno);

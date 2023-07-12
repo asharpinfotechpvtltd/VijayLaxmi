@@ -137,6 +137,10 @@
       "PackagePath": "staticwebassets\\UserDocument\\198d079d-641d-426d-9c55-1ad7a5607e4dfacebook.jpg"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\2671d61f-0b19-4bc9-85cd-a3ee6757ae14instagram.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\2671d61f-0b19-4bc9-85cd-a3ee6757ae14instagram.jpg"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\26cba059-8aba-4579-89d8-57f10096a3a3linkedin.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\26cba059-8aba-4579-89d8-57f10096a3a3linkedin.jpg"
     },
@@ -201,8 +205,16 @@
       "PackagePath": "staticwebassets\\UserDocument\\5dcfbf12-5cb9-40f4-a35c-74bccb0a777bFacebook.jpg"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\5eb08783-9b51-4d98-a1dc-6ac2949a78a5Facebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\5eb08783-9b51-4d98-a1dc-6ac2949a78a5Facebook.jpg"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\6078f514-a467-487d-84b9-6bc2900c27fdFacebook.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\6078f514-a467-487d-84b9-6bc2900c27fdFacebook.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\638e24ff-bacf-4fd8-afa6-90230aae4ddbFacebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\638e24ff-bacf-4fd8-afa6-90230aae4ddbFacebook.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\638fdae0-b731-4ac3-a3f1-075009b4946eLinkedin.jpg",
@@ -211,6 +223,10 @@
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\6abfecfd-629a-4382-9bd8-4f03e60f52f8CRM.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\6abfecfd-629a-4382-9bd8-4f03e60f52f8CRM.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\6e84c347-b7d9-46de-ace6-44996b04608eFacebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\6e84c347-b7d9-46de-ace6-44996b04608eFacebook.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\6f2e6cf4-6491-470d-976e-2e24a218c8b0linkedin.jpg",
@@ -349,6 +365,10 @@
       "PackagePath": "staticwebassets\\UserDocument\\c76d4ba6-7c5e-4d4e-85bd-9a6a56f189aamenzel-reiners_2012_CustomerRelationshipManagementSystem1.pdf"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\cab28b35-0261-4529-9394-6e09aa868f0fFacebook.jpg",
+      "PackagePath": "staticwebassets\\UserDocument\\cab28b35-0261-4529-9394-6e09aa868f0fFacebook.jpg"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserDocument\\d4160778-8a66-4e31-888d-7ddd12c2fabdLinkedin.jpg",
       "PackagePath": "staticwebassets\\UserDocument\\d4160778-8a66-4e31-888d-7ddd12c2fabdLinkedin.jpg"
     },
@@ -441,6 +461,10 @@
       "PackagePath": "staticwebassets\\UserImg\\5ac6abda-7057-4fea-b0b9-210d0dda5d96Iot.png"
     },
     {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\6508047b-1660-48ca-a438-1369ced25b21Facebook.jpg",
+      "PackagePath": "staticwebassets\\UserImg\\6508047b-1660-48ca-a438-1369ced25b21Facebook.jpg"
+    },
+    {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\69a9f344-1deb-4f8d-ab24-988c8bc48651b-sm.jpg",
       "PackagePath": "staticwebassets\\UserImg\\69a9f344-1deb-4f8d-ab24-988c8bc48651b-sm.jpg"
     },
@@ -503,6 +527,14 @@
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\bf498281-42f0-4f62-8f2f-f36aae566b66facebook.jpg",
       "PackagePath": "staticwebassets\\UserImg\\bf498281-42f0-4f62-8f2f-f36aae566b66facebook.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\c16871c3-81b4-41d4-83cb-e532e986e64f7053216.jpg",
+      "PackagePath": "staticwebassets\\UserImg\\c16871c3-81b4-41d4-83cb-e532e986e64f7053216.jpg"
+    },
+    {
+      "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\eadbc62e-3134-4750-8ed9-8bd50492d77eFacebook.jpg",
+      "PackagePath": "staticwebassets\\UserImg\\eadbc62e-3134-4750-8ed9-8bd50492d77eFacebook.jpg"
     },
     {
       "Id": "D:\\Websites\\Vijay Laxmi\\VijayLaxmi\\wwwroot\\UserImg\\edf02e4c-df03-4847-958e-42cc6edeeab61.jpg",

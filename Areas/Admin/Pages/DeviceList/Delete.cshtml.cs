@@ -19,26 +19,33 @@ namespace VijayLaxmi.Areas.Admin.Pages.DeviceList
         }
 
         [BindProperty]
-      public Device Device { get; set; }
+        public Device Device { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.TblDevice == null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
             {
-                return NotFound();
+                return Redirect("~/adminlogin");
             }
+            else
+            {
+                if (id == null || _context.TblDevice == null)
+                {
+                    return NotFound();
+                }
 
-            var device = await _context.TblDevice.FirstOrDefaultAsync(m => m.Id == id);
+                var device = await _context.TblDevice.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (device == null)
-            {
-                return NotFound();
+                if (device == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    Device = device;
+                }
+                return Page();
             }
-            else 
-            {
-                Device = device;
-            }
-            return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)

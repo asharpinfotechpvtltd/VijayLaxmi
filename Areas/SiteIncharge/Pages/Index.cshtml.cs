@@ -21,6 +21,7 @@ namespace NieAdvisory.Areas.SiteIncharge.Pages
         public int TotalStaff { get; set; }
         public IList<Employee> PendingEmployeeList { get; set; }
         public IList<Employee> RejectedEmployeeList { get; set; }
+        public IList<SPMissingOutTime> MissingOutTime { get; set; }
 
         public IndexModel(ApplicationDbContext context)
         {
@@ -28,21 +29,28 @@ namespace NieAdvisory.Areas.SiteIncharge.Pages
         }
         public async Task<IActionResult> OnGet()
         {
-            TotalSite = _context.TblSite.Count();
-            TotalStaff = _context.TblEmployees.Count();
-            PendingEmployeeList = await _context.TblEmployees.Where(e => e.IsVerified == false && e.Reason==null).Take(5).ToListAsync();
-            RejectedEmployeeList = await _context.TblEmployees.Where(e => e.IsVerified == false && e.Reason != null).ToListAsync();
-
-            return Page();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("SiteIncharge")))
+            {
+                return Redirect("~/Index");
+            }
+            else
+            {
+                int SiteId = Convert.ToInt32(HttpContext.Session.GetString("siteid"));
+                var Site_id = new SqlParameter("@Siteid", SiteId);
+                TotalSite = _context.TblSite.Count();
+                TotalStaff = _context.TblEmployees.Count();
+                PendingEmployeeList = await _context.TblEmployees.Where(e => e.IsVerified == false && e.Reason == null && e.Site == SiteId).Take(5).ToListAsync();
+                RejectedEmployeeList = await _context.TblEmployees.Where(e => e.IsVerified == false && e.Reason != null && e.Site == SiteId).ToListAsync();
+                MissingOutTime = await _context.SPMissingOutTime.FromSqlRaw("SPMissingOutTime @Siteid", Site_id).ToListAsync();
+                return Page();
+            }
 
         }
 
         public IActionResult OnGetLogout()
         {
-
-            HttpContext.Session.Remove("Login");
+            HttpContext.Session.Remove("SiteIncharge");
             return Redirect("./Index");
-
         }
 
     }

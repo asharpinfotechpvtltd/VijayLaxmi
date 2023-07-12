@@ -24,18 +24,25 @@ namespace VijayLaxmi.Areas.Admin.Pages.Incharge
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.TblSiteIncharge == null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
             {
-                return NotFound();
+                return Redirect("~/adminlogin");
             }
+            else
+            {
+                if (id == null || _context.TblSiteIncharge == null)
+                {
+                    return NotFound();
+                }
 
-            var sitesincharge =  await _context.TblSiteIncharge.FirstOrDefaultAsync(m => m.id == id);
-            if (sitesincharge == null)
-            {
-                return NotFound();
+                var sitesincharge = await _context.TblSiteIncharge.FirstOrDefaultAsync(m => m.id == id);
+                if (sitesincharge == null)
+                {
+                    return NotFound();
+                }
+                SitesIncharge = sitesincharge;
+                return Page();
             }
-            SitesIncharge = sitesincharge;
-            return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -70,7 +77,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.Incharge
 
         private bool SitesInchargeExists(int id)
         {
-          return _context.TblSiteIncharge.Any(e => e.id == id);
+            return _context.TblSiteIncharge.Any(e => e.id == id);
         }
     }
 }

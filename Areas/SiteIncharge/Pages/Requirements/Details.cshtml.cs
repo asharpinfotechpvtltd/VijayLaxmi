@@ -18,25 +18,32 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Requirements
             _context = context;
         }
 
-      public Requirement Requirement { get; set; }
+        public Requirement Requirement { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.TblRequirement == null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("SiteIncharge")))
             {
-                return NotFound();
+                return Redirect("~/Index");
             }
+            else
+            {
+                if (id == null || _context.TblRequirement == null)
+                {
+                    return NotFound();
+                }
 
-            var requirement = await _context.TblRequirement.FirstOrDefaultAsync(m => m.Id == id);
-            if (requirement == null)
-            {
-                return NotFound();
+                var requirement = await _context.TblRequirement.FirstOrDefaultAsync(m => m.Id == id);
+                if (requirement == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    Requirement = requirement;
+                }
+                return Page();
             }
-            else 
-            {
-                Requirement = requirement;
-            }
-            return Page();
         }
     }
 }

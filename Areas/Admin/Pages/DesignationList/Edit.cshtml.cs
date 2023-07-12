@@ -17,15 +17,21 @@ namespace VijayLaxmi.Areas.Admin.Pages.DesignationList
         public Designation Designation { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(long? id)
-        {           
-
-            var designation = await _context.TblDesignation.FirstOrDefaultAsync(m => m.Id == id);
-            if (designation == null)
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
             {
-                return NotFound();
+                return Redirect("~/adminlogin");
             }
-            Designation = designation;
-            return Page();
+            else
+            {
+                var designation = await _context.TblDesignation.FirstOrDefaultAsync(m => m.Id == id);
+                if (designation == null)
+                {
+                    return NotFound();
+                }
+                Designation = designation;
+                return Page();
+            }
         }
         public async Task<IActionResult> OnPostAsync()
         {

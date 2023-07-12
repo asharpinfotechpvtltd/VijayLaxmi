@@ -32,19 +32,26 @@ namespace VijayLaxmi.Areas.Admin.Pages.EmpAttendance
         public List<SPAttendanceList> AttendanceList { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public int SiteId { get;set; }
+        public int SiteId { get; set; }
         [BindProperty(SupportsGet = true)]
-        public DateTime Startdate { get; set; }= DateTime.Now;
+        public DateTime Startdate { get; set; } = DateTime.Now;
         [BindProperty(SupportsGet = true)]
-        public DateTime EndDate { get; set; }=DateTime.Now;
+        public DateTime EndDate { get; set; } = DateTime.Now;
         public async Task<IActionResult> OnGet()
         {
-            SiteName = await Context.TblSite.Select(s => new SelectListItem
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
             {
-                Text = s.SiteName,
-                Value = s.Siteid.ToString()
-            }).ToListAsync();
-            return Page();
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                SiteName = await Context.TblSite.Select(s => new SelectListItem
+                {
+                    Text = s.SiteName,
+                    Value = s.Siteid.ToString()
+                }).ToListAsync();
+                return Page();
+            }
         }
 
         public async Task<IActionResult> OnGetSearch()

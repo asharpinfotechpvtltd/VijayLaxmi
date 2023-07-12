@@ -22,18 +22,25 @@ namespace VijayLaxmi.Areas.Admin.Pages.DeviceList
         public List<SelectListItem> SiteList { get; set; }
         public async Task<IActionResult> OnGet()
         {
-            SiteList = await _context.TblSite.Select(s => new SelectListItem { Text = s.SiteName, Value = s.Siteid.ToString() }).ToListAsync();
-            return Page();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
+            {
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                SiteList = await _context.TblSite.Select(s => new SelectListItem { Text = s.SiteName, Value = s.Siteid.ToString() }).ToListAsync();
+                return Page();
+            }
         }
 
         [BindProperty]
         public Device Device { get; set; }
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return Page();
             }

@@ -23,22 +23,29 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
 
         public async Task<IActionResult> OnGetAsync(long? id)
         {
-            if (id == null || _context.TblEmployees == null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
             {
-                return NotFound();
+                return Redirect("~/adminlogin");
             }
+            else
+            {
+                if (id == null || _context.TblEmployees == null)
+                {
+                    return NotFound();
+                }
 
-            var employee = await _context.TblEmployees.FirstOrDefaultAsync(m => m.Id == id);
+                var employee = await _context.TblEmployees.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (employee == null)
-            {
-                return NotFound();
+                if (employee == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    Employee = employee;
+                }
+                return Page();
             }
-            else 
-            {
-                Employee = employee;
-            }
-            return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(long? id)

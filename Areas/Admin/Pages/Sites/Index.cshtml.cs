@@ -18,15 +18,22 @@ namespace VijayLaxmi.Areas.Admin.Pages.Sites
             _context = context;
         }
 
-        public IList<Site> Site { get;set; } = default!;
+        public IList<Site> Site { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync()
         {
-            if (_context.TblSite != null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
             {
-                Site = await _context.TblSite.ToListAsync();
+                return Redirect("~/adminlogin");
             }
-            return Page();
+            else
+            {
+                if (_context.TblSite != null)
+                {
+                    Site = await _context.TblSite.ToListAsync();
+                }
+                return Page();
+            }
         }
 
         public IActionResult OnPost()

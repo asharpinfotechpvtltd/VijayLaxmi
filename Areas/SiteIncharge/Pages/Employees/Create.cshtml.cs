@@ -17,7 +17,7 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Employees
 
         IWebHostEnvironment Environmet;
         [BindProperty]
-        public IFormFile Userimg { get; set; } 
+        public IFormFile Userimg { get; set; }
         public string UserimgName { get; set; }
         public string UserDocumentName { get; set; }
         public string UserPanName { get; set; }
@@ -30,12 +30,18 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Employees
         public string Sitename { get; set; }
         public async Task<IActionResult> OnGet()
         {
-            var SiteId = Convert.ToInt32(HttpContext.Session.GetString("siteid"));
-
-            Designation = await _context.TblDesignation.Select(d => new SelectListItem { Text = d.DesignationName, Value = d.Id.ToString() }).ToListAsync();
-            Site = await _context.TblSite.Where(e=>e.Siteid==SiteId).Select(d => new SelectListItem { Text = d.SiteName, Value = d.Siteid.ToString() }).ToListAsync();
-            Sitename = Site.FirstOrDefault().Value;
-            return Page();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("SiteIncharge")))
+            {
+                return Redirect("~/Index");
+            }
+            else
+            {
+                var SiteId = Convert.ToInt32(HttpContext.Session.GetString("siteid"));
+                Designation = await _context.TblDesignation.Select(d => new SelectListItem { Text = d.DesignationName, Value = d.Id.ToString() }).ToListAsync();
+                Site = await _context.TblSite.Where(e => e.Siteid == SiteId).Select(d => new SelectListItem { Text = d.SiteName, Value = d.Siteid.ToString() }).ToListAsync();
+                Sitename = Site.FirstOrDefault().Value;
+                return Page();
+            }
         }
 
         [BindProperty]
@@ -59,7 +65,7 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Employees
                 {
                     GetUserDate date = new GetUserDate();
                     UserimgName = u.UploadImage(Userimg, "UserImg");
-                    Employee.IsActive= true;                   
+                    Employee.IsActive = true;
                     Employee.AddedDate = date.ReturnDate();
                     Employee.Image = UserimgName.ToString().Replace(" ", "_");
                     _context.TblEmployees.Add(Employee);
@@ -92,9 +98,8 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Employees
                     {
                         UserimgName = u.UploadImage(Userimg, "UserImg");
                         userdetail.Image = UserimgName.ToString().Replace(" ", "_");
-
                     }
-                   
+
                 }
                 await _context.SaveChangesAsync();
                 var empdetail = await _context.TblEmployees.SingleOrDefaultAsync(e => e.AAdharno == Employee.AAdharno);
@@ -106,7 +111,7 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Employees
                 }
                 else
                 {
-                    return Redirect("EmployeeDocuments?Empid=" + empid + "&aadharno=" + Employee.AAdharno);
+                    return Redirect("Salary?Empid=" + empid + "&aadharno=" + Employee.AAdharno);
                 }
             }
             catch (Exception)

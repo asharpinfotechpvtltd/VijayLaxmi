@@ -20,14 +20,23 @@ namespace VijayLaxmi.Areas.Admin.Pages.Requirements
         }
         public List<SPRequirement> SPRequirement { get; set; }
 
-        
 
-        public async Task OnGetAsync()
+
+        public async Task<IActionResult> OnGetAsync()
         {
-            if (_context.TblRequirement != null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
             {
-                SPRequirement = await _context.SPRequirement.FromSqlRaw("SPRequirement").ToListAsync();
+                return Redirect("~/adminlogin");
             }
+            else
+            {
+                if (_context.TblRequirement != null)
+                {
+                    SPRequirement = await _context.SPRequirement.FromSqlRaw("SPRequirement").ToListAsync();
+
+                }
+            }
+            return Page();
         }
     }
 }

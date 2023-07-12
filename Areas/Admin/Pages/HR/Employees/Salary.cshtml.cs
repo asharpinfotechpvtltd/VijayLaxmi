@@ -9,17 +9,24 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
         ApplicationDbContext _context;
         public SalaryModel(ApplicationDbContext context)
         {
-            _context = context;                
+            _context = context;
         }
         [BindProperty]
         public Salary Salary { get; set; }
         public Int64 EmployeeId { get; set; }
         public Int64 AadharNo { get; set; }
-        public IActionResult OnGet(Int64 Empid,Int64 aadharno)
+        public IActionResult OnGet(Int64 Empid, Int64 aadharno)
         {
-            EmployeeId = Empid;
-            AadharNo = aadharno;
-            return Page();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
+            {
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                EmployeeId = Empid;
+                AadharNo = aadharno;
+                return Page();
+            }
         }
         public async Task<IActionResult> OnPost()
         {

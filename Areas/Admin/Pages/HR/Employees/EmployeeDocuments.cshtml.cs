@@ -39,8 +39,15 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
 
         public IActionResult OnGet(Int64 aadharno)
         {
-            Aadharno = aadharno;
-            return Page();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
+            {
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                Aadharno = aadharno;
+                return Page();
+            }
         }
         public async Task<IActionResult> OnPost()
         {

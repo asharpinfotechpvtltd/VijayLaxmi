@@ -20,14 +20,21 @@ namespace VijayLaxmi.Areas.Admin.Pages.EmpAttendance
 
         public async Task<IActionResult> OnGet()
         {
-            SiteList = await _context.TblSite.Select(s => new SelectListItem
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
             {
-                Text = s.SiteName,
-                Value = s.Siteid.ToString()
-            }).ToListAsync();
-            return Page();
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                SiteList = await _context.TblSite.Select(s => new SelectListItem
+                {
+                    Text = s.SiteName,
+                    Value = s.Siteid.ToString()
+                }).ToListAsync();
+                return Page();
+            }
         }
-        public async Task<IActionResult> OnPost(string date,string Attendance,int SiteName,string intime,string Outtime,string Worktime)
+        public async Task<IActionResult> OnPost(string date, string Attendance, int SiteName, string intime, string Outtime, string Worktime)
         {
             string[] dates = date.Split('-').ToString().Split('/');
             int Date = Convert.ToInt32(dates[2]);
@@ -42,25 +49,25 @@ namespace VijayLaxmi.Areas.Admin.Pages.EmpAttendance
                 Checkattendance.Year = Convert.ToInt32(dates[0]);
                 Checkattendance.Attendence = Attendance;
                 Checkattendance.SiteId = SiteName;
-                Checkattendance.Marked = 1;              
+                Checkattendance.Marked = 1;
                 Checkattendance.InTime = intime;
                 Checkattendance.Outtime = Outtime;
             }
             else
             {
-               
+
                 EmpAttendence attendance = new EmpAttendence
                 {
                     Attendence = Attendance,
                     Date = Convert.ToInt32(dates[2]),
                     Month = Convert.ToInt32(dates[1]),
                     Year = Convert.ToInt32(dates[0]),
-                    EmpCode=EmpAttendence.EmpCode,
-                    InTime=intime,
-                    Outtime=Outtime,
-                    SiteId=SiteName,
-                    Marked=1,
-                    WorkTime=Worktime
+                    EmpCode = EmpAttendence.EmpCode,
+                    InTime = intime,
+                    Outtime = Outtime,
+                    SiteId = SiteName,
+                    Marked = 1,
+                    //WorkTime=Worktime
                 };
                 await _context.TblAttendence.AddAsync(attendance);
             }

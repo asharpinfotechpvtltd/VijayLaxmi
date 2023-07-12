@@ -68,7 +68,7 @@
             </a>
         </div>
         <div class="col-lg-6 col-sm-6">
-            <a asp-page="/EmpAttendance/ViewAttendance">
+            <a asp-page="/Employees/PendingDocuments">
                 <div class="card newgradient-11">
                     <div class="card-body">
                         <div class="d-inline-block">
@@ -79,18 +79,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-lg-4 col-sm-6">
-            <a asp-page="/Index" asp-page-handler="Logout">
-                <div class="card gradient-9" style="color:red;">
-                    <div class="card-body">
-                        <div class="d-inline-block">
-                            <h2 class="text-white">Logout</h2>
-                        </div>
-                        <span class="float-right display-5 "><i class="fa fa-lock"></i></span>
-                    </div>
-                </div>
-            </a>
-        </div>
+
     </div>
 
     @if (Model.PendingEmployeeList.Count > 0)
@@ -100,7 +89,6 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-
                 <div class="table-responsive">
                     <table class="table table-bordered" id="emplist">
                         <thead class="text-center" style="background-color:black; color:#fff;">
@@ -165,68 +153,126 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>S.No.</th>
-                                        <th>
-                                            ID
-                                        </th>
-                                        <th>
-                                            Name
-                                        </th>
-                                        <th>
-                                            Contact No
-                                        </th>
-                                        <th>
-                                            Added Date
-                                        </th>
-                                        <th>
-                                            Reason
-                                        </th>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>S.No.</th>
+                                <th>
+                                    ID
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Contact No
+                                </th>
+                                <th>
+                                    Added Date
+                                </th>
+                                <th>
+                                    Reason
+                                </th>
 
 
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.RejectedEmployeeList)
-                                    {
-                                        <tr>
-                                            <td>@j</td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Id)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Name)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Contactno)
-                                            </td>
-                                            <td>
-                                                @item.AddedDate.ToString().Remove(10,9)
-                                            </td>
-                                            <td>
-                                                @item.Reason
-                                            </td>
-                                            <td colspan="2">
-                                                <a href="/SiteIncharge/Employees/Details?id=@item.Id"><i class="fa fa-eye" title="Detail"></i></a>
-                                            </td>
-                                        </tr>
-                                        j++;
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.RejectedEmployeeList)
+                            {
+                                <tr class="text-center">
+                                    <td>@j</td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Contactno)
+                                    </td>
+                                    <td>
+                                        @item.AddedDate.ToString().Remove(10,9)
+                                    </td>
+                                    <td>
+                                        @item.Reason
+                                    </td>
+                                    <td colspan="2">
+                                        <a href="/SiteIncharge/Employees/Details?id=@item.Id"><i class="fa fa-eye" title="Detail"></i></a>
+                                    </td>
+                                </tr>
+                                j++;
+                            }
+                        </tbody>
+                    </table>
                 </div>
+
             </div>
         </div>
+
+    }
+
+    @if (Model.MissingOutTime.Count > 0)
+    {
+        <div class="row">
+            <div class="col-lg-12"><h2>Missing Out time</h2></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="emplist">
+                        <thead class="text-center" style="background-color:black; color:#fff;">
+                            <tr>
+                                <th>S.No.</th>
+                                <th>
+                                    Emp Code
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    InTime
+                                </th>
+                                <th>
+                                    Date
+                                </th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.MissingOutTime)
+                            {
+                                <tr class="text-center">
+                                    <td>@j</td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EmpCode)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.InTime)
+                                    </td>
+                                    <td>
+                                        @item.Date/@item.Month/@item.Year
+                                    </td>
+
+                                    <td colspan="2">
+                                        <a asp-page="/Attendance/EditOutTime" asp-route-id="@item.id"><i class="fa fa-eye" title="Detail"></i></a>
+                                    </td>
+                                </tr>
+                                j++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
     }
 
 

@@ -22,18 +22,25 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Requirements
 
         public IActionResult OnGet()
         {
-            return Page();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("SiteIncharge")))
+            {
+                return Redirect("~/Index");
+            }
+            else
+            {
+                return Page();
+            }
         }
 
         [BindProperty]
         public Requirement Requirement { get; set; }
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
             int site = Convert.ToInt32(HttpContext.Session.GetString("siteid"));
-            GetUserDate date = new GetUserDate();          
+            GetUserDate date = new GetUserDate();
             Requirement.SiteId = site;
             Requirement.AddedDate = date.ReturnDate();
             _context.TblRequirement.Add(Requirement);

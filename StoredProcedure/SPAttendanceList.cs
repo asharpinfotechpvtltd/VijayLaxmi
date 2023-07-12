@@ -11,6 +11,6 @@
         public int Marked { get; set; }
         public string InTime { get; set; }
         public string OutTime { get; set; }
-        public string WorkTime { get; set; }
+        public double WorkTime { get; set; }
     }
 }

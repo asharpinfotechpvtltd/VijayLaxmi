@@ -28,8 +28,13 @@ namespace VijayLaxmi.Models
         public double Salary { get; set; }
         public bool IsVerified { get; set; }
         public bool IsActive { get; set; }
+      #nullable enable
         public long? EsiNo { get; set; }
-        public long? UANNo { get; set; }        
+        #nullable enable
+
+        public long? UANNo { get; set; }
+#nullable enable
+
         public string? Reason { get; set; }
         public DateTime? Leavedate { get; set; }
     }

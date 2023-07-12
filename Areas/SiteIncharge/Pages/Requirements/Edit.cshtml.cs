@@ -24,18 +24,25 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Requirements
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.TblRequirement == null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("SiteIncharge")))
             {
-                return NotFound();
+                return Redirect("~/Index");
             }
+            else
+            {
+                if (id == null || _context.TblRequirement == null)
+                {
+                    return NotFound();
+                }
 
-            var requirement =  await _context.TblRequirement.FirstOrDefaultAsync(m => m.Id == id);
-            if (requirement == null)
-            {
-                return NotFound();
+                var requirement = await _context.TblRequirement.FirstOrDefaultAsync(m => m.Id == id);
+                if (requirement == null)
+                {
+                    return NotFound();
+                }
+                Requirement = requirement;
+                return Page();
             }
-            Requirement = requirement;
-            return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -70,7 +77,7 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Requirements
 
         private bool RequirementExists(int id)
         {
-          return _context.TblRequirement.Any(e => e.Id == id);
+            return _context.TblRequirement.Any(e => e.Id == id);
         }
     }
 }

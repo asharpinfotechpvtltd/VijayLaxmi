@@ -12,6 +12,7 @@ namespace VijayLaxmi.Models
         public string AccountNumber { get; set; }
         public string IFSCCODE { get; set; }
         public string BranchName { get; set; }
+#nullable enable
         public string? Filename { get; set; }
         
        

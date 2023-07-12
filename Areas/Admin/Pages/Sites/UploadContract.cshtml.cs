@@ -22,11 +22,18 @@ namespace VijayLaxmi.Areas.Admin.Pages.Sites
         public int Site { get; set; }
         public async Task<IActionResult> OnGet(int Siteid)
         {
-            Site = Siteid;
-            SiteWiseContractList = await _context.TblSiteWiseContract.Where(id => id.SiteId == Siteid).OrderByDescending(id => id).ToListAsync();
-            return Page();
-        } 
-        public async Task<IActionResult> OnPost(int Siteid,IFormFile ContractName)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
+            {
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                Site = Siteid;
+                SiteWiseContractList = await _context.TblSiteWiseContract.Where(id => id.SiteId == Siteid).OrderByDescending(id => id).ToListAsync();
+                return Page();
+            }
+        }
+        public async Task<IActionResult> OnPost(int Siteid, IFormFile ContractName)
         {
             Upload u = new Upload(Environmet);
             GetUserDate date = new GetUserDate();
@@ -41,7 +48,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.Sites
             };
             await _context.TblSiteWiseContract.AddAsync(contract);
             await _context.SaveChangesAsync();
-            SiteWiseContractList = await _context.TblSiteWiseContract.Where(id => id.SiteId == Siteid).OrderByDescending(id=>id).ToListAsync();
+            SiteWiseContractList = await _context.TblSiteWiseContract.Where(id => id.SiteId == Siteid).OrderByDescending(id => id).ToListAsync();
             return Page();
         }
     }

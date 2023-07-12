@@ -25,10 +25,17 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.LoanAdvance
 
         public async Task<IActionResult> OnGetAsync(int? loanid, Int64 AAdharNo)
         {
-            Employee = await _context.TblEmployees.SingleOrDefaultAsync(e => e.AAdharno == AAdharNo);
-            Loan_Advance = await _context.TblLoanAdvance.Where(m => m.AAdharNo == AAdharNo).ToListAsync();
-            Adjustments = await _context.TblLoanAdvanceAdjustment.Where(m => m.LoanAdvanceAccountnumber == loanid).ToListAsync();
-            return Page();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("SiteIncharge")))
+            {
+                return Redirect("~/Index");
+            }
+            else
+            {
+                Employee = await _context.TblEmployees.SingleOrDefaultAsync(e => e.AAdharno == AAdharNo);
+                Loan_Advance = await _context.TblLoanAdvance.Where(m => m.AAdharNo == AAdharNo).ToListAsync();
+                Adjustments = await _context.TblLoanAdvanceAdjustment.Where(m => m.LoanAdvanceAccountnumber == loanid).ToListAsync();
+                return Page();
+            }
         }
     }
 }

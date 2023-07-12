@@ -20,17 +20,24 @@ namespace VijayLaxmi.Areas.Admin.Pages.Requirements
 
         public IActionResult OnGet()
         {
-            return Page();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
+            {
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                return Page();
+            }
         }
 
         [BindProperty]
         public Requirement Requirement { get; set; }
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return Page();
             }

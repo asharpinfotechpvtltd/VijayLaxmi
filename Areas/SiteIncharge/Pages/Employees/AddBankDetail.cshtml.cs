@@ -20,24 +20,22 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Employees
             _context = context;
             Environmet = Env;
         }
-        public string EmpCode { get;set; }
-        public Int64 EmployeeCode { get;set; }
+        public string EmpCode { get; set; }
+        public Int64 EmployeeCode { get; set; }
         public IActionResult OnGet(Int64 Aadhar)
         {
-           
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("SiteIncharge")))
+            {
+                return Redirect("~/Index");
+            }
+            else
+            {
 
-            EmpCode = HttpContext.Session.GetString("Login");
-            EmployeeCode = Aadhar;
-            return Page();
-            //if (string.IsNullOrEmpty(EmpCode))
-            //{
-            //    return Redirect("~/Index");
-            //}
-            //else
-            //{
+                EmpCode = HttpContext.Session.GetString("Login");
+                EmployeeCode = Aadhar;
+                return Page();
+            }
 
-            //    
-            //}
         }
 
 
@@ -46,9 +44,9 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Employees
         public async Task<IActionResult> OnPostAsync()
         {
             Upload u = new Upload(Environmet);
-            BankDocumentFilename = u.UploadImage(Filename, "BankDocument");          
+            BankDocumentFilename = u.UploadImage(Filename, "BankDocument");
             BankDetail.Filename = BankDocumentFilename;
-            await  _context.TblBankDetail.AddAsync(BankDetail);
+            await _context.TblBankDetail.AddAsync(BankDetail);
             await _context.SaveChangesAsync();
             return RedirectToPage("./Index");
         }

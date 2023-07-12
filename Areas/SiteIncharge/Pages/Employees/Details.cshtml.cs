@@ -46,54 +46,62 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Employees
         public string PancardName { get; set; } = null;
         public string TicFile { get; set; } = null;
         public string SignedDocument { get; set; } = null;
+#nullable enable
+
         public string? PassbookFile { get; set; }
 
         public async Task<IActionResult> OnGetAsync(Int64 Aadharno)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("SiteIncharge")))
+            {
+                return Redirect("~/Index");
+            }
+            else
+            {
 
 
+                Employee = await _context.TblEmployees.FirstOrDefaultAsync(e => e.AAdharno == Aadharno);
+                FamilyDetails = await _context.TblFamilyDetail.Where(e => e.EmployeeAAdhar == Convert.ToInt64(Employee.AAdharno)).ToListAsync();
+                BankDetails = await _context.TblBankDetail.SingleOrDefaultAsync(e => e.AAdharNo == Employee.AAdharno);
+                Document = await _context.TblDocuments.SingleOrDefaultAsync(e => e.AadharNo == Employee.AAdharno);
+                loan_Advances = await _context.TblLoanAdvance.Where(e => e.AAdharNo == Convert.ToInt64(Employee.AAdharno) && e.Status == true).ToListAsync();
+                if (BankDetails != null)
+                {
+                    PassbookFile = BankDetails.Filename;
+                }
+                if (Document != null)
+                {
+                    DocumentFrontFile = Document.DocumentFrontFileName;
+                }
+                if (Document != null)
+                {
+                    DocumentBackFile = Document.DocumentBackFileName;
+                }
+                if (Document != null)
+                {
+                    PancardName = Document.PancardFileName;
+                }
+                if (Document != null)
+                {
+                    TicFile = Document.TicFileName;
+                }
+                if (Document != null)
+                {
+                    SignedDocument = Document.SignedDocumentName;
+                }
+                var SiteId = Convert.ToInt32(HttpContext.Session.GetString("siteid"));
 
-            Employee = await _context.TblEmployees.FirstOrDefaultAsync(e => e.AAdharno == Aadharno);
-            FamilyDetails = await _context.TblFamilyDetail.Where(e => e.EmployeeAAdhar == Convert.ToInt64(Employee.AAdharno)).ToListAsync();
-            BankDetails = await _context.TblBankDetail.SingleOrDefaultAsync(e => e.AAdharNo == Employee.AAdharno);
-            Document = await _context.TblDocuments.SingleOrDefaultAsync(e => e.AadharNo == Employee.AAdharno);
-            loan_Advances = await _context.TblLoanAdvance.Where(e => e.AAdharNo == Convert.ToInt64(Employee.AAdharno) && e.Status == true).ToListAsync();
-            if (BankDetails != null)
-            {
-                PassbookFile = BankDetails.Filename;
-            }
-            if (Document != null)
-            {
-                DocumentFrontFile = Document.DocumentFrontFileName;
-            }
-            if (Document != null)
-            {
-                DocumentBackFile = Document.DocumentBackFileName;
-            }
-            if (Document != null)
-            {
-                PancardName = Document.PancardFileName;
-            }
-            if (Document != null)
-            {
-                TicFile = Document.TicFileName;
-            }
-            if (Document != null)
-            {
-                SignedDocument = Document.SignedDocumentName;
-            }
-            var SiteId = Convert.ToInt32(HttpContext.Session.GetString("siteid"));
+                Site = await _context.TblSite.Where(e => e.Siteid == SiteId).Select(d => new SelectListItem { Text = d.SiteName, Value = d.Siteid.ToString() }).ToListAsync();
+                Sitename = Site.FirstOrDefault().Value;
 
-            Site = await _context.TblSite.Where(e => e.Siteid == SiteId).Select(d => new SelectListItem { Text = d.SiteName, Value = d.Siteid.ToString() }).ToListAsync();
-            Sitename = Site.FirstOrDefault().Value;
+                Designation = await _context.TblDesignation.Select(s => new SelectListItem
+                {
+                    Text = s.DesignationName,
+                    Value = s.Id.ToString()
+                }).ToListAsync();
 
-            Designation = await _context.TblDesignation.Select(s => new SelectListItem
-            {
-                Text = s.DesignationName,
-                Value = s.Id.ToString()
-            }).ToListAsync();
-
-            return Page();
+                return Page();
+            }
         }
         public string Sitename { get; set; }
         public List<SelectListItem> Site { get; set; }
@@ -246,7 +254,7 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Employees
                 }
                 else
                 {
-                    BackFileName = "NA";
+                    BackFileName = null;
                 }
                 if (PancardFileName != null)
                 {
@@ -255,7 +263,7 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Employees
                 }
                 else
                 {
-                    PanFileName = "NA";
+                    PanFileName = null;
                 }
                 if (Signeddocument != null)
                 {
@@ -264,7 +272,7 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Employees
                 }
                 else
                 {
-                    SigneddocumentName = "NA";
+                    SigneddocumentName = null;
                 }
                 if (TicFileName != null)
                 {
@@ -273,7 +281,7 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Employees
                 }
                 else
                 {
-                    TiFileName = "NA";
+                    TiFileName = null;
                 }
                 Document documents = new Document()
                 {

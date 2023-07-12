@@ -1,0 +1,168 @@
+﻿@page
+@model VijayLaxmi.Areas.SiteIncharge.Pages.Employees.PendingDocumentsModel
+@{
+    ViewData["Title"] = "Index";
+    int i = 1;
+
+}
+
+<h1>Employee List</h1>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group row">
+
+            <div class="col-sm-2">
+                <a asp-page="Create" style="font-weight:bolder;" class="btn btn-danger float-left">
+                    <i class="fa fa-plus" aria-hidden="true"></i>   Add New Employee
+                </a>
+            </div>
+            <div class="col-sm-5">
+            </div>
+            <div class="col-sm-3">
+                <input type="text" class="form-control  mt1" id="Empname" placeholder="Employee Name" />
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="btn mb-2 mr-1 mt1" value="Search" id="Search" style="background-color:blue; color:white;"> <i class="fa fa-search-plus" aria-hidden="true"></i></button>
+
+                <a onclick="exportData(this)" title="Export To Excel" class="btn mb-2  mt1" style="background-color:green; color:white;" value="Search"> <i class="fa fa-download" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group row">
+            <div class="table-responsive">
+                <table class="table table-responsive table-bordered" id="emplist">
+                    <thead class="text-center" style="background-color:black; color:#fff;">
+                        <tr>
+                            <th>S No.</th>
+                            <th>ID</th>
+                            <th>Aadhar No.</th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Father's Name
+                            </th>
+
+                            <th>
+                                Contact No
+                            </th>
+
+                            <th>
+                                Employee Type
+                            </th>
+                            <th>Site Name</th>
+                            <th>
+                                Added Date
+                            </th>
+
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        @foreach (var item in Model.SpPendingDocument)
+                        {
+                            if (item.IsVerified == true)
+                            {
+                                <tr class="text-center">
+                                    <td>@i</td>
+                                    <td>@item.Id</td>
+                                    <td>@item.AAdharno</td>
+                                    <td>
+                                        @item.Name.ToUpper()
+                                    </td>
+                                    <td>
+                                        @item.FathersName.ToUpper()
+                                    </td>
+
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Contactno)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Employeetype)
+                                    </td>
+                                    <td>@item.SiteName</td>
+
+                                    <td>
+                                        @item.AddedDate.ToShortDateString()
+                                    </td>
+                                    <td>
+
+                                        <a asp-page="./EmployeeDocuments" asp-route-aadharno="@item.AAdharno">
+                                            <span class="material-icons" style="color:green;">
+                                                manage_accounts
+                                            </span>
+                                        </a>
+
+
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr class="text-center" bgcolor="red" style="color:white;">
+                                    <td>@i</td>
+                                    <td>@item.Id</td>
+                                    <td>@item.AAdharno</td>
+                                    <td>
+                                        @item.Name.ToUpper()
+                                    </td>
+                                    <td>
+                                        @item.FathersName.ToUpper()
+                                    </td>
+
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Contactno)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Employeetype)
+                                    </td>
+                                    <td>@item.SiteName</td>
+
+                                    <td>
+                                        @item.AddedDate.ToShortDateString()
+                                    </td>
+                                    <td>
+
+                                        <a asp-page="./EmployeeDocuments" asp-route-aadharno="@item.AAdharno">
+                                            <span class="material-icons" style="color:white;">
+                                                manage_accounts
+                                            </span>
+                                        </a>
+
+
+                                    </td>
+                                </tr>
+                            }
+                            i++;
+                        }
+                    </tbody>
+                </table>
+               @* @{
+                    var prevDisabled = !Model.SPEmployeeList.HasPreviousPage ? "disabled" : "";
+                    var nextDisabled = !Model.SPEmployeeList.HasNextPage ? "disabled" : "";
+                }
+                <a asp-page="./Index"
+                   asp-route-sortOrder="@Model.CurrentSort"
+                   asp-route-pageIndex="@(Model.SPEmployeeList.PageIndex - 1)"
+                   asp-route-currentFilter="@Model.CurrentFilter"
+                   class="btn btn-danger @prevDisabled">
+                    Previous
+                </a>
+                <a asp-page="./Index"
+                   asp-route-sortOrder="@Model.CurrentSort"
+                   asp-route-pageIndex="@(Model.SPEmployeeList.PageIndex + 1)"
+                   asp-route-currentFilter="@Model.CurrentFilter"
+                   class="btn btn-danger @nextDisabled">
+                    Next
+                </a>*@
+            </div>
+        </div>
+    </div>
+</div>

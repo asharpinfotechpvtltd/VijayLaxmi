@@ -17,7 +17,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.Sites
     public class CreateModel : PageModel
     {
         private readonly VijayLaxmi.Models.ApplicationDbContext _context;
-        
+
         IWebHostEnvironment Environmet;
         [BindProperty]
         public IFormFile Agreement { get; set; }
@@ -32,9 +32,16 @@ namespace VijayLaxmi.Areas.Admin.Pages.Sites
 
         public async Task<IActionResult> OnGet()
         {
-            GstState = await _context.TblGstState.Select(g => new SelectListItem { Text = g.StateName + "-" + g.GSTStateCode, Value = g.StateName + "-" + g.GSTStateCode.ToString() }).ToListAsync();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
+            {
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                GstState = await _context.TblGstState.Select(g => new SelectListItem { Text = g.StateName + "-" + g.GSTStateCode, Value = g.StateName + "-" + g.GSTStateCode.ToString() }).ToListAsync();
 
-            return Page();
+                return Page();
+            }
         }
 
 
@@ -45,15 +52,15 @@ namespace VijayLaxmi.Areas.Admin.Pages.Sites
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            
+
 
 
             GetUserDate date = new GetUserDate();
-           // string ViId = HttpContext.Session.GetString("Login");
+            // string ViId = HttpContext.Session.GetString("Login");
 
             string jobworkJSON = Request.Form["jobworkdesc"];
             DataTable dt = JsonConvert.DeserializeObject<DataTable>(jobworkJSON);
-          
+
 
 
 
@@ -77,9 +84,9 @@ namespace VijayLaxmi.Areas.Admin.Pages.Sites
                             Direction = System.Data.ParameterDirection.Input,
                             Value = Site.Gstno
                         },
-                       
-                       
-                        
+
+
+
                         new SqlParameter() {
                             ParameterName = "@AddedDate",
                             SqlDbType =  System.Data.SqlDbType.DateTime,

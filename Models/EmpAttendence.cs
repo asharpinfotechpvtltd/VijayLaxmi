@@ -16,9 +16,9 @@ namespace VijayLaxmi.Models
         public int Marked { get; set; }
         public string InTime { get; set; }
         public string Outtime { get; set; }
-        public string WorkTime { get; set; }
+        public double WorkTime { get; set; }
         public int SiteId { get; set; } 
-        public DateTime FetchedDate { get;set; }
+        public string FetchedDate { get;set; }
 
 
     }

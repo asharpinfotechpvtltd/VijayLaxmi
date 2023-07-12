@@ -16,8 +16,15 @@ namespace VijayLaxmi.Areas.Admin.Pages.StateGst
         public StateDetail StateDetail { get; set; }
         public async Task<IActionResult> OnGet(int id)
         {
-            StateDetail=await _context.TblStateDetail.FindAsync(id);
-            return Page();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
+            {
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                StateDetail = await _context.TblStateDetail.FindAsync(id);
+                return Page();
+            }
 
         }
     }

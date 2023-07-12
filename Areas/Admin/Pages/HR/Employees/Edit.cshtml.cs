@@ -24,18 +24,25 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
 
         public async Task<IActionResult> OnGetAsync(long? id)
         {
-            if (id == null || _context.TblEmployees == null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
             {
-                return NotFound();
+                return Redirect("~/adminlogin");
             }
+            else
+            {
+                if (id == null || _context.TblEmployees == null)
+                {
+                    return NotFound();
+                }
 
-            var employee =  await _context.TblEmployees.FirstOrDefaultAsync(m => m.Id == id);
-            if (employee == null)
-            {
-                return NotFound();
+                var employee = await _context.TblEmployees.FirstOrDefaultAsync(m => m.Id == id);
+                if (employee == null)
+                {
+                    return NotFound();
+                }
+                Employee = employee;
+                return Page();
             }
-            Employee = employee;
-            return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -70,7 +77,7 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
 
         private bool EmployeeExists(long id)
         {
-          return _context.TblEmployees.Any(e => e.Id == id);
+            return _context.TblEmployees.Any(e => e.Id == id);
         }
     }
 }

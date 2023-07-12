@@ -124,6 +124,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRW1wQXR0ZW5kYW5jZVxWaWV3QXR0ZW5kYW5jZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/GeneratedSalary/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcR2VuZXJhdGVkU2FsYXJ5XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/GeneratedSalary/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcR2VuZXJhdGVkU2FsYXJ5XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/GeneratedSalary/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcR2VuZXJhdGVkU2FsYXJ5XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/GeneratedSalary/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcR2VuZXJhdGVkU2FsYXJ5XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/GeneratedSalary/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcR2VuZXJhdGVkU2FsYXJ5XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/Admin/Pages/HR/Employees/AddBankDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSFJcRW1wbG95ZWVzXEFkZEJhbmtEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -288,6 +308,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Attendance/EditOutTime.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEF0dGVuZGFuY2VcRWRpdE91dFRpbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Attendance/EmployeeSalary.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEF0dGVuZGFuY2VcRW1wbG95ZWVTYWxhcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Attendance/MissingOuttimeList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEF0dGVuZGFuY2VcTWlzc2luZ091dHRpbWVMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Attendance/UpdateAttendance.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEF0dGVuZGFuY2VcVXBkYXRlQXR0ZW5kYW5jZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -324,16 +356,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEVtcGxveWVlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Employees/PendingDocuments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEVtcGxveWVlc1xQZW5kaW5nRG9jdW1lbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Employees/Salary.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEVtcGxveWVlc1xTYWxhcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/LoanAdvance/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXExvYW5BZHZhbmNlXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/LoanAdvance/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2l0ZUluY2hhcmdlXFBhZ2VzXExvYW5BZHZhbmNlXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Websites/Vijay Laxmi/VijayLaxmi/Areas/SiteIncharge/Pages/LoanAdvance/Details.cshtml]

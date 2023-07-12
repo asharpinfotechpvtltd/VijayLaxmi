@@ -10,6 +10,7 @@
         public double WORKINGDAYS { get; set; }
         public double WORKINGHOURS { get; set; }
         public int ID { get; set; }
+        public int Siteid { get; set; }
 
     }
 }

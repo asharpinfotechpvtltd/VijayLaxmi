@@ -18,14 +18,22 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.Requirements
             _context = context;
         }
 
-        public IList<Requirement> Requirement { get;set; } = default!;
+        public IList<Requirement> Requirement { get; set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
-            if (_context.TblRequirement != null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("SiteIncharge")))
             {
-                int site = Convert.ToInt32(HttpContext.Session.GetString("siteid"));
-                Requirement = await _context.TblRequirement.Where(e=>e.SiteId==site).OrderByDescending(e=>e.Id).ToListAsync();
+                return Redirect("~/Index");
+            }
+            else
+            {
+                if (_context.TblRequirement != null)
+                {
+                    int site = Convert.ToInt32(HttpContext.Session.GetString("siteid"));
+                    Requirement = await _context.TblRequirement.Where(e => e.SiteId == site).OrderByDescending(e => e.Id).ToListAsync();
+                }
+                return Page();
             }
         }
     }

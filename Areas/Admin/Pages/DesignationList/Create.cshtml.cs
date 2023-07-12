@@ -15,7 +15,19 @@ namespace VijayLaxmi.Areas.Admin.Pages.DesignationList
 
         }
         [BindProperty]
-        public Designation Designation { get; set; }    
+        public Designation Designation { get; set; }
+
+        public async Task<IActionResult> OnGet()
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
+            {
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                return Page();
+            }
+        }
         public async Task<IActionResult> OnPostAsync()
         {
             await _context.TblDesignation.AddAsync(Designation);

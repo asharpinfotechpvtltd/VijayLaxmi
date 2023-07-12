@@ -30,25 +30,32 @@ namespace VijayLaxmi.Areas.SiteIncharge.Pages.LoanAdvance
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.TblLoanAdvance == null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("SiteIncharge")))
             {
-                return NotFound();
+                return Redirect("~/Index");
             }
+            else
+            {
+                if (id == null || _context.TblLoanAdvance == null)
+                {
+                    return NotFound();
+                }
 
-            var loan_advance = await _context.TblLoanAdvance.FirstOrDefaultAsync(m => m.Id == id);
-            if (loan_advance == null)
-            {
-                return NotFound();
+                var loan_advance = await _context.TblLoanAdvance.FirstOrDefaultAsync(m => m.Id == id);
+                if (loan_advance == null)
+                {
+                    return NotFound();
+                }
+                Loan_Advance = loan_advance;
+                return Page();
             }
-            Loan_Advance = loan_advance;
-            return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync(IFormFile SignedDocument, IFormFile ApplicationDocument,string SignedDocumentfilename, string ApplicationDocumentfilename)
+        public async Task<IActionResult> OnPostAsync(IFormFile SignedDocument, IFormFile ApplicationDocument, string SignedDocumentfilename, string ApplicationDocumentfilename)
         {
-           
+
             Upload u = new Upload(Environment);
             if (SignedDocument != null)
             {

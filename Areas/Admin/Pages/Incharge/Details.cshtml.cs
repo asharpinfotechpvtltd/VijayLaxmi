@@ -18,25 +18,32 @@ namespace VijayLaxmi.Areas.Admin.Pages.Incharge
             _context = context;
         }
 
-      public SitesIncharge SitesIncharge { get; set; }
+        public SitesIncharge SitesIncharge { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.TblSiteIncharge == null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
             {
-                return NotFound();
+                return Redirect("~/adminlogin");
             }
+            else
+            {
+                if (id == null || _context.TblSiteIncharge == null)
+                {
+                    return NotFound();
+                }
 
-            var sitesincharge = await _context.TblSiteIncharge.FirstOrDefaultAsync(m => m.id == id);
-            if (sitesincharge == null)
-            {
-                return NotFound();
+                var sitesincharge = await _context.TblSiteIncharge.FirstOrDefaultAsync(m => m.id == id);
+                if (sitesincharge == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    SitesIncharge = sitesincharge;
+                }
+                return Page();
             }
-            else 
-            {
-                SitesIncharge = sitesincharge;
-            }
-            return Page();
         }
     }
 }

@@ -28,13 +28,20 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.LoanAdvance
         public List<SelectListItem> EmployeeList { get; set; }
         public async Task<IActionResult> OnGet()
         {
-            EmployeeList = await _context.TblEmployees.Select(a => new SelectListItem
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
             {
-                Value = a.AAdharno.ToString(),
-                Text = a.Name + "-" + a.AAdharno
+                return Redirect("~/adminlogin");
             }
+            else
+            {
+                EmployeeList = await _context.TblEmployees.Select(a => new SelectListItem
+                {
+                    Value = a.AAdharno.ToString(),
+                    Text = a.Name + "-" + a.AAdharno
+                }
             ).ToListAsync();
-            return Page();
+                return Page();
+            }
         }
 
         [BindProperty]
@@ -43,8 +50,8 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.LoanAdvance
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
-        {            
-          
+        {
+
             Upload u = new Upload(Environment);
             SignedDocumentName = u.UploadImage(SignedDocument, "LoanadvanceDocument");
             ApplicationDocumentName = u.UploadImage(ApplicationDocument, "LoanadvanceDocument");

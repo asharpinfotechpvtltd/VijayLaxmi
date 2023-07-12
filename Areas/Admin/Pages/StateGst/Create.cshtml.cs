@@ -18,7 +18,14 @@ namespace VijayLaxmi.Areas.Admin.Pages.StateGst
         public List<SelectListItem> SiteList { get; set; }
         public IActionResult OnGet()
         {
-            return Page();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
+            {
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                return Page();
+            }
         }
 
         [BindProperty]

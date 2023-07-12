@@ -32,14 +32,20 @@ namespace VijayLaxmi.Areas.Admin.Pages.HR.Employees
         public async Task<IActionResult> OnGetAsync(string sortOrder,
             string currentFilter, string searchString, int? pageIndex)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
+            {
+                return Redirect("~/adminlogin");
+            }
+            else
+            {
+                IQueryable<SPEmployeeList> EmployeeList = _context.SPEmployeeList.FromSqlInterpolated<SPEmployeeList>($"SELECT [Id]\r\n\t\t\t\t  ,TE.[Name]\r\n\t\t\t\t  ,TE.[FathersName]\r\n\t\t\t\t  ,TE.[AAdharno]\r\n\t\t\t\t  ,TE.[Contactno]\r\n\t\t\t\t  ,TE.[Email]\r\n\t\t\t\t  ,TE.[Employeetype]\r\n\t\t\t\t  ,TS.[SiteName]\r\n\t\t\t\t  ,TE.[AddedDate]     \r\n\t\t\t\t  ,te.IsVerified\r\n\t\t\t  FROM TblEmployees TE\r\n\t\t\t  inner join TblSite TS ON TS.Siteid=TE.Site").AsQueryable();
+                var pageSize = 50;
+                SPEmployeeList = await PaginatedList<SPEmployeeList>.CreateAsync(
+                    EmployeeList.AsNoTracking(), pageIndex ?? 1, pageSize);
 
-            IQueryable<SPEmployeeList> EmployeeList = _context.SPEmployeeList.FromSqlInterpolated<SPEmployeeList>($"SELECT [Id]\r\n\t\t\t\t  ,TE.[Name]\r\n\t\t\t\t  ,TE.[FathersName]\r\n\t\t\t\t  ,TE.[AAdharno]\r\n\t\t\t\t  ,TE.[Contactno]\r\n\t\t\t\t  ,TE.[Email]\r\n\t\t\t\t  ,TE.[Employeetype]\r\n\t\t\t\t  ,TS.[SiteName]\r\n\t\t\t\t  ,TE.[AddedDate]     \r\n\t\t\t\t  ,te.IsVerified\r\n\t\t\t  FROM TblEmployees TE\r\n\t\t\t  inner join TblSite TS ON TS.Siteid=TE.Site").AsQueryable();
-            var pageSize = 50;
-            SPEmployeeList = await PaginatedList<SPEmployeeList>.CreateAsync(
-                EmployeeList.AsNoTracking(), pageIndex ?? 1, pageSize);
-
-            SiteList = await _context.TblSite.Select(d => new SelectListItem { Text = d.SiteName, Value = d.Siteid.ToString() }).ToListAsync();
-            return Page();
+                SiteList = await _context.TblSite.Select(d => new SelectListItem { Text = d.SiteName, Value = d.Siteid.ToString() }).ToListAsync();
+                return Page();
+            }
         }
 
     }

@@ -18,14 +18,22 @@ namespace VijayLaxmi.Areas.Admin.Pages.DeviceList
             _context = context;
         }
 
-        public IList<Device> Device { get;set; } = default!;
+        public IList<Device> Device { get; set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
-            if (_context.TblDevice != null)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminLogin")))
             {
-                Device = await _context.TblDevice.ToListAsync();
+                return Redirect("~/adminlogin");
             }
+            else
+            {
+                if (_context.TblDevice != null)
+                {
+                    Device = await _context.TblDevice.ToListAsync();
+                }
+            }
+            return Page();
         }
     }
 }

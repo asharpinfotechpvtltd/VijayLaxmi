@@ -1,0 +1,136 @@
+﻿@page "{handler?}"
+@model VijayLaxmi.Areas.SiteIncharge.Pages.Attendance.EmployeeSalaryModel
+
+@{
+    int j = 1;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="get" asp-page-handler="Search">
+            <div class="form-group row">
+
+                <div class="col-sm-3">
+                    <select class="form-control  mt1" id="Month" name="Month" asp-for="Month">
+                        @for (int i = 1; i < 13; i++)
+                        {
+                            <option>@i</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="col-sm-4">
+                    <select class="form-control  mt1" id="year" name="year" asp-for="Year">
+                        @for (int i = 2023; i < 2050; i++)
+                        {
+                            <option>@i</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn mb-2 mr-1 mt1" value="Search" id="Search" style="background-color:blue; color:white;"> <i class="fa fa-search-plus" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@if (Model.SPSalary != null)
+{
+    <div class="table-responsive">
+        <table class="table table-bordered" id="emplist">
+            <thead class="text-center" style="background-color:black; color:#fff;">
+                <tr>
+                    <th>S No.</th>
+                    <th>Emp Code</th>
+                    <th>Aadhar No.</th>
+                    <th>
+                        Name
+                    </th>
+                    <th>Inhand Salary</th>
+                    <th>
+                        Total Working Days
+                    </th>
+                    <th>Total Working Hours</th>
+                    <th>
+                        Total Attendance
+                    </th>
+                    <th>
+                        Monthly Salary
+                    </th>
+                    <th>Manual Salary</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.SPSalary)
+                {
+
+
+                    <tr class="text-center">
+                        <td>@j</td>
+                        <td>@item.ID</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AadharNo)
+                        </td>
+
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InhandSalary)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalWorkingdays)
+                        </td>
+                        <td>@item.Empworkinghours</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalAttendance)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Monthlysalary)
+                        </td>
+                        <td><input type="text" value="@item.Monthlysalary" class="form-control" /></td>
+
+                    </tr>
+
+                    j++;
+                }
+            </tbody>
+        </table>
+
+    </div>
+    <input type="button" value="Save" id="add" class="btn btn-danger" />
+}
+
+@section Scripts {
+    <script>
+        $("#add").click(function () {
+
+            $('#emplist tbody tr').each(function () {
+                var self = $(this);
+                var Empcode = self.find("td:eq(1)").text().trim();
+                var AAdharno = self.find("td:eq(2)").text().trim();
+                var TotalWorkingHours = self.find("td:eq(6)").text().trim();
+                var TotalAttendance = self.find("td:eq(7)").text().trim();
+                var MonthlySalary = self.find("td:eq(8)").text().trim();
+                var ManualSalary = self.find("td:eq(9) input").val().trim();
+                var month = $("#Month").val();
+                var year=$("#year").val();
+                var Siteid = '@Model.siteid';
+                $.ajax({
+                    type: "GET",
+                    url: "/api/ManualSalaries",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: true,
+                    data: { Empcode: Empcode, AAdharno: AAdharno, TotalWorkingHours: TotalWorkingHours, TotalAttendance: TotalAttendance, MonthlySalary: MonthlySalary, ManualSalary: ManualSalary, Month: month, Year: year, Siteid: Siteid },
+                    success: function (response) {
+
+                    }
+                });
+            });
+            alert("Salary Updated");
+        });
+    </script>
+ }

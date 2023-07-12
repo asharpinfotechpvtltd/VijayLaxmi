@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-md-12">
         <form method="post">
-           
+
             <div class="form-group">
                 <label asp-for="EmpAttendence.EmpCode" class="control-label">Emp Code</label>
                 <select asp-for="EmpAttendence.EmpCode" asp-items="@Model.EmployeeList" id="Empcode" class="form-control" required>
@@ -16,8 +16,12 @@
                 <span asp-validation-for="EmpAttendence.EmpCode" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmpAttendence.Date" class="control-label">Date</label>
-                <input type="date" name="date" class="form-control" required />
+                <label  class="control-label">Date</label>
+                <select name="date" class="form-control">
+                    <option>@Model.Todaysdate</option>
+                    <option>@Model.Lastdate</option>
+                    <option>@Model.LastToLastdate</option>
+                </select>
                 <span asp-validation-for="EmpAttendence.Date" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -31,8 +35,8 @@
                 <span asp-validation-for="EmpAttendence.Outtime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmpAttendence.WorkTime" class="control-label">Work Time</label>
-                <input type="time" name="Worktime" class="form-control" required />
+                <label asp-for="EmpAttendence.WorkTime" class="control-label">Work Time(In Minutes)</label>
+                <input type="text" name="Worktime" class="form-control" required />
                 <span asp-validation-for="EmpAttendence.Outtime" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -44,7 +48,7 @@
                 <span asp-validation-for="EmpAttendence.Attendence" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-danger" />
             </div>
             @if (ViewData["error"] != null)
             {
